@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/style/main.css"/>
+    <title> {{title}} | Mograblog </title>
+    <meta name="description" content="{{description}}"/>
+    <meta name="keywords" content="{{keywords}}"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+</head>
+<body>
+
+{{#block "body"}}
+
+{{/block}}
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.2.0/styles/darkula.min.css">
+<script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<div class="footer">This is footer</div>-->
+<script type='text/javascript'>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17259014-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+$SIZE:250px;
+.logo{
+  background:url('images/logo_transparent.png') no-repeat;
+  background-size:$SIZE;
+  width:$SIZE;
+  height:$SIZE;
+  display:inline-block;
+}
