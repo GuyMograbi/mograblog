@@ -1,0 +1,19 @@
+{{#extend "scaffold"}}
+{{#content "body"}}
+    <div class="homepage content">
+        {{{contents}}}
+            <div class="logo"></div>
+            {{#each collections.articles}}
+                <div>
+                <!--{{!json .}}-->
+                <h1>{{ title }}</h1>
+                <h3>{{moment published 'DD MMM YYYY' }}</h3>
+
+                {{{excerpt}}}<a href="{{path}}">read more</a>
+                </div>
+            {{/each}}
+        </div>
+
+    </div>
+{{/content}}
+{{/extend}}

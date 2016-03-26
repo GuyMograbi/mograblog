@@ -1,0 +1,50 @@
+a {
+    text-decoration: none;
+&:hover {
+        text-decoration: underline;
+    }
+    color: $MAIN_COLOR;
+}
+
+.content {
+  padding-top: 1px;
+  & > *:not(pre), & > pre > code {
+    max-width: $CONTENT_WIDTH;
+    margin: 0 auto;
+
+  }
+  & > pre {
+    background: $CODE_BACKGROUND;
+    padding: 20px;
+    & > code {
+      display: block;
+      color: white;
+
+    }
+  }
+}
+
+p {
+  padding: 10px 0;
+}
+p, li, div.content-entry, dl, dt,dd{
+  line-height: $LINE_HEIGHT;
+  font-size: $FONT_SIZE;
+  & > code {
+    background: #ECECEC;
+    color: $MAIN_COLOR;
+    padding: 5px;
+    font-size: $FONT_SIZE - 5px;
+  }
+}
+
+
+.content {
+  h1, h2, h3 {
+    margin: 10px auto;
+  }
+
+  h1{
+    line-height:42px;
+  }
+}

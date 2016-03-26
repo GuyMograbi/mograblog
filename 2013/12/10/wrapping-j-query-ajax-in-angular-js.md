@@ -1,1 +1,0 @@
-The reason - I know JQuery, and it didn't work for me in AngularJS. AngularJS still does not support this FormData use q and defer
