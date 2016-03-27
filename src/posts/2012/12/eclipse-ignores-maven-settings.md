@@ -3,15 +3,10 @@ title: Eclipse Ignores Maven Settings
 published: 2012-12-25T00:00:00.000-08:00
 description: another reason why i hate eclipse
 keywords: eclipse
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
-
-# Eclipse Ignores Maven Settings
-
-<div>
-
-I defined a custom local repository for Maven, but eclipse simply ignored it.  
+I defined a custom local repository for Maven, but eclipse simply ignored it.
 You can define local repository location easily by modifying `M2_HOME/conf/settings.xml.`  
 This resulted in a strange behavior. The commands were successful when running from command line but failed on missing artifacts from Eclipse.  
 Eclipse complained about missing artifacts, but when I check, I saw they were there.  
@@ -36,6 +31,5 @@ It seems that Eclipse comes with an embedded Maven version.
 This is extremely bad.  
 You can easily modify this by going to `Window ==> Preferences ==> Maven ==> Installtion` and tell Eclipe to not use the embedded version and instead define an external installtion.
 
-[![](http://2.bp.blogspot.com/-ggf38JweP7Y/UMxSo9ugEVI/AAAAAAAAVLM/I4L5cL1-F7Y/s320/eclipse_maven_settings.png)](http://2.bp.blogspot.com/-ggf38JweP7Y/UMxSo9ugEVI/AAAAAAAAVLM/I4L5cL1-F7Y/s1600/eclipse_maven_settings.png)</div>
+[![](http://2.bp.blogspot.com/-ggf38JweP7Y/UMxSo9ugEVI/AAAAAAAAVLM/I4L5cL1-F7Y/s320/eclipse_maven_settings.png)](http://2.bp.blogspot.com/-ggf38JweP7Y/UMxSo9ugEVI/AAAAAAAAVLM/I4L5cL1-F7Y/s1600/eclipse_maven_settings.png)
 
-</div>

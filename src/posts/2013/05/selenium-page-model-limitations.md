@@ -1,17 +1,13 @@
 ---
 title: Selenium Page Model Limitations
-published: 2013-05-13T22:57:00.000-07:00
+published: 2013-05-13
 description: selenium is nice and all, but it is quite limited.
 keywords: selenium
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
 
-# Selenium Page Model - Limitations and Wish List
-
-<div>
-
-In this post I will talk about an annoying limitation Selenium presents,  
+In this post I will talk about an annoying limitation Selenium presents,
 and in the next posts I will show how to enhance Selenium to support my wish list.
 
 ## Page Model
@@ -19,7 +15,7 @@ and in the next posts I will show how to enhance Selenium to support my wish lis
 The Page Model relies heavily on the Page Factory.  
 The idea is that you define a Page class like so
 
-<pre class="prettyprint">  
+```
 public class LoginPage{  
  @FindBy( css = "form input[name=username]")  
  WebElement username;  
@@ -36,17 +32,17 @@ public class LoginPage{
   this.submit.click();  
  }  
 }  
-  </pre>
+```
 
 As you can see, I do not initialize the fields.  
 This happens by calling PageFactory.  
 Assuming you got your webDriver properly, the code will look like so:
 
-<pre class="prettyprint">  
+```
 LoginPage loginPage = new LoginPage();     
 PageFactory.initElements(  webDriver  , loginPage );  
 loginPage.login("my_username","my_secret_password");  
-  </pre>
+```
 
 This is all nice and pretty, but as you can see, I am limited to "WebElement".  
 In real life, the UI is divided to components, but Selenium does not support defining components.  
@@ -67,7 +63,7 @@ They need to define a field for each input field, and then write "sendKeys" on e
 
 If I could only define a "Form" component in Selenium in such a way that I won't have to change PageFactory initialization, then my code might look like this
 
-<pre class="prettyprint">  
+```
 public class LoginPage{  
  @FindBy("form#login_form")  
  private Form loginForm;   
@@ -78,11 +74,11 @@ public class LoginPage{
   loginForm.submit();  
  }  
 }  
-  </pre>
+```
 
 I can even wrap this form in a nicer API easily ( and with AOP it is even easier )  
 
-<pre class="prettyprint">  
+```
 public class LoginForm extends Form{  
  public void setUsername( username ) { super.set("username",username); return this; }  
  public void setPassword( password ) { super.set("password",password); return this; }   
@@ -96,7 +92,7 @@ public class LoginPage{
   loginForm.username(username).password(password).submit();  
  }  
 }  
-  </pre>
+```
 
 ## Components Are a Higher Level API To My Page
 
@@ -105,7 +101,7 @@ Imagine you decide to use a JQuery plugin instead of "select" tag.
 If you do this, all the Selenium tests that use "select" tag in pages will break.  
 However, if you define a component for Select, all you need to do is change the implementation of this component.  
 
-<pre class="prettyprint">  
+```
 
 public class Select{  
  public void val( String option ) { .. implementation here .. }  
@@ -119,7 +115,7 @@ public class PageWithSelect{
   selectSomething.val( option );  
  }  
 }  
-  </pre>
+```
 
 ## More Ideas For Components
 
@@ -130,7 +126,3 @@ public class PageWithSelect{
 *   Trees
 *   Menus
 *   Navigations
-
-</div>
-
-</div>

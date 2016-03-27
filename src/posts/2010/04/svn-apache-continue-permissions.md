@@ -3,16 +3,16 @@ title: SVN + Apache (Continue) - Permissions
 published: 2010-04-27T13:38:00.000-07:00
 description: setting up permissions for your SVN with Apache
 keywords: svn, apache, security, permissions
+layout: post.hbs
 ---
 
-<div class="separator" style="clear: both; text-align: center;">[![](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s200/rails-flash.jpg)](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s1600/rails-flash.jpg)</div>
+[![](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s200/rails-flash.jpg)](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s1600/rails-flash.jpg)
 
 [Last time](http://mograblog.blogspot.com/2010/04/svn-apache-easy-lets-make-it-work.html) I explained how I got my Apache to forward calls to the SVN.  
 It was pretty hard due to lack of documentation.  
 
 This time I wanted to configure some basic permissions. It was pretty easy - and I also found great documentation. One catch though... as always.  
 
-<a name="more"></a>  
 
 # Goal Definition
 
@@ -39,13 +39,15 @@ The entire configuration for Apache+SVN is done in Apache.
 
 If file does not exist, create the file  
 
-<pre>d:\dev_env\svn_repository\svn-auth-file guy  
-</pre>
+```
+d:\dev_env\svn_repository\svn-auth-file guy
+```
 
 run command  
 
-<pre>htpasswd -cm d:\dev_env\svn_repository\svn-auth-file guy  
-</pre>
+```
+htpasswd -cm d:\dev_env\svn_repository\svn-auth-file guy
+```
 
 replace "guy" with your username.  
 
@@ -53,10 +55,11 @@ Technically - the "-c" flag is supposed to create the file if it does not exist.
 
 Afterwards you will be prompted for a password.  
 
-<pre>New password: *********  
+```
+New password: *********
 Re-type new password: *********  
 Adding password for user guy  
-</pre>
+```
 
 Now we need to match between username and permission.  
 
@@ -65,10 +68,11 @@ Now we need to match between username and permission.
 Next to the "svn-auth-file" , create a new file named "svn-acl"  
 ACL - stands for "Access control list".  
 
-<pre>[/]  
+```
+[/]
 * = r  
 guy = rw  
-</pre>
+```
 
 the path "[/]" means the parent directory - which lists all projects.  
 following that you can see "* = r" - this means, I grant everyone read permission  
@@ -83,23 +87,24 @@ The last step is to point apache to these files.
 
 The final configuration will look something like this  
 
-<pre><location ~="" "="" svn="">  
-    DAV svn  
- SVNListParentPath on   
-        SVNParentPath d:/dev_env/svn_repository/projects  
+```
+<Location ~ "/svn/" >
+    DAV svn
+ SVNListParentPath on
+        SVNParentPath d:/dev_env/svn_repository/projects
 
- AuthType Basic  
- AuthName "Subversion Repository Authentication"  
- AuthUserFile D:/dev_env/svn_repository/svn-auth-file  
+         <!-- PERMISSIONS -->
+ AuthType Basic
+ AuthName "Subversion Repository Authentication"
+ AuthUserFile D:/dev_env/svn_repository/svn-auth-file
 
- Satisfy Any  
- Require valid-user  
+ Satisfy Any
+ Require valid-user
 
- AuthzSVNAccessFile D:/dev_env/svn_repository/svn-acl  
+ AuthzSVNAccessFile D:/dev_env/svn_repository/svn-acl
 
-</location>  
-
-</pre>
+</Location>
+```
 
 We already saw the first 3 lines in the previous post.  
 Afterward, we tell Apache to prompt a basic authentication with "AuthType Basic". AuthName simply gives a name to the authentication popup.  
@@ -125,25 +130,27 @@ In order to see that it works you should
 
 When you test the configuration you should do something like this (assuming you already have a working copy of the project. If not - you should checkout first. "svn co URL folderName")  
 
-<pre>echo aa > aa  
-svn status  
-(see that you have the line : "?       aa" - which means this file is not monitored.)  
-svn add aa  
-svn commit aa -m "adding test for auth"  
-Authentication realm: <http: svn.mograbi.co.il:80=""> Subversion Repository Authentication  
-Password for 'User': ***  
-Authentication realm: <http: svn.mograbi.co.il:80=""> Subversion Repository Authentication  
-Username: svn: Commit failed (details follow):  
-svn: MKACTIVITY of '/svn/project_manager/!svn/act/96456c34-fea7-aa4b-a25d-000e43429ecf': authorization failed: Could not authenticate to server: r  
-</http:></http:></pre>
+```
+echo aa > aa
+svn status
+(see that you have the line : "?       aa" - which means this file is not monitored.)
+svn add aa
+svn commit aa -m "adding test for auth"
+Authentication realm:  Subversion Repository Authentication
+Password for 'User': ***
+Authentication realm:  Subversion Repository Authentication
+Username: svn: Commit failed (details follow):
+svn: MKACTIVITY of '/svn/project_manager/!svn/act/96456c34-fea7-aa4b-a25d-000e43429ecf': authorization failed: Could not authenticate to server: r
+```
 
 This shows that I couldn't commit with a bad authentication.  
 
 But how to I define the new credentials ?  
 I simply do the following  
 
-<pre>svn commit aa -m "show good credentials" --username guy  
-</pre>
+```
+svn commit aa -m "show good credentials" --username guy
+```
 
 And supply the password when prompted.  
 

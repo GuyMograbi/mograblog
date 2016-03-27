@@ -3,13 +3,9 @@ title: Integration Between Maven And Eclipse Sucks
 published: 2013-01-08T12:44:00.000-08:00
 keywords: eclipse
 description: another reason why i don't like eclipse
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
-
-# Integration Between Maven And Eclipse Sucks
-
-<div>
 
 Even though I don't support working from the IDE, I have to give support to developers that do.  
 For example, when I assimilate Maven into the project, I must make sure all workspaces adjust accordingly.  
@@ -45,7 +41,3 @@ Sure I invoke the command from Intellij, but in Intellij's case, it executes exa
 To be fair, Intellij does not lack problems.  
 To share a few, it always adds "resources" folder to the project's source roots. This is a bit annoying as in some scenarios it requires files at "resources" to be compiled. Resources does not contain code, hence it is note logical to mark it as such.  
 I have a Java project with some groovy resources that contain illegal groovy code. Strange, I admit, but necessary. Every time I modify the Maven dependencies, I start getting compilation errors. I would like to know how to tell Intellij to ignore Groovy files in certain projects.
-
-</div>
-
-</div>

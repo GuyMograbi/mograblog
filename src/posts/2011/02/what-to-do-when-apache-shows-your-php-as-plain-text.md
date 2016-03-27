@@ -3,6 +3,7 @@ title: What to do when Apache shows your PHP as plain text
 published: 2011-02-21T13:16:00.000-08:00
 keywords: apache, plaintext
 description: this is how you can resolve apache showing plaintext instead of html
+layout: post.hbs
 ---
 
 I enabled my apache with SSL recently.. Had to change many files.  
@@ -17,9 +18,10 @@ The solution is SO SIMPLE it's simply annoying..
 
 Check your conf/mime.types file and make sure you see the lines  
 
-<pre>application/x-httpd-php php  
+```
+application/x-httpd-php php
 application/x-httpd-php-source phps  
-</pre>
+```
 
 That solved the problem to me..  
 Please comment me if it didn't help you - I would love to solve your problems as well.  

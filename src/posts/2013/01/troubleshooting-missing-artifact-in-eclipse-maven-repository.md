@@ -3,13 +3,9 @@ title: Troubleshooting Missing Artifact in Eclipse Maven Repository -
 published: 2013-01-01T02:42:00.000-08:00
 description: another reason why i hate eclipse and how to solve it
 keywords: eclipse
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
-
-# Missing Artifact In Maven Eclipse (Juno)
-
-<div>
 
 I found 2 reasons that cause this error in Eclipse.  
 
@@ -54,6 +50,5 @@ It seems to me that this is a bug in Eclipse's integration with Maven.
 If both projects are open in the workspace, Eclipse forces you to use Integration Resolution.  
 To resolve this you must resort to closing the project you are not working on.  
 
-[![](http://4.bp.blogspot.com/--B3p3BBEQEg/UMxV_RVIVmI/AAAAAAAAVLo/QpiqMbhKUOk/s320/maven_enable_workspace_resolution.png)](http://4.bp.blogspot.com/--B3p3BBEQEg/UMxV_RVIVmI/AAAAAAAAVLo/QpiqMbhKUOk/s1600/maven_enable_workspace_resolution.png)</div>
+[![](http://4.bp.blogspot.com/--B3p3BBEQEg/UMxV_RVIVmI/AAAAAAAAVLo/QpiqMbhKUOk/s320/maven_enable_workspace_resolution.png)](http://4.bp.blogspot.com/--B3p3BBEQEg/UMxV_RVIVmI/AAAAAAAAVLo/QpiqMbhKUOk/s1600/maven_enable_workspace_resolution.png)
 
-</div>

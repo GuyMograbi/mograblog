@@ -57,4 +57,4 @@ angular.module('mograblog', [])
     });
 ```
 
-this solution uses the fact that scopes has a prototypical inheritance and adds a function to all scopes (including isolated). This function will simply cancel the interval. Same thing can be done for the rest. and that's it!</div>
+this solution uses the fact that scopes has a prototypical inheritance and adds a function to all scopes (including isolated). This function will simply cancel the interval. Same thing can be done for the rest. and that's it!

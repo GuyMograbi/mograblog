@@ -3,15 +3,10 @@ title: How to make postMessage support multi origins and multi messages
 published: 2013-02-19T14:43:00.002-08:00
 description: make postmessage even better
 keywords: postmessage, javascript
+layout: post.hbs
 ---
 
-<div class="mograblog prettify" dir="ltr" style="text-align: left;" trbidi="on">
-
-# How to make postMessage support multi origins and multi messages?
-
-<div>
-
-In my [previous post I talked about HTML5 - cross domain messaging with postMessage](/2013/02/postMessage-plugin-part1.html "HTML5 - cross domain messaging with postMessage"). I showed how to use a JQuery plugin written by Ben Alman that wraps this method and falls back on hash tags  
+In my [previous post I talked about HTML5 - cross domain messaging with postMessage](/posts/2013/02/postMessage-plugin-part1.html "HTML5 - cross domain messaging with postMessage"). I showed how to use a JQuery plugin written by Ben Alman that wraps this method and falls back on hash tags
 in the URL for older browsers.  
 In this post I will talk about how to improve the usage in this plugin to support multiple messages  
 from different origins.  
@@ -35,7 +30,7 @@ If you try to use asterisks with the plugin, it will not work.
 
 Looking and Ben Alman's code you can see the code for filtering origins
 
-<pre class="prettyprint">  
+```
 $.receiveMessage = ... {   
  ...  
   if ( ( typeof source_origin === 'string' && e.origin !== source_origin )  
@@ -44,7 +39,7 @@ $.receiveMessage = ... {
  }  
  ...  
 }  
-   </pre>
+```
 
 As you can see, the plugin checks if "source_origin" is a function. If so,  
 it invokes the function giving it the origin.  
@@ -57,7 +52,7 @@ This way I can add support for as many origins as I'd like.
 
 Here is my code that allows handling multiple origins and multiple messages using Ben Alman's Plugin.
 
-<pre class="prettyprint">  
+```
 $(function () {  
     var callbacks = {};  
     callbacks["origin1"] = {};  
@@ -91,50 +86,50 @@ $(function () {
             }  
     ); // support for different domains  
 })      
-   </pre>
+```
 
 I first declare a JSON of callbacks.  
 I map from origins to a map of message handlers.  
 I base this code on the assumption messages have the following structure  
 
-<pre class="prettyprint">  
-    var myMessage = { "name" : "message1", moreInfo: "moreValues" };  
-   </pre>
+```
+var myMessage = { "name" : "message1", moreInfo: "moreValues" };
+```
 
 end then are sent with something like this :
 
-<pre class="prettyprint">  
-    $.postMessage( JSON.stringify( myMessage ), myUrl , parent );  
-   </pre>
+```
+$.postMessage( JSON.stringify( myMessage ), myUrl , parent );
+```
 
 # Why can't I simply call $.receiveMessage twice?
 
 It seems that Ben Alman decided to be clever and allow only a single callback to the event.  
 Reading the code, the important line you should look at is :
 
-<pre class="prettyprint">  
+```
 rm_callback && p_receiveMessage();  
-</pre>
+```
 
 This is a clever one-liner that does the same as
 
-<pre class="prettyprint">  
+```
 if ( rm_callback ) { p_receieveMessage(); }   
-</pre>
+```
 
 When you call p_receieveMessage with no arguments, you will reach the line that remove the event listener
 
-<pre class="prettyprint">  
+```
 window[ callback ? addEventListener : 'removeEventListener' ]( 'message', rm_callback, FALSE );  
-</pre>
+```
 
 since callback is null/undefined, you will get the string 'removeEventListener' which will do just that - remove the listener.
 
 So technically, you can also modify the plugin that Ben wrote and remove the clever line
 
-<pre>  
+```
 rm_callback && p_receiveMessage();  
-</pre>
+```
 
 You might wish to implement this solution instead.  
 This solution suites better if you want to assign listeners from different partials in the same template.  
@@ -143,10 +138,9 @@ You can still remove listeners by simply calling p_receiveMessage with no argume
 
 Personally, I'd rather retrigger the message event on the body.
 
-<pre>  
+```
 $("body").trigger("message", message );  
-</pre>
+```
 
 And then I am not dependent on implementations.</div>
 
-</div>

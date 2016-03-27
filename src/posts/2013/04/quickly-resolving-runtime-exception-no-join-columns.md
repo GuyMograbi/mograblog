@@ -1,13 +1,11 @@
 ---
 title: "Quickly resolving RuntimeException: No join columns"
-published: 2013-04-15T13:28:00.000-07:00
+published: 2013-04-15
 description: here is what you can do when you run into "no join columns" error
 keywords: playframework
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
-
-# Quickly Resolving RuntimeException: No join columns
 
 So it is late at night, and I am working over the weekend again..  
 Creating a OneToOne relationship with EBean and exporting schema to create schema upgrade script  
@@ -22,12 +20,12 @@ Make sure you have primary keys, and everything should be fine.
 Please note that in Play!Framework 2.0, it is not enough to extend Model,  
 you must declare a primary key by yourself.  
 
-<pre class="prettyprint">  
+```
 @Id   
 public Long id;  
-</pre>
+```
 
-<pre>  
+```
 play.core.ActionInvoker$anonfun$receive$1$anon$1: Execution exception [[RuntimeException: No join columns for models.Widget.icon]]  
         at play.core.ActionInvoker$anonfun$receive$1.apply(Invoker.scala:134) [play_2.9.1.jar:2.0.4]  
         at play.core.ActionInvoker$anonfun$receive$1.apply(Invoker.scala:115) [play_2.9.1.jar:2.0.4]  
@@ -49,6 +47,4 @@ Caused by: java.lang.RuntimeException: No join columns for models.Widget.icon
         at com.avaje.ebeaninternal.server.ddl.VisitorUtil.visit(VisitorUtil.java:36) ~[ebean.jar:na]  
         at com.avaje.ebeaninternal.server.ddl.VisitorUtil.visit(VisitorUtil.java:22) ~[ebean.jar:na]  
         at com.avaje.ebeaninternal.server.ddl.DdlGenerator.generateCreateDdl(DdlGenerator.java:148) ~[ebean.jar:na]  
-</pre>
-
-</div>
+```

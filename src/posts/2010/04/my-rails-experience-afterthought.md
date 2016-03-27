@@ -3,7 +3,13 @@ title: My Rails Experience - afterthought
 published: 2010-04-05T00:17:00.000-07:00
 description: so this is what i think about rails
 keywords: rails
+layout: post.hbs
+shortcodes: true
 ---
+
+[#alert-info]
+Life is easier on nodejs.. move to node
+[#/alert-info]
 
 OK. So I went cover to cover for the second time over the [agile web development with rails](http://pragprog.com/titles/rails3/agile-web-development-with-rails-third-edition)  
 
@@ -19,8 +25,6 @@ Quoted from the book
 > It also allows us to perform tasks that would normally be done in external  
 > configuration files inside the codebase instead. This makes it far easier to see  
 > what’s happening.
-
-<a name="more"></a>  
 
 # Mind Blown
 
@@ -96,8 +100,9 @@ I want it with all CRUD operations, and REST support.
 This is called a scaffold in rails and in some places in rails it is referred to as resource.  
 All I have to do is write  
 
-<pre>ruby script/generate scaffold book title:string content:text about:string  
-</pre>
+```
+ruby script/generate scaffold book title:string content:text about:string
+```
 
 It will generate the controller,view and model along with tests, db migration and REST mapping. They will all support "index","delete","create","edit","show" operations.  
 Modifying the result from HTML to XML/JSON/ATOM is a piece of cake. XML and JSON can be achieved with almost no code at all (when using default) - ATOM might require some writing.  
@@ -128,10 +133,11 @@ Which raises up a nice question. So far RoR wrote a builder to almost every form
 
 How I would love to write something like  
 
-<pre>blog-entry-content {  
+```
+blog-entry-content {
    direction : <%=I18n.dir%>  
 }  
-</pre>
+```
 
 I guess this is the next thing to check out.  
 
@@ -146,9 +152,10 @@ I guess the most important word above is "Spring" - simply because "Spring" is a
 Imagine to yourself Spring/JDK/Maven all bundled in a single package. All you will need to do is download JDK, define somehow you want hibernate in a single word and it will download and configure everything.  
 In rails it looks like this  
 
-<pre>gem install mysql   
+```
+gem install mysql
 rails my_app --database=mysql  
-</pre>
+```
 
 The operation is easy to remember and painless. The "gem install" is required only for the first time.  
 

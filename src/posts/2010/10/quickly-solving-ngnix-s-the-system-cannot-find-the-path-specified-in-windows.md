@@ -3,18 +3,21 @@ title: Quickly Solving NGNIX's "The system cannot find the path specified" in Wi
 published: 2010-10-21T03:07:00.000-07:00
 keywords: nginx
 description: why does nginx cannot seem to find my files? read to know the answer.
+layout: post.hbs
 ---
 
 I just downloaded nginx for a bug/feature to simulate the production environment, and I immediately got :  
 
-<pre>[alert]: could not open error log file: CreateFile() "logs/error.log" failed (3: The system cannot find the path specified)  
+```
+[alert]: could not open error log file: CreateFile() "logs/error.log" failed (3: The system cannot find the path specified)
 2010/10/21 11:39:49 [emerg] 4236#1936: CreateFile() "C:\dev_env\Projects_SVN/conf/nginx.conf" failed (3: The system cannot find the path specified)  
-</pre>
+```
 
 The solution to the problem is to open the cmd console with the command  
 
-<pre>cmd /D  
-</pre>
+```
+cmd /D
+```
 
 But let me explain what is going on  
 
@@ -22,8 +25,9 @@ But let me explain what is going on
 
 As you can see, nginx on my computer refers to  
 
-<pre>C:\dev_env\Projects_SVN  
-</pre>
+```
+C:\dev_env\Projects_SVN
+```
 
 as my root directory.  
 
