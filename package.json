@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "./node_modules/.bin/metalsmith-start",
-    "upload": "./node_modules/.bin/bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
+    "upload": "node metalsmith.js && ./node_modules/.bin/bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
   },
   "dependencies": {
     "bucketful": "^0.15.5",
