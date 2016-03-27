@@ -11,45 +11,6 @@ body,.post{ padding-top:1px;}
     right: 0;
     padding: 0 20px;
 
-    .about-me {
-      display: inline-block;
-      padding: 0;
-      font-size: $FONT_SIZE;
-
-      color: $MAIN_COLOR;
-      text-align: center;
-      line-height: 50px;
-      width: 210px;
-
-      & > a {
-        display: block;
-        padding: 20px;
-      }
-
-      a {
-        line-height: 20px;
-        &:hover {
-          background: $MAIN_COLOR;
-          color: $SECONDARY_COLOR;
-        }
-      }
-
-      .links {
-        display: table-row;
-        float: right;
-        a {
-          display: table-cell;
-          width: 100px;
-          padding: 5px 2px;
-          &:first-child {
-            border-right: 1px solid $MAIN_COLOR;
-          }
-          text-decoration: none;
-
-        }
-      }
-    }
-
   }
 
 
