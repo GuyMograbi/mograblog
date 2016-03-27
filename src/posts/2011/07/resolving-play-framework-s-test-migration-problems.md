@@ -3,6 +3,7 @@ title: Resolving play!Framework's test migration problems
 published: 2011-07-02T10:11:00.000-07:00
 keywords: play!framework
 description: this is how you can fix your tests in play!framework 1.2.1
+layout: post.hbs
 ---
 
 I recently upgraded to play 1.2.1.  

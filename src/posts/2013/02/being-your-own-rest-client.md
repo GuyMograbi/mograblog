@@ -3,13 +3,8 @@ title: Being Your Own REST Client
 published: 2013-02-05T22:56:00.000-08:00
 description: things to note with rest api that you write and consume
 keywords: rest
+layout: post.hbs
 ---
-
-<div dir="ltr" style="text-align: left;" trbidi="on">
-
-<div class="mograblog">
-
-# Being your own REST API Client
 
 REST and API are two words that got stuck together.  
 Using REST between your client and server is one things.  
@@ -34,7 +29,7 @@ The consumer's controller will call the provider's controller.
 
 # How will this look like in Play 2.0
 
-<pre>  
+```
 ========================  
 PROVIDER  
 ========================  
@@ -114,7 +109,7 @@ GET  /dashboard/items  controllers.Consumer.listItems
 # Provider - REST  
 GET  /api/items    controllers.Provider.listItems( authToken:String )  
 
-</pre>
+```
 
 ## Conclusions
 
@@ -125,7 +120,3 @@ Do not be lightheaded with the decision of whether to use it or not,
 this decision can complex the entire development process and open security holes in your website.  
 When in doubt, you probably do not need to expose an API, however you should still  
 use REST like mapping between front-end and back-end.
-
-</div>
-
-</div>

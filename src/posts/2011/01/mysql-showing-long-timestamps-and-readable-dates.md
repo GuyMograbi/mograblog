@@ -3,6 +3,7 @@ title: Mysql - showing Long timestamps and readable Dates
 published: 2011-01-01T09:28:00.000-08:00
 keywords: mysql
 description: This is how you can have a readable date in a mysql query
+layout: post.hbs
 ---
 
 A while ago I had to find a certain date in the database, but the date column was defined as LONG.  

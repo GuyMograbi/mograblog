@@ -3,15 +3,10 @@ title: Play 2.0 DB migrations shell script
 published: 2012-12-18T12:52:00.000-08:00
 description: update your schema easily and safely
 keywords: play!framework
+layout: post.hbs
 ---
 
-<div dir="ltr" class="mograblog" style="text-align: left;" trbidi="on">
-
-# Play 2.0 DB Migrations Shell Script
-
-<div>
-
-I recently joined a Play!Framework 2.X project.  
+I recently joined a Play!Framework 2.X project.
 After 2 years developing with Play!Framework 1.X, it is certainly a big difference.  
 One of the things I miss most is the nice [migrate module](http://www.playframework.org/modules/migrate "Play!Framework 1.x migrate module").  
 2.x has something called evolutions, which might be as powerful, but I really didn't like it  
@@ -24,11 +19,11 @@ A Database migration module is something I got familiar with while learning RoR.
 Basically, it has the ability to:
 
 *   Creating your DB schema
-*   * Upgrade your DB schema from version x to version y
+*   \* Upgrade your DB schema from version x to version y
 *   Downgrading your DB schema from version y to version x
-*   * It auto detects the current version
+*   \* It auto detects the current version
 *   It auto detects the latest version
-*   * Manage schema version
+*   \* Manage schema version
 
 You usually use the features marked with asterisks. (*).  
 You can do well without the rest.  
@@ -37,7 +32,7 @@ you can easily support it or something close to it. ( for example, assume you ha
 
 ## My Implementation
 
-<pre name="code" class="bash">  
+```
 # get all sysconf variables we have for play  
 
 . /etc/sysconfig/play_app  
@@ -79,7 +74,7 @@ fi
 
 echo "done migrating"  
 
-   </pre>
+```
 
 This script is pretty straight forward.  
 The only input is the new version we want to have.  
@@ -95,12 +90,12 @@ I found this is unnecessary for me at the moment.
 
 The script also assumes a MYSQL database - easily modified though for your own needs - that has the following table
 
-<pre>  
+```sql
 CREATE TABLE `patchlevel` (  
   `version` bigint(20) NOT NULL DEFAULT '0',  
   PRIMARY KEY (`version`)  
 )  
-</pre>
+```
 
 ## Evolutions
 
@@ -121,19 +116,20 @@ I will write more about this in a different post but for now, lets say you write
 You need to modify "play_app" with the name of your application.  
 This file looks something like
 
-<pre>  
+```
 DB_USER=my_user  
 DB_PASSWORD=my_password  
 APP_ROOT=/var/play_apps/my_app  
-</pre>
+```
 
 and all the scripts that want to use this configuration simply have to run
 
-<pre> . /etc/sysconfig/play_app </pre>
+```
+. /etc/sysconfig/play_app
+```
 
 This is a good method since it is highly reusable.  
 You can even use it in system V init files.  
 You can also add it to you profile initialization. (.bashrc, .cshrc).  
-The first dot in the command above means to run it in the current shell, this is the trick for keeping the variables declared. Otherwise, like in block scope, these definition will be lost once play_app script exists.</div>
+The first dot in the command above means to run it in the current shell, this is the trick for keeping the variables declared. Otherwise, like in block scope, these definition will be lost once play_app script exists.
 
-</div>

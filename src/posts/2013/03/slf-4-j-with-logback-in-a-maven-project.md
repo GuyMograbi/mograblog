@@ -3,15 +3,10 @@ title: SLF4J with Logback in a Maven Project
 published: 2013-03-05T01:09:00.000-08:00
 description: setting up slf4jw ith logback
 keywords: slf4j, logback, maven, java
+layout: post.hbs
 ---
 
-<div dir="ltr" class="mograblog" style="text-align: left;" trbidi="on">
-
-# SLF4J with Logback in a Maven Project
-
-<div class="content">
-
-I recently started migrating my projects to SLF4J.  
+I recently started migrating my projects to SLF4J.
 SLF4J is a single API for all logger implementations.  
 There are at least 3 implementations I know about:
 
@@ -23,7 +18,7 @@ There are at least 3 implementations I know about:
 
 When you write a Java library which will be used by unknown consumer, logging is always a problem.  
 You might choose using implementation A, while the consumer uses implementation B.  
-And there are those who use "System.out".. :(  
+And there are those who use `System.out`.. :(
 SLF4J will resolve this issue.  
 When you use SLF4J you let the consumer decide which logging implementation they want.  
 
@@ -32,12 +27,12 @@ When you use SLF4J you let the consumer decide which logging implementation they
 SLF4J offers an API that was dearly missing in precious implementations.  
 While being very similar to LOG4J using
 
-<pre class="prettyprint">  
+```
 logger.info("...");  
 logger.debug("...");  
-  </pre>
+```
 
-It has a built in formatting for strings using the "{}" placeholders.  
+It has a built in formatting for strings using the `{}` placeholders.
 
 ## Original Configuration
 
@@ -50,16 +45,16 @@ On the other hand, it means that if you decide to modify the underlying implemen
 Using SLF4J , like Logback and logging utils, makes the need to check log level redundant  
 Once you had to write code like
 
-<pre class="prettyprint">  
+```
 logger.isDebugEnabled() { logger.debug(" myArg=[" + myArg + "]"); }     
-  </pre>
+```
 
 The need for log level is required since string concatenation had bad performance.  
 SLF4J uses a form of String formatting like so
 
-<pre class="prettyprint">  
+```
 logger.debug("myArg={}", myArg)  
-  </pre>
+```
 
 and so there is no string concatenation.  
 With this method, SLF4J can check the log level before formatting the String.
@@ -68,21 +63,29 @@ With this method, SLF4J can check the log level before formatting the String.
 
 Looking at the API it is not clear how to use
 
-<pre class="prettyprint">logger.error</pre>
+```
+logger.error
+```
 
 to print a formatted string and an exception with stacktrace.  
 You can always use the following
 
-<pre class="prettyprint"> logger.error(String.format("this is my %s", arg), e); </pre>
+```
+logger.error(String.format("this is my %s", arg), e);
+```
 
 But as [Ceki answer in stackoverflow on how to log formatted message and exception in SLF4J](http://stackoverflow.com/a/6374166) states, it is possible with the SLF4J  
 API, you simply need to pass the exception as the last argument.  
 
-<pre class="prettyprint">logger.error("this is my {}", arg, e);</pre>
+```
+logger.error("this is my {}", arg, e);
+```
 
 Sometimes, you will need to cast the varargs to Object[]  
 
-<pre class="prettyprint">logger.error("this is my {}", new Object[]{ arg, e});</pre>
+```
+logger.error("this is my {}", new Object[]{ arg, e});
+```
 
 ## Settings SLF4J with Logback in a Maven Project
 
@@ -90,53 +93,69 @@ Setting up SLF4J with Logback is quite easy.
 Similar to [Log4J settings](/2010/08/setting-up-log4j-in-maven-project.html "setting up LOG4J with Maven") we will use the resource folder here well.  
 This time we will use a file named "logger.xml" which looks something like this at the root of our resources folder.  
 
-<pre class="prettyprint">  
-<configuration>  
+```
+<configuration>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"><encoder><pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern></encoder></appender>   
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+     ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender"><file>logFile.log</file>  
-        <rollingpolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"><filenamepattern>logFile.%d{yyyy-MM-dd}.log</filenamepattern>  
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logFile.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
 
-            <maxhistory>5</maxhistory></rollingpolicy>   
+            <!-- keep 1 days' worth of history -->
+            <maxHistory>5</maxHistory>
+        </rollingPolicy>
 
-        <encoder><pattern>%d{HH:mm:ss.SSS}  %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern></encoder></appender>   
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS}  %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
 
-    <root level="info" additivity="false">  
-        <appender-ref ref="STDOUT">  
-        <appender-ref ref="FILE"></appender-ref> </appender-ref></root>  
+    <root level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
 
-</configuration>     
-  </pre>
+
+</configuration>
+```
 
 You maven dependencies should look like this
 
-<pre class="prettyprint">  
-<dependency>  
-    <groupid>org.slf4j</groupid>  
-    <artifactid>slf4j-api</artifactid>  
-    <version>1.6.6</version>  
-</dependency>  
+```
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.6.6</version>
+</dependency>
 
-<dependency>  
-    <groupid>ch.qos.logback</groupid>  
-    <artifactid>logback-classic</artifactid>  
-    <version>1.0.9</version>  
-</dependency>     
-  </pre>
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.0.9</version>
+</dependency>
+```
 
 In you Java you should have the following code
 
-<pre class="prettyprint">  
-   private static Logger logger = LoggerFactory.getLogger( MyClass.class );  
-  </pre>
+```
+private static Logger logger = LoggerFactory.getLogger( MyClass.class );
+```
 
 With the following imports
 
-<pre class="prettyprint">  
-   import org.slf4j.Logger;  
-   import org.slf4j.LoggerFactory;  
-  </pre>
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+```
 
 # Troubleshooting
 
@@ -145,20 +164,24 @@ In this case, it seems [there's no way to force SLF4J to use a certain implement
 In Maven, this means you need to exclude transitive dependencies ( those dependencies that originate from other dependencies ).  
 So for example, if you depend on "project-X" which brings LOG4J with it, you should write the following
 
-<pre class="prettyprint">  
-<dependency>  
-    <groupid>project.x</groupid>  
-    <artifactid>project-x</artifactid>  
-    <version>X.X.X</version>  
-    <exclusions><exclusion><groupid>log4j</groupid>  
-            <artifactid>log4j</artifactid></exclusion></exclusions>   
-</dependency>     
-  </pre>
+```
+<dependency>
+    <groupId>project.x</groupId>
+    <artifactId>project-x</artifactId>
+    <version>X.X.X</version>
+    <exclusions>
+        <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+```
 
 If you need to find out which dependency brings LOG4J with it, simply use "mvn dependency:tree" command to help you.  
 Go to the folder with the POM, and run this command. You should get output looking like this  
 
-<pre class="prettyprint">  
+```
 [INFO] --- maven-dependency-plugin:2.1:tree (default-cli) @ cloudify-repository ---  
 [INFO] my.project:my-project:jar:1.0-SNAPSHOT  
 [INFO] +- org.springframework:spring-context:jar:3.1.3.RELEASE:test  
@@ -177,8 +200,4 @@ Go to the folder with the POM, and run this command. You should get output looki
 [INFO] |  \- ch.qos.logback:logback-core:jar:1.0.9:compile  
 [INFO] \- org.eclipse.jgit:org.eclipse.jgit:jar:2.2.0.201212191850-r:compile  
 [INFO]    \- com.jcraft:jsch:jar:0.1.44-1:compile     
-  </pre>
-
-</div>
-
-</div>
+```

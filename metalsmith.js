@@ -27,7 +27,7 @@ var parsers = {
     },
     'previous-post': function (pages, metalsmith, currentPage) {
         return function (opts, content) {
-            console.log(currentPage.previous.path);
+
             return '<a href="' + currentPage.previous.path + '" title="' + currentPage.previous.title + '">'  + content + '</a>';
 
         }
@@ -38,7 +38,11 @@ handlebars.registerHelper('moment', function(context,format){
     return moment(context).format(format)
 });
 handlebars.registerHelper('json', function(context) {
-    return Object.keys(context);
+    if ( !!context) {
+        return Object.keys(context);
+    }else{
+        return 'null';
+    }
 });
 handlebars.registerHelper('hbs', function(context){
     return handlebars.compile(context)({});
@@ -49,6 +53,7 @@ var app = new Metalsmith(__dirname)
             //console.log(metalsmith.collections);
             metalsmith._metadata = {};
             _.each(pages, function(p,filepath){
+
                 p.filepath = filepath;
             });
             //metalsmith.collections.articles = null;
@@ -68,10 +73,40 @@ var app = new Metalsmith(__dirname)
             }
 
         }))
+        .use( function(pages, metalsmith){ // todo : manual sort as the collection sort is messed up..
+            var pList = metalsmith._metadata.collections.articles;
+            pList.sort(
+                function(a,b){
+                    return new Date(b.published) - new Date(a.published);
+                }
+            );
+            pList.reverse(); // reverse only for sorting code readability.
+
+            for ( var i = 0; i < pList.length; i++){
+                //pList[i].next = null;
+                //pList[i].previous = null;
+                if ( i === 0 ){
+                    pList[i].next = pList[i+1];
+                    pList[i].previous = null;
+                }else if ( i === pList.length -1  ){
+                    pList[i].previous = pList[i-1];
+                    pList[i].next = null;
+                }else{
+                    pList[i].next = pList[i+1];
+                    pList[i].previous = pList[i-1];
+                }
+            }
+            pList.reverse(); // reverse back for index page..
+        })
+
         .use(function(pages){
             _.each(pages, function(p,path){
                 p.path = '/' + path.replace(/\.md$/,'.html');
+
             });
+
+
+
         })
         .use(function(pages,metalsmith){ // fix for 'collection' uniqueness... happens when combined with 'watch'
             var p = _.find(metalsmith._metadata.collections.pages, function(page){

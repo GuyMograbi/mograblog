@@ -3,17 +3,14 @@ title: SQL for interviews - Continued
 published: 2010-03-11T23:06:00.000-08:00
 keywords: mysql
 description: some questions you should know in mysql before an interview
+layout: post.hbs
 ---
 
-<div class="separator" style="clear: both; text-align: center;">[![](http://2.bp.blogspot.com/_J3A8WqpdCX0/S5E9c8C6DnI/AAAAAAAAALU/mo5GukvGYWw/s200/JOIN-Entry.png)](http://2.bp.blogspot.com/_J3A8WqpdCX0/S5E9c8C6DnI/AAAAAAAAALU/mo5GukvGYWw/s1600-h/JOIN-Entry.png)</div>
-
-In a [previous entry](http://mograblog.blogspot.com/2010/03/basic-things-you-should-know-about-sqls.html) I explained how I always get asked the same SQL questions in interviews. Lo and behold, I am asked the very same questions in an interview I had just the other day.  
+In a [previous entry](http://mograblog.blogspot.com/2010/03/basic-things-you-should-know-about-sqls.html) I explained how I always get asked the same SQL questions in interviews. Lo and behold, I am asked the very same questions in an interview I had just the other day.
 
 This time I had no problem answering "which join joins which joins.."  
 
-So I decided to expand the previous entry with some more things I see a lot in interviews.  
-
-<a name="more"></a>  
+So I decided to expand the previous entry with some more things I see a lot in interviews.
 
 # Aggregations and Dates
 
@@ -25,7 +22,8 @@ Based on:
 I am using mysql for the following queries.  
 Lets look at the following table definition :  
 
-<pre>+---------------+--------------+------+-----+---------+-------+  
+```
++---------------+--------------+------+-----+---------+-------+
 | Field         | Type         | Null | Key | Default | Extra |  
 +---------------+--------------+------+-----+---------+-------+  
 | customer_name | varchar(255) | YES  |     | NULL    |       |  
@@ -33,23 +31,26 @@ Lets look at the following table definition :
 | price         | int(11)      | YES  |     | NULL    |       |  
 | date          | date         | YES  |     | NULL    |       |  
 +---------------+--------------+------+-----+---------+-------+  
-</pre>
+```
 
 created with this SQL  
 
-<pre>create table ORDERS (customer_name varchar(255), order_id int, price int, date DATE, PRIMARY KEY(order_id));  
-</pre>
+```
+create table ORDERS (customer_name varchar(255), order_id int, price int, date DATE, PRIMARY KEY(order_id));
+```
 
 In real life - you will have a FK and customer_id instead of customer_name, but since we are not dealing with any FK feature today, I replaced it with a name to be visually nicer.  
 
 and with queries that look like this  
 
-<pre>insert into orders values ('boris',7,1067,'2001-11-15');  
-</pre>
+```
+insert into orders values ('boris',7,1067,'2001-11-15');
+```
 
 I created the following table  
 
-<pre>+---------------+----------+-------+------------+  
+```
++---------------+----------+-------+------------+
 | customer_name | order_id | price | date       |  
 +---------------+----------+-------+------------+  
 | liron         |        1 |    45 | 2001-05-23 |  
@@ -60,29 +61,39 @@ I created the following table
 | sharon        |        6 |    25 | 2008-04-10 |  
 | boris         |        7 |  1067 | 2001-11-15 |  
 +---------------+----------+-------+------------+  
-</pre>
+```
 
 # The challenge
 
 *   select all customers since 2002.  
 
-    <pre>select distinct customer_name from orders where YEAR(orders.date) > '2002'</pre>
+```
+select distinct customer_name from orders where YEAR(orders.date) > '2002'
+```
 
 *   select customers and the sum of their orders  
 
-    <pre>select customer_name,SUM(price) from orders GROUP BY customer_name;</pre>
+```
+select customer_name,SUM(price) from orders GROUP BY customer_name;
+```
 
 *   select number of orders each customer had since 2005  
 
-    <pre>select count(*) from orders where YEAR(orders.date) > '2005' GROUP BY customer_name;</pre>
+```
+select count(*) from orders where YEAR(orders.date) > '2005' GROUP BY customer_name;
+```
 
 *   select the customer name and number of orders for customers that ordered over 100$ total  
 
-    <pre>select customer_name,count(*) from orders  GROUP BY customer_name HAVING SUM(orders.price) > 100;</pre>
+```
+select customer_name,count(*) from orders  GROUP BY customer_name HAVING SUM(orders.price) > 100;
+```
 
 *   now to combines everything : show the name of the customer and the number of order, but only for customers that ordered more than 100$ since 2005  
 
-    <pre>select customer_name,count(*) from orders WHERE YEAR(orders.date) > 2005 GROUP BY customer_name HAVING SUM(orders.price) > 100;</pre>
+```
+select customer_name,count(*) from orders WHERE YEAR(orders.date) > 2005 GROUP BY customer_name HAVING SUM(orders.price) > 100;
+```
 
 The important things you should remember for the interview are :  
 

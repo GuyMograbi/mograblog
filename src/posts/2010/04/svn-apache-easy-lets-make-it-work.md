@@ -3,7 +3,13 @@ title: SVN + Apache - Easy ? Lets make it work!
 published: 2010-04-10T13:57:00.000-07:00
 description: so i decided to setup an SVN with apache on my computer..
 keywords: svn, apache
+layout: post.hbs
+shortcodes: true
 ---
+
+[#alert-info]
+life is easier on linux and nginx.. move to ubuntu
+[#/alert-info]
 
 Well... I am a bit frustrated..  
 
@@ -24,7 +30,7 @@ If you're like me, and all you care about it seeing it work - and if you already
 *   Copy DLLS and SO files
 *   Add several lines to httpd.conf
 
-<a name="more"></a>  
+
 
 # Copy DLLs and SO Files
 
@@ -41,11 +47,15 @@ For now - lets just load the new modules.
 
 So add the following  
 
-<pre>LoadModule dav_svn_module modules/mod_dav_svn.soLoadModule authz_svn_module modules/mod_authz_svn.so</pre>
+```
+LoadModule dav_svn_module modules/mod_dav_svn.soLoadModule authz_svn_module modules/mod_authz_svn.so
+```
 
 Plus - make sure the following line is uncommented  
 
-<pre>LoadModule dav_module modules/mod_dav.soLoadModule dav_fs_module modules/mod_dav_fs.so</pre>
+```
+LoadModule dav_module modules/mod_dav.soLoadModule dav_fs_module modules/mod_dav_fs.so
+```
 
 ** NOTE: again - not sure about the second one, but couldn't hurt.  
 Now you should try to restart the Apache Server  
@@ -57,7 +67,9 @@ When I restarted the server it failed to restart. Getting "The requested operati
 
 Looking at the logs I saw :  
 
-<pre>expected signature 41503232 but saw 41503230 - perhaps this is not an Apache module DSO, or was compiled for a different Apache version?</pre>
+```
+expected signature 41503232 but saw 41503230 - perhaps this is not an Apache module DSO, or was compiled for a different Apache version?
+```
 
 At first I said - uh, the version is incorrect. Looking at SVN download they specify which apache version you can integrate with. But which Apache version do I have - I knew 2.2 because the folder path said so.. but SVN specified 2.2.9 and above... hmm...  
 
@@ -85,10 +97,13 @@ Well, we already modified load modules. Now it is time we told Apache where the 
 
 All the places will tell you the same thing (different versions, but basically the same thing).  
 
-<pre>  
- <location ~="" "="" svn="">DAV svn      
-      SVNListParentPath on       
-      SVNParentPath d:/path_to_repository</location></pre>
+```
+<Location ~ "/svn/" >
+      DAV svn
+      SVNListParentPath on
+      SVNParentPath d:/path_to_repository
+</Location>
+  ```
 
 This is correct.  
 Some places say that the last slash in "/svn/" is important. However, I didn't find anything about why that is. - but it's free..  
@@ -103,10 +118,10 @@ What no one tells you is that if you have a VirtualHost, Apache server will appe
 
 I had 2 virtual hosts when I configured Apache, and I saw the following annoying log entry :  
 
-<pre>  
+```
 proxy: BALANCER: canonicalising URL //tomcat/svn  
 proxy: BALANCER (balancer://tomcat) worker (http://127.0.0.1:8080) rewritten to http://127.0.0.1:8080/svn  
-</pre>
+```
 
 Technically saying that he will redirect this call to my tomcat.. URGHH!!!!  
 This is hardly documented. I didn't find a solution online..  
@@ -116,11 +131,13 @@ Maybe you won't consider it a solution, but it's a solution enough for me.
 
 I defined a new virtual host :)  
 
-<pre>  
-#forward requests to apache server  
- <virtualhost *="">ServerName svn.mograbi.co.il    
-     ServerAlias www.svn.mograbi.co.il</virtualhost>  
-</pre>
+```
+#forward requests to apache server
+<VirtualHost *>
+     ServerName svn.mograbi.co.il
+     ServerAlias www.svn.mograbi.co.il
+</VirtualHost>
+```
 
 nice? What it means - don't redirect calls going to svn.mograbi.co.il.. :)  
 And it worked.  
@@ -130,19 +147,23 @@ And it worked.
 Well - you should know that by the time I wrote this article - I didn't try to run SVN yet.. do I don't actually know it works.  
 However - I did see the following :  
 
-<div class="separator" style="clear: both; text-align: center;">[![](http://3.bp.blogspot.com/_J3A8WqpdCX0/S8Dko75O8lI/AAAAAAAAAbc/DKW6GbZ8KuA/s1600/collection_repositories.jpg)](http://3.bp.blogspot.com/_J3A8WqpdCX0/S8Dko75O8lI/AAAAAAAAAbc/DKW6GbZ8KuA/s1600/collection_repositories.jpg)</div>
+[![](http://3.bp.blogspot.com/_J3A8WqpdCX0/S8Dko75O8lI/AAAAAAAAAbc/DKW6GbZ8KuA/s1600/collection_repositories.jpg)](http://3.bp.blogspot.com/_J3A8WqpdCX0/S8Dko75O8lI/AAAAAAAAAbc/DKW6GbZ8KuA/s1600/collection_repositories.jpg)
 
 Which is good enough for me - I am dying to sleep.  
 
 Well the answer is I first deleted the Virtual Hosts.  
 According to the configurations I pasted above I should've seen the repository at  
 
-<pre>http://localhost/svn</pre>
+```
+http://localhost/svn<
+```
 
 It was weird - I at first got 404.. and refreshes and delete of cache didn't work.  
 Then I tried  
 
-<pre>http://localhost/svn/depot</pre>
+```
+http://localhost/svn/depot
+```
 
 Which is the depot project I did while learning rails. And it worked!  
 So I suggest you will play around before giving up. Like a stubborn key-lock.  

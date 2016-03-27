@@ -3,15 +3,11 @@ title: Using postMessage for JavaScript API clients
 published: 2013-03-08T04:46:00.001-08:00
 description: see what postmessage can do and why you should use it
 keywords: postmessage, javascript
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
 
-# Exposing cross domain JavaScript API with postMessage
-
-<div>
-
-In a previous post [Being Your Own Rest Client](/2013/02/being-your-own-rest-client.html "Being Your Own Rest Client")  
+In a previous post [Being Your Own Rest Client](/posts/2013/02/being-your-own-rest-client.html "Being Your Own Rest Client")
 I explained how REST and API are 2 different things  
 and using REST API from your front-end is not really recommended  
 Lately I have been using postMessage to create JavaScript API clients.  
@@ -40,10 +36,10 @@ The term 'client' might be a bit confusing. So lets realign the definition.
 So lets imagine we wrote a service that handles tasks, and GMail wants to integrate with us! yey!  
 The user story is:
 
-<div class="user-story">User logged in to GMail  
+User logged in to GMail
 User got an email - it is their mother telling them to remember to buy shoes  
 The user want to add this as a task to your service so they right click the email and select "add to tasks" from a popup menu  
-</div>
+
 
 You might be surprised how a simple scenario like this is hard to implement well.  
 Important to note in the user story is that the user right-clicked the email, and never left the GMail UI.  
@@ -60,7 +56,7 @@ For example: GMail has a "calendar" plug-in. However this uses an iframe or a ba
 
 This is our "task-api-js-client.js" file we expose to our customers
 
-<pre class="prettyprint">  
+```
 
 var TaskDetails =  function(){  
 
@@ -90,12 +86,12 @@ var TaskApiClient =  function( apiKey ){
             "http://ourservice.com");  
  }  
 };  
-  </pre>
+```
 
 As you can see, the consumer side client is pretty thin. all it does is postMessages.  
 Now lets see the client on the provider side - here we can assume JQuery exists as this code runs in our IFrame.
 
-<pre class="prettyprint">  
+```
 function receieveMessage( msg ) {  
  var message = JSON.parse(msg.data);  
  if ( message.name == "addTask"){  
@@ -104,7 +100,7 @@ function receieveMessage( msg ) {
 }  
 
 window.addEventListener("message", receiveMessage, false);  
-  </pre>
+```
 
 And that is it!
 
@@ -116,10 +112,10 @@ Implementing a global callback for each message is easy.
 In order to produce parallel callbacks, you will need to implement some kind of ID mechanism  
 Just to be clear, in Ajax you can do
 
-<pre class="prettyprint">  
+```
 $.ajax({ url:'/myAjax', success:function(){ console.log("me 1");}})  
 $.ajax({ url:'/myAjax', success:function(){ console.log("me 2");}})  
-  </pre>
+```
 
 However, in order to do this with postMessage, you will need to implement this yourself.  
 postMessage can support, almost out of the box, a single callback per received "message type".  
@@ -131,7 +127,3 @@ containing meta-data such as message type.
 What I like about postMessage combined with this method is that it is easy to extend.  
 Unlike Ajax - where you need to modify the options sent on the method, with postMessage  
 You can simply bind "receiveMessage" anywhere in your code, and receive the message.  
-
-</div>
-
-</div>

@@ -1,15 +1,13 @@
 ---
 title: Removing background from image with imagemagick - revisited
-published: 2013-04-08T02:02:00.000-07:00
+published: 2013-04-08
 description: removing background with imagemagick
 keywords: imagemagick
+layout: post.hbs
 ---
 
-<div dir="ltr" class="mograblog" style="text-align: left;" trbidi="on">
 
-# Removing background from image with imagemagick - revisited
-
-A long time ago I wrote a post about [how to remove background from images using 2 simple commands with imagemagick.](/2012/01/removing-backgrounds-from-images-with-2.html "how to remove background from images")  
+A long time ago I wrote a post about [how to remove background from images using 2 simple commands with imagemagick.](/posts/2012/01/removing-backgrounds-from-images-with-2-commands-and-a-freeware.html "how to remove background from images")
 Recently, I acquired a new computer, and I had to download imagemagick again.  
 Obviously, I went to my blog to remember the commands I used, and I copy-pasted them, only to discover they do not work!  
 
@@ -41,7 +39,7 @@ Finally, working with imagemagick allows me to purchase images online and modify
 So for today's post, I will use the sample picture in Windows 7 calls "Tulips".  
 You can find it online in a really good quality.  
 For example: [here](http://images.directron.us/win7sam/tulips.jpg "tulips") and [here](http://images5.fanpop.com/image/photos/27700000/tulips-windows-7-vista-and-xp-picks-27753352-1024-768.jpg "tuplis") Here is a smaller version of it.  
-[![](http://1.bp.blogspot.com/-iReuYSJEr7I/UVK1HmYMUZI/AAAAAAAAV0Y/TGfFNEFS3q8/s320/Tulips_post.jpg)](http://1.bp.blogspot.com/-iReuYSJEr7I/UVK1HmYMUZI/AAAAAAAAV0Y/TGfFNEFS3q8/s1600/Tulips_post.jpg)
+![](http://1.bp.blogspot.com/-iReuYSJEr7I/UVK1HmYMUZI/AAAAAAAAV0Y/TGfFNEFS3q8/s320/Tulips_post.jpg)
 
 The process in which I do this is simply creating a mask.  
 A mask is a gray scale image that represents the transparency I want. Black represents transparent,  
@@ -55,7 +53,7 @@ The outcome is quite good
 The script I wrote leaves all the temporary images.  
 You can add a remove command for them or remove them manually as I like to.  
 
-<pre class="prettyprint">  
+```
 @echo off  
 set IMAGE=%1  
 set SUFFIX=%2  
@@ -67,7 +65,7 @@ for /l %%x in (1, 1, 20) do (
  ping -n 2 127.0.0.1 >nul  
 
 )  
- </pre>
+```
 
 ## When do I not use imagemagick?
 
@@ -88,6 +86,7 @@ If for some reason this is wrong, you can choose to modify the script - imagemag
 you can push somewhere - or you can modify the image, for example add a border 1 px with the background color.  
 Simply negating also works sometimes.  
 
-<pre>convert image.png -negate to_trans.png </pre>
+```
+convert image.png -negate to_trans.png
+```
 
-</div>

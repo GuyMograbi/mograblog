@@ -3,11 +3,9 @@ title: Open Files From Console With Sublime
 published: 2012-11-20T07:52:00.000-08:00
 description: shorten sublime command for easy command line use
 keywords: sublime
+layout: post.hbs
 ---
 
-<div dir="ltr" class="mograblog" style="text-align: left;" trbidi="on">
-
-# Introduction
 
 [Sublime Text Editor](http://www.sublimetext.com/) is a great new text editor.  
 Its motto is "The Text Editor You'll Fall In Love With" and indeed I did.  
@@ -26,7 +24,9 @@ By the way - spell check is not in the command palette. To toggle spell check yo
 One last thing I had to do was to make Sublime available from command line.  
 I just could not do without the option to type
 
-<pre>sublime guy.txt</pre>
+```
+sublime guy.txt
+```
 
 and get the Sublime open with this file.  
 Since I work in Windows, it was not as easy as one might think.  
@@ -35,14 +35,12 @@ But the command said "sublime_text" and I just couldn't bring myself to write th
 I activated the console as Administrator.  
 I went to the Sublime installation folder and wrote
 
-<pre>  
-   echo sublime_text %* > s.bat  
-  </pre>
+```
+echo sublime_text %* > s.bat
+```
 
 This allowed me to write
 
-<pre>  
-   s guy.txt  
-  </pre>
-
-</div>
+```
+s guy.txt
+```

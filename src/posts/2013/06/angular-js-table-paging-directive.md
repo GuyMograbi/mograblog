@@ -3,13 +3,12 @@ title: AngularJS - Table Paging Directive
 published: 2013-06-24T13:49:00.000-07:00
 keywords: angular
 description: you can write a paging directive in a couple of minutes.
+layout: post.hbs
+shortcodes: true
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
 
-# AngularJS - Table Paging Directive
-
-In this post and the next one I will show you how to write  
+In this post and the next one I will show you how to write
 a directive that adds paging to your table using AngularJS.  
 Thanks to AngularJS great structure, all code is reusable and activated  
 as easily as adding a class!  
@@ -17,10 +16,12 @@ as easily as adding a class!
 If you are reading this, you should definitely check out my [other examples](/2013/06/angularjs-smart-table.html)  
 for adding sort, filter and more to tables.  
 
+[#alert-info]
 DISCLAIMER: I am not an AngularJS expert. All my examples can probably  
 be easily improved. However this is a great tutorial to learn advanced  
 AngularJS programming as it gathers the knowledge of different threads  
-while adding my own.  
+while adding my own.
+[#/alert-info]
 
 ## Spec
 
@@ -40,17 +41,13 @@ to filter out the single page from the data list.
 Using our [template for this post serie](/2013/06/angularjs-smart-table.html#postTemplate) we declare the smart table directive in  
 our JavaScript section like so
 
-<pre class="prettyprint">  
+```
 myApp.directive("paging", function(){  
 
         return {  
             // define a template with back/prev buttons, using functions I will define  
             // on the scope  
-            template:'
-
-<div> <button ng-disabled="!hasPrevious()" ng-click="onPrev()">Previous</button> {{start()}} - {{end()}} out of {{size()}} <button ng-disabled="!hasNext()" ng-click="onNext()">Next</button>  </div>
-
-',  
+            template:'<div><button ng-disabled="!hasPrevious()" ng-click="onPrev()"> Previous </button> \{{start()}} - \{{end()}} out of \{{size()}} <button ng-disabled="!hasNext()" ng-click="onNext()"> Next </button><div ng-transclude=""></div> </div>',
             // Lets allow this tag to be defined as an "Attribute","Element" or "Class".  
             restrict:'AEC',   
             transclude:true, // transclude means we allow the tag to have a body  
@@ -127,7 +124,7 @@ myApp.directive("paging", function(){
         }  
 
 });    
-  </pre>
+```
 
 The outcome of the code above includes:
 
@@ -144,10 +141,11 @@ The outcome of the code above includes:
 
 To use our new directive, all we need to do is modify the HTML like so:
 
-<pre class="prettyprint">  
-<paging table-data="data" current-page="dataCurrentPage" page-size="dataPageSize">... 
-
-<table> </table></paging> </pre>
+```
+<paging table-data="data" current-page="dataCurrentPage" page-size="dataPageSize">...
+    <table> </table>
+</paging>
+```
 
 In this example, I decided to use the directive as an element.  
 I left the rest of the HTML as it was within the new "paging" tag.  
@@ -158,5 +156,3 @@ If you run the code right now, you will see the next/prev buttons.
 If you click them, you see the summary is modified.  
 However, the table remains the same.  
 In the next post, we will add a filter called "pagingFilter" that will slice a page from the data.  
-
-</div>

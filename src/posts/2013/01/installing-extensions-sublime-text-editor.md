@@ -3,9 +3,9 @@ title: Installing Extensions - Sublime Text Editor
 published: 2013-01-22T09:47:00.000-08:00
 description: how to install plugins in sublime
 keywords: sublime
+layout: post.hbs
 ---
 
-<div id="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
 
 # Installing Extensions Sublime Text Editor
 
@@ -22,4 +22,4 @@ If you are looking for a command in Sublime, all you have to do it press <span c
 The "Package Control" extension adds the command "Package Control: Install Package".  
 Once you click it, you get a nice menu to all the extensions the Package Control can install for you.  
 
-[![Sublime Commands Menu](http://2.bp.blogspot.com/-Z6jZBFdtJcY/UO2tIQo1mbI/AAAAAAAAVNs/nJXmygk_SfU/s320/sublime_commands.png "Sublime Commands Menu")](http://2.bp.blogspot.com/-Z6jZBFdtJcY/UO2tIQo1mbI/AAAAAAAAVNs/nJXmygk_SfU/s1600/sublime_commands.png) [![Sublime Package Menu](http://1.bp.blogspot.com/-0rdjlFrrSbA/UO2tJCmNVZI/AAAAAAAAVN4/dBidfCNNfDA/s320/sublime_package_menu.png "Sublime Package Menu")](http://1.bp.blogspot.com/-0rdjlFrrSbA/UO2tJCmNVZI/AAAAAAAAVN4/dBidfCNNfDA/s1600/sublime_package_menu.png)</div>
+[![Sublime Commands Menu](http://2.bp.blogspot.com/-Z6jZBFdtJcY/UO2tIQo1mbI/AAAAAAAAVNs/nJXmygk_SfU/s320/sublime_commands.png "Sublime Commands Menu")](http://2.bp.blogspot.com/-Z6jZBFdtJcY/UO2tIQo1mbI/AAAAAAAAVNs/nJXmygk_SfU/s1600/sublime_commands.png) [![Sublime Package Menu](http://1.bp.blogspot.com/-0rdjlFrrSbA/UO2tJCmNVZI/AAAAAAAAVN4/dBidfCNNfDA/s320/sublime_package_menu.png "Sublime Package Menu")](http://1.bp.blogspot.com/-0rdjlFrrSbA/UO2tJCmNVZI/AAAAAAAAVN4/dBidfCNNfDA/s1600/sublime_package_menu.png)

@@ -3,13 +3,9 @@ title: HTML5 - cross domain messaging with postMessage
 published: 2013-02-12T08:20:00.000-08:00
 description:  postmessage rocks - this is why
 keywords: postmessage, javascript
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
-
-# HTML5 - cross domain messaging with postMessage
-
-<div>
 
 `postMessage` an HTML5 modification that was added to JavaScript in order to allow  
 passing messages across domains.  
@@ -27,43 +23,64 @@ The following [code sample for using postMessage](https://gist.github.com/468402
 
 ## Sender Code
 
-<pre class="prettyprint">  
+```
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Message Example</title>
+    <script src="/assets/javascripts/jquery.min.js"> </script><!-- jquery -->
+    <script src="/assets/javascripts/jquery.ba-postmessage.min.js"> </script><!-- plugin -->
+</head>
+<body>
 
-    <meta charset="UTF-8">  
-    <title>Post Message Example</title>  
-
-<script type="text/javascript"><br />    console.log("posting message");<br />    var origin = "http://localhost:9000";<br />    var message = "hello world!";<br />    $.postMessage(  message , origin , parent );<br /></script>  
-
-  </pre>
+<script type="text/javascript">
+    console.log("posting message");
+    var origin = "http://localhost:9000";
+    var message = "hello world!";
+    $.postMessage(  message , origin , parent );
+</script>
+</body>
+</html>
+```
 
 ## Receiver Code
 
-<pre class="prettyprint">  
+```
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Message Example</title>
+    <script src="/assets/javascripts/jquery.min.js"> </script><!-- jquery -->
+    <script src="/assets/javascripts/jquery.ba-postmessage.min.js"> </script><!-- plugin -->
+</head>
+<body>
 
-    <meta charset="UTF-8">  
-    <title>Post Message Example</title>  
+<iframe src="/assets/pages/postMessage/post.html"></iframe>
+<script type="text/javascript">
+    console.log("adding receive message handler");
+    var origin = "http://localhost:9000"
+    $.receiveMessage( function(e){
+                alert(e.data);
+            }, origin );
+</script>
+</body>
+</html>
+```
 
-<iframe src="/assets/pages/postMessage/post.html"></iframe>  
-<script type="text/javascript"><br />    console.log("adding receive message handler");<br />    var origin = "http://localhost:9000"<br />    $.receiveMessage( function(e){<br />                alert(e.data);<br />            }, origin );<br /></script>  
+# Gist walkthrough
 
-  </pre>
-
-# Gist walk through
-
-If you try to run this example, after you setup the environment you should open "recieve.html".  
-This HTML file embeds an iframe pointing to "post.html"  
+If you try to run this example, after you setup the environment you should open `receive.html`
+This HTML file embeds an iframe pointing to `post.html`
 Once post.html loads it sends a message to the parent - in our case, receive.html  
-receive.html listens on the "postMessage" event, alerting the data.  
+receive.html listens on the `postMessage` event, alerting the data.
 
-Please note the use of "origin" in the gist.  
-Since I am showing a demo from localhost to localhost, I can use "document.origin",  
-however, the value should be the "target_url" - which is the host.  
-If you have an IFrame with a URL you can simply use the "src" value.  
+Please note the use of `origin` in the gist.
+Since I am showing a demo from localhost to localhost, I can use `document.origin`,
+however, the value should be the `target_url` - which is the host.
+If you have an IFrame with a URL you can simply use the `src` value.
 Ben Alman's plugin will convert it to the host name.  
 
 In my next post I will talk about how to use Ben Alman's plugin to [handle different messages  
-from different origins](/2013/02/postMessage-plugin-part2.html "handle multiple messages from multiple origins using postMessage plugin").  
-
-</div>
-
-</div>
+from different origins](/posts/2013/02/postMessage-plugin-part2.html "handle multiple messages from multiple origins using postMessage plugin").

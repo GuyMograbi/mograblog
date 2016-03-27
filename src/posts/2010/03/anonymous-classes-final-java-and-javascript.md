@@ -3,6 +3,7 @@ title: Anonymous classes, Final - Java and Javascript
 published: 2010-03-17T10:28:00.000-07:00
 keywords: java
 description: the curious case of the misunderstood final keyword in java
+layout: post.hbs
 ---
 
 final is a very intuitive keyword, and even though I use it a lot, I never really took the time to ponder about it. Today is a good day for pondering.. .  
@@ -11,18 +12,20 @@ final is a very intuitive keyword, and even though I use it a lot, I never reall
 
 What would you expect to see on screen when running the following **JavaScript**?  
 
-<pre>var value = "hello";  
+```
+var value = "hello";
 var myFunc = function(){alert(value);}  
 value = "world";  
 myFunc();  
-</pre>
+```
 
 Even though the function was declared before I assigned the "world" value, the function was evaluated only after the assignment.  
 
 In Java, they decided to handle this by forcing us to declare the variable as final.  
 For example :  
 
-<pre>public void demo(){  
+```
+public void demo(){
 
         final String filterValue = "guy";  
         File folder = new File(".");  
@@ -36,7 +39,7 @@ For example :
 
     }  
 
-</pre>
+```
 
 Note that the variable "filterValue" had to be declared final.  
 So, the idea is simply to avoid ambiguity.  
@@ -45,18 +48,19 @@ So, the idea is simply to avoid ambiguity.
 
 It is unavoidable to be a bit confused. It seems that final on an Object is meant only for the reference. Thus, I am allowed to do the following:  
 
-<pre>public void demo2(){  
+```
+public void demo2(){
         final MyObj obj = new MyObj();  
         obj.field = "hello world";  
     }  
-</pre>
+```
 
 While the object changes, the reference does not.  
 This also covers the case - which I found most confusing at the time - of sending "obj" to another function.  
 
 You are able to write code like this  
 
-<pre>  
+```
     public void demo2(){  
         final MyObj obj = new MyObj();  
         obj.field = "hello world";  
@@ -70,17 +74,18 @@ You are able to write code like this
         obj.field = "hello again";  
 
     }  
-</pre>
+```
 
 Some might think that demo3 should declare MyObj final, just like const in c++.  
 However - this is not the case. The reason is - of course - that when demo3 returns, the assignment we did cancels either way and we get "hello world" back in demo2\.  
 
 So you will be surprised to discover you can write  
 
-<pre>public void bookMe(final Book book){  
+```
+public void bookMe(final Book book){
         // ... do something here  
     }  
-</pre>
+```
 
 Well... this is surprising - because as I said before - there's no real need to forbid book assigment since it cancels anyway.. so why do we need it ??? Well, we don't. We can add this in order to discover bugs in runtime (assigning book now will cause compiler to fail) and we can use it if we want to pass the argument to an anonymous class (without assigning it to another variable first).  
 

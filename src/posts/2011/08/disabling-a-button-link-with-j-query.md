@@ -3,9 +3,15 @@ title: Disabling a button/link with JQuery
 published: 2011-08-08T06:44:00.000-07:00
 description: easily disable a button/link with jquery
 keywords: jquery
+layout: post.hbs
+shortcodes: true
 ---
 
-<div dir="ltr" style="text-align: left;" trbidi="on">As you probably know, if you want to make a sexy button, you need to implement it with a link.  
+[#alert-info]
+This post is old. nowadays you can implement it with [some css code](http://stackoverflow.com/questions/2091168/disable-a-link-using-css).
+[#/alert-info]
+
+As you probably know, if you want to make a sexy button, you need to implement it with a link.
 
 Here is [a simple search I did with Google](http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=how+to+make+an+expanding+button), and [an example for it I found right away](http://www.oscaralexander.com/tutorials/how-to-make-sexy-buttons-with-css.html)  
 
@@ -19,7 +25,8 @@ Instead - you need to implement "onclick" with "return false".
 At first, I thought about using [blockUI](http://jquery.malsup.com/block/) - a cool JQuery plugin I recently discovered.  
 But it seems it does not block anchors - I could still click the anchors.  
 
-<span class="Apple-style-span" style="font-size: x-large;">Solution step #1</span>  
+# Solution Step #1
+
 A really good solution would be to change the opacity to 0.4 and add "onclick" as required.  
 This works great.  
 
@@ -27,10 +34,12 @@ And at first I used this technic in a Utils function... cool ain't it?
 
 However, soon enough, I had to have it as a JQuery prototype function (method).  
 
-<span class="Apple-style-span" style="font-size: x-large;">Solution step #2</span>  
+# Solution step #2
+
 Adding this solution to JQuery was easier than it looks  
 
-<pre class="javascript" name="code">/** Adding "disable" on expand button**/  
+```
+/** Adding "disable" on expand button**/
 $.fn.extend({  
 
     disableButton:function(){  
@@ -43,16 +52,18 @@ $.fn.extend({
             $(this).attr('onclick','').unbind('click');  
     }  
 });  
-</pre>
+```
 
 As you can probably see, it's quite easy to add "isButtonDisabled" method to the deal.  
 
-<span class="Apple-style-span" style="font-size: x-large;">Troubleshooting</span>  
+# Troubleshooting
+
 What I really wanted was to modify only the Anchor tags.  
 So I tried to do something like  
 
-<pre class="javascript" name="code">$.fn.extend(AnchorHTMLElement.prototype, { ... } )  
-</pre>
+```
+$.fn.extend(AnchorHTMLElement.prototype, { ... } )
+```
 
 But it didn't work. If anyone has any idea why, please let me know.  
-This is also the reason why I have such specific names for the methods, and not just "enable"/"disable"</div>
+This is also the reason why I have such specific names for the methods, and not just "enable"/"disable"

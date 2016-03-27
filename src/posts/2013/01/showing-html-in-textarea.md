@@ -3,11 +3,9 @@ title: playframework - Showing HTML in textarea
 published: 2013-01-29T14:36:00.000-08:00
 description: make html to display in textarea with playframework
 keywords: playframework, html, textarea
+layout: post.hbs
 ---
 
-<div dir="ltr" style="text-align: left;" trbidi="on" class="mograblog">
-
-# Showing HTML in textarea
 
 Every now and then you get to show HTML in a textarea.  
 A common usage for this would be to copy some HTML code you should embed in your site  
@@ -15,7 +13,9 @@ A common usage for this would be to copy some HTML code you should embed in your
 In order to show the HTML properly, you need to escape it first.  
 So your code should look something like
 
-<pre><textarea><div>my div</div></textarea></pre>
+```
+<textarea><div>my div</div></textarea>
+```
 
 I write HTML in 4 environments.  
 
@@ -37,13 +37,9 @@ To see how you can [install extensions in your Sublime Text Editor](/2013/01/ste
 **Play 1.x** offers the function "raw()" to escape HTML.  
 You simply write something like
 
-<pre>  
-  ${"
-
-<div>my div</div>
-
-".raw()}  
- </pre>
+```
+${"<div>my div</div>".raw()}
+ ```
 
 and you get what you want.
 
@@ -51,21 +47,18 @@ Play 2.x is a bit trickier to understand, especially for those coming from play 
 Fortunately, the outcome is similar.  
 You simply write
 
-<pre>  
-  @Html("
-
-<div>my div</div>
-
-").toString()  
- </pre>
+```
+@Html("<div>my div</div>").toString()
+```
 
 What play 2.x offers that play 1.x does not is the ability to escape tag output.  
 Perhaps scala templates in play 1.x allowed this as well, I don't know. Anyway, this was not supported in play 1.x default template engine.  
 Since in play 2.x, tags are just scala functions, you can do just the same
 
-<pre>  
-  @views.html.my.template(args).toString()  
- </pre>
+```
+@views.html.my.template(args).toString()
+```
+
 
 And you get pretty much the same result.
 
@@ -82,7 +75,9 @@ I sometimes find it most useful to write a small JavaScript function,
 using JQuery, to remove leading and trailing spaces from these tags.  
 This script looks something like this:
 
-<pre>$("pre").each(function(index,item){ try{$(item).html($(item).html().trim())} catch(e){ console.log(e)} });</pre>
+```
+$("pre").each(function(index,item){ try{$(item).html($(item).html().trim())} catch(e){ console.log(e)} });
+```
 
 This at least allows me to create a newline.  
-Indentation is easily remove using <span class="kbd">shift + tab</span></div>
+Indentation is easily remove using `shift + tab`

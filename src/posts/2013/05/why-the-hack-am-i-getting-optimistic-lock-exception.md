@@ -1,30 +1,28 @@
 ---
 title: Why the Hack am I Getting OptimisticLockException?
-published: 2013-05-20T06:18:00.000-07:00
+published: 2013-05-20
 description: see how i resolved this exception quickly
 keywords: optimisticlockexception, ebean, playframework
+layout: post.hbs
 ---
 
-<div class="mograblog" dir="ltr" style="text-align: left;" trbidi="on">
 
-# Why the Hack am I Getting OptimisticLockException?
-
-<div>For a while now I've been trying to figure out an exception I got using EBean and Play!Framework.  
+For a while now I've been trying to figure out an exception I got using EBean and Play!Framework.
 I know what OptimisticLockException, and I know why it usually happens, but nothing matched my scenario.  
 Today I had an enlightenment and I managed to resolve the exception. Thought I'd share.  
-</div>
 
-<div>The following example is based on code I inherited from another developer.  
+
+The following example is based on code I inherited from another developer.
 I tried to give a relevant example as possible.  
-</div>
+
 
 ## The Problem
 
-<div>I am using playFramework 2 which uses EBean by default as an ORM.  
+I am using playFramework 2 which uses EBean by default as an ORM.
 I have 2 classes with @OneToOne relation  
-</div>
 
-<pre class="prettyprint">  
+
+```
 
 @Entity  
 class Book extends Model{  
@@ -44,49 +42,48 @@ class BookWriter extends Model{
  public class Writer writer; // also mapped, but not important for the story.  
 }  
 
- </pre>
+```
 
-<div>As you can see, I have an instance of BookWriter connecting between each book and its writer.  
+As you can see, I have an instance of BookWriter connecting between each book and its writer.
 I also added a "version" on the book so I'd get a lock exception if 2 people are overriding one another.  
 If I delete the book, I also want to delete the BookWriter - however not the writer itself.  
 If it is not obvious by now, I will never explicitly delete a BookWriter.  
 I will always delete the Book, and let the ORM cascade the deletion to preserve consistency.  
 So deleting a book looks like so:
 
-<pre>  
+```
 Book b=  Book.find(...).delete();     
-  </pre>
+```
 
 Surprising enough, this code throws OptimisticLockException that looks like this
 
-<pre>  
+```
 javax.persistence.OptimisticLockException: Data has changed. updated [0] rows sql[delete from book_writer where id=?] bind[null]  
- </pre>
+```
 
 The exception is thrown every time - which means this is not a race condition.  
 It even reproduced when a single thread handled the book.  
-So why would it throw this exception?</div>
+So why would it throw this exception?
 
 ## The Solution
 
-<div>The solution is quite simple once you notice it.  
+The solution is quite simple once you notice it.
 The foreign key is on the Book, and not the BookWriter.  
 The foreign key location is decided by the "mappedBy" attribute on the @OneToOne annotation.  
 Since BookWriter.book has "mappedBy" on it - this means that Book.bookWriter is the foreign key.  
-</div>
 
-<div>When EBean deletes the Book, first it goes to delete the BookWriter.  
+
+When EBean deletes the Book, first it goes to delete the BookWriter.
 Since it deletes the BookWriter - it updates the foreign key on the Book.  
 Then it tries to delete the Book, but notices something changed.  
-</div>
 
-<div>Stupid right?  
+
+Stupid right?
 You can easily resolve this by placing the foreign key on the BookWriter.  
 This way there's nothing to update after its deletion.  
-</div>
 
-<div>To achieve this, you simply need to remove the "mappedBy" from BookWriter.book and add "mappedBy='book' " on Book.bookWriter.  
+
+To achieve this, you simply need to remove the "mappedBy" from BookWriter.book and add "mappedBy='book' " on Book.bookWriter.
 You also have to modify the schema if you are not using automated tools for this.  
-</div>
 
-</div>
+

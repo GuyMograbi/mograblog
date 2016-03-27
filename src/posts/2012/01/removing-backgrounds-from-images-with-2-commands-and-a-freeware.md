@@ -3,9 +3,15 @@ title: removing backgrounds from images with 2 commands and a freeware
 published: 2012-01-11T13:56:00.000-08:00
 description: using imagemagick to remove background
 keywords: imagemagick
+layout: post.hbs
+shortcodes: true
 ---
 
-<div dir="ltr" style="text-align: left;" trbidi="on">I had a problem.. I bought an image from [istackphoto.com](http://www.istockphoto.com/) and I had to use it.  
+[#alert-info]
+This post is old and outdated. please visit the [new one](/posts/2013/04/removing-background-from-image-with-imagemagick-revisited.html)
+[#/alert-info]
+
+I had a problem.. I bought an image from [istackphoto.com](http://www.istockphoto.com/) and I had to use it.
 Seems the image was in [EPS](http://en.wikipedia.org/wiki/Encapsulated_PostScript) format and had 17MB !!  
 
 So I had an enormous EPS file that I needed to convert to a transparent PNG.  
@@ -22,15 +28,17 @@ I read about 30 blogs/forums and so on until I ran into a nifty tool call [image
 This tool provides some pretty useful commands you can run on your computer. (supports windows too).  
 For example
 
-<pre> convert guy.png -negate guy.png</pre>
+```
+convert guy.png -negate guy.png
+```
 
 which pretty much sorted the colors right away.. :)  
 
 In order to remove the background I used the following command
 
-<pre>  
+```
 convert guy.eps -resize 256x256 -alpha copy -negate guy.png  
-</pre>
+```
 
 The "negate" flag came to me after a while.  
 I had to read a bunch of articles : [mask 1](http://www.imagemagick.org/Usage/compose/#mask_trans)[mask 2](http://www.digitalphotoguides.com/remove-photo-background.html)[mask 3](http://www.imagemagick.org/discourse-server/viewtopic.php?f=10&t=8711) Now that's it! I have the image in transparent background. I still have some work to do on it since some places where there should be white, it is now transparent. But that's kids play for me.  
