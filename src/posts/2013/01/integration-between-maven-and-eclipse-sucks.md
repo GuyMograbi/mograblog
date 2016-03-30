@@ -20,7 +20,7 @@ It is important to note, I did not come across any problems while working with I
 Here is a list of all the problems I resolved. Note that I gathered 2 problems into 1 post.
 
 *   [Maven Ignores My Maven Settings](/2012/12/eclipse-ignores-maven-settings.html "Maven Ignores My Maven Settings")
-*   [Missing Artifacts ( 2 in the price of 1 )](/2013/01/troubleshooting-missing-artifact-in.html "Missing Artifacts")
+*   [Missing Artifacts ( 2 in the price of 1 )](/2013/01/troubleshooting-missing-artifact-in-eclipse-maven-repository.html "Missing Artifacts")
 *   [Maven Update Causes "Unsupported IClasspathEntry kind=4"](http://stackoverflow.com/questions/10564684/how-to-fix-error-updating-maven-project-unsupported-iclasspathentry-kind-4 "stack overflow thread about iclasspathentry kind 4") - A link to stackoverflow. I cannot write something better than the solution they give there.
 
 ## Why I Love Intellij
@@ -35,7 +35,7 @@ Combined with the "profiles" feature in Maven, you can easily run Maven commands
 Most common use case is the "skipTests" flag.  
 When you develop, you usually run install without tests for a while, and after a while you can run all the tests.  
 
-Intellij's take on Maven aligns to my [Workspace Best Practice](/2012/12/proper-workspace-1.html "Workspace Best Practice Part 1") paradigm that says you should not do everything from the IDE as the IDE usually has different configuration than production.  
+Intellij's take on Maven aligns to my Workspace Best Practice paradigm that says you should not do everything from the IDE as the IDE usually has different configuration than production.
 Sure I invoke the command from Intellij, but in Intellij's case, it executes exactly as it would on the command line, with minimum IDE interference.
 
 To be fair, Intellij does not lack problems.  

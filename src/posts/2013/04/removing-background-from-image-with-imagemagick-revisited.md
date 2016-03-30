@@ -7,7 +7,7 @@ layout: post.hbs
 ---
 
 
-A long time ago I wrote a post about [how to remove background from images using 2 simple commands with imagemagick.](/posts/2012/01/removing-backgrounds-from-images-with-2-commands-and-a-freeware.html "how to remove background from images")
+A long time ago I wrote a post about [how to remove background from images using 2 simple commands with imagemagick.](/2012/01/removing-backgrounds-from-images-with-2-commands-and-a-freeware.html "how to remove background from images")
 Recently, I acquired a new computer, and I had to download imagemagick again.  
 Obviously, I went to my blog to remember the commands I used, and I copy-pasted them, only to discover they do not work!  
 

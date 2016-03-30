@@ -7,7 +7,7 @@ layout: post.hbs
 ---
 
 
-In a previous post [Being Your Own Rest Client](/posts/2013/02/being-your-own-rest-client.html "Being Your Own Rest Client")
+In a previous post [Being Your Own Rest Client](/2013/02/being-your-own-rest-client.html "Being Your Own Rest Client")
 I explained how REST and API are 2 different things  
 and using REST API from your front-end is not really recommended  
 Lately I have been using postMessage to create JavaScript API clients.  

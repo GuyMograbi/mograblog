@@ -9,7 +9,7 @@ shortcodes: true
 
 
 
-[#alert-info]this article is part of a series of articles explaining about [seo and single page applications.](/posts/2014/10/seo-with-phantomjs.html)
+[#alert-info]this article is part of a series of articles explaining about [seo and single page applications.](/2014/10/seo-with-phantomjs.html)
 the stack i use contains node, angular, nginx etc.  
 in this part we are focusing on crawlers and single page applications  
 [#/alert-info]

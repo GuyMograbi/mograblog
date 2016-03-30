@@ -32,6 +32,6 @@ so i need a better solution.
 
 in the next couple of articles i will talk in depth about how to add seo support for single page applications.  
 
-*   [about phantomjs](/posts/2014/10/seo-wtih-phantomjs-part-1.html) - where i exaplain about phantom and show how to use it outside and inside of node server
-*   [single page application crawling](/posts/2014/10/seo-with-phantomjs-part-2.html) - where i explain a bit about how crawlers work and thus how the solution works
-*   [hooking it all together](/posts/2014/10/seo-with-phantomjs-part-3.html) - where we show how to generate sitemap at runtime and serve the prerendered version of the page
+*   [about phantomjs](/2014/10/seo-with-phantomjs-part-1.html) - where i exaplain about phantom and show how to use it outside and inside of node server
+*   [single page application crawling](/2014/10/seo-with-phantomjs-part-2.html) - where i explain a bit about how crawlers work and thus how the solution works
+*   [hooking it all together](/2014/10/seo-with-phantomjs-part-3.html) - where we show how to generate sitemap at runtime and serve the prerendered version of the page

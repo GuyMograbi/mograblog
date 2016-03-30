@@ -86,7 +86,7 @@ For example - if I need a single connection to the Database for a small query,
 it would be a shame to use Spring in order to initialize a connection pool and run in a different thread.
 
 I find CGLIB most useful in configuration objects.  
-I also used it to [extend selenium](/2013/07/extending-selenium-in-java.html "Mograblog Selenium Extension").
+I also used it to [extend selenium](/2013/08/extending-selenium-in-java.html "Mograblog Selenium Extension").
 
 So for configuration purposes, I want my application to have code like this :  
 

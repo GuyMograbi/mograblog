@@ -13,8 +13,6 @@ a directive that adds paging to your table using AngularJS.
 Thanks to AngularJS great structure, all code is reusable and activated  
 as easily as adding a class!  
 
-If you are reading this, you should definitely check out my [other examples](/2013/06/angularjs-smart-table.html)  
-for adding sort, filter and more to tables.  
 
 [#alert-info]
 DISCLAIMER: I am not an AngularJS expert. All my examples can probably  
@@ -38,7 +36,7 @@ to filter out the single page from the data list.
 
 # Creating The "Paging" Directive
 
-Using our [template for this post serie](/2013/06/angularjs-smart-table.html#postTemplate) we declare the smart table directive in  
+Using our [template for this post serie](/2013/06/angular-js-sort-filter-and-paging-a-table-directive.html#postTemplate) we declare the smart table directive in
 our JavaScript section like so
 
 ```

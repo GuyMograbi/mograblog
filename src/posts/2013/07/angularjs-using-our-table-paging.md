@@ -7,7 +7,7 @@ layout: post.hbs
 ---
 
 
-This is the second part of a [serie about AngularJS super table directives](/2013/06/angularjs-smart-table.html "Serie About AngularJS Super Table Directive")
+This is the second part of a [serie about AngularJS super table directives](/2013/06/angularjs-smart-table-1.html "Serie About AngularJS Super Table Directive")
 where we add "paging" and "search" and "sort" to a table in a highly  
 reusable, customizable way.  
 So far we have a directive that adds "prev" and "next" buttons.  
