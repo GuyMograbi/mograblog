@@ -83,4 +83,4 @@ If you have an IFrame with a URL you can simply use the `src` value.
 Ben Alman's plugin will convert it to the host name.  
 
 In my next post I will talk about how to use Ben Alman's plugin to [handle different messages  
-from different origins](/posts/2013/02/postMessage-plugin-part2.html "handle multiple messages from multiple origins using postMessage plugin").
+from different origins](/2013/02/how-to-make-post-message-support-multi-origins-and-multi-messages.html "handle multiple messages from multiple origins using postMessage plugin").

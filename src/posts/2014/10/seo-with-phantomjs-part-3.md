@@ -9,7 +9,7 @@ shortcodes: true
 
 
 [#alert-info]
-this article is part of a series of articles explaining about [seo and single page applications.](/posts/2014/10/seo-with-phantomjs.html)
+this article is part of a series of articles explaining about [seo and single page applications.](/2014/10/seo-with-phantomjs.html)
 the stack i use contains node, angular, nginx etc.  
 in this part we are tying up all the loose ends.  
 in this article you will have a single page application that supports seo.

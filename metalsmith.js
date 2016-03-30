@@ -16,6 +16,9 @@ var moment = require('moment');
 var excerpts = require('metalsmith-excerpts');
 var ShortcodeParser = require('meta-shortcodes');
 var logger = require('log4js').getLogger('metalsmith');
+var moveUp = require('metalsmith-move-up');
+var blc = require('metalsmith-broken-link-checker')
+
 
 
 
@@ -102,7 +105,9 @@ var app = new Metalsmith(__dirname)
         .use(function(pages){
             _.each(pages, function(p,path){
                 p.path = '/' + path.replace(/\.md$/,'.html');
-
+                if (p.path.indexOf('/posts') === 0){
+                    p.path = p.path.substring('/posts'.length);
+                }
             });
 
 
@@ -137,9 +142,11 @@ var app = new Metalsmith(__dirname)
         })
         .use(markdown())
         .use(excerpts())
+        .use(moveUp('posts/**'))
 
         .use(layouts({engine:'handlebars', partials:'layouts'}))
         .use(sass())
+        .use(blc())
 
         //.use(function(pages, metalsmith){
         //    var articles = _.filter(pages,{'collection' : ['articles']});

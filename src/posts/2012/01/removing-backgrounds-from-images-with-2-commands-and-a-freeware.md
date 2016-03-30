@@ -8,7 +8,7 @@ shortcodes: true
 ---
 
 [#alert-info]
-This post is old and outdated. please visit the [new one](/posts/2013/04/removing-background-from-image-with-imagemagick-revisited.html)
+This post is old and outdated. please visit the [new one](/2013/04/removing-background-from-image-with-imagemagick-revisited.html)
 [#/alert-info]
 
 I had a problem.. I bought an image from [istackphoto.com](http://www.istockphoto.com/) and I had to use it.

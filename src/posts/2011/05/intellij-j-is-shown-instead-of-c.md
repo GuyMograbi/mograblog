@@ -13,7 +13,7 @@ As I was looking at my blog's search keys that got people here, I noticed a weir
 intellij class file icon show j instead of c
 ```
 
-It seems I am the first result in google for this query. But amazingly, it is for an ["axis" related post.](/posts/2010/12/getting-really-annoyed-with-axis2.html)
+It seems I am the first result in google for this query. But amazingly, it is for an ["axis" related post.](/2010/12/getting-really-annoyed-with-axis-2.html)
 
 I decided I should dedicate a small post for this specific problem just in case someone else runs into it. Just so you'd know, I didn't find the result in [intellij's icons reference](http://www.jetbrains.com/idea/webhelp/file-types-recognized-by-intellij-idea.html) page.  
 

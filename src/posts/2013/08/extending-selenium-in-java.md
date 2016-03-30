@@ -140,8 +140,7 @@ This is where our FieldDecorator comes in - it is responsible for initializing t
 
 To achieve our goals, we need to use CGLib.  
 I really like using CGLib for Aspect Oriented Programming.  
-It is very useful when I need a good and flexible abstraction.  
-Read [more about CGLib on my blog](/search/label/cglib "Posts with CGLib").  
+It is very useful when I need a good and flexible abstraction.
 
 ```
 public class MograblogFieldDecorator implements FieldDecorator {  

@@ -6,7 +6,7 @@ keywords: postmessage, javascript
 layout: post.hbs
 ---
 
-In my [previous post I talked about HTML5 - cross domain messaging with postMessage](/posts/2013/02/postMessage-plugin-part1.html "HTML5 - cross domain messaging with postMessage"). I showed how to use a JQuery plugin written by Ben Alman that wraps this method and falls back on hash tags
+In my [previous post I talked about HTML5 - cross domain messaging with postMessage](/2013/02/html-5-cross-domain-messaging-with-post-message.html "HTML5 - cross domain messaging with postMessage"). I showed how to use a JQuery plugin written by Ben Alman that wraps this method and falls back on hash tags
 in the URL for older browsers.  
 In this post I will talk about how to improve the usage in this plugin to support multiple messages  
 from different origins.  

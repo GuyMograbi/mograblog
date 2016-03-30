@@ -11,7 +11,7 @@ In the previous posts we implemented a simple paging for a table
 using AngularJS directive and filter.  
 In this post, we will add a feature that enables us to choose which  
 columns we show.  
-The template we are using ( [See first post](/posts/2013/06/angularjs-smart-table.html))
+The template we are using ( [See first post](/2013/06/angularjs-smart-table-1.html))
 already places the available headers on the scope.  
 
 ## Step 1 - Show available headers on the page

@@ -10,7 +10,7 @@ shortcodes: true
 
 
 [#alert-info]
-this article is part of a series of articles explaining about [seo and single page applications.](/posts/2014/10/seo-with-phantomjs.html)
+this article is part of a series of articles explaining about [seo and single page applications.](/2014/10/seo-with-phantomjs.html)
 the stack i use contains node, angular, nginx etc.  
 in this part we are focusing on phantomjs and how to use it to prerender a page with javascript.  
 [#/alert-info]
@@ -100,4 +100,4 @@ phantom.create(function (ph) {
 
 ## Next part
 
-the next article will talk about [crawlers and single page application](/posts/2014/10/seo-with-phantomjs-part-2.html) where we will understand the problem and 2 solutions introduced by google and html5.
+the next article will talk about [crawlers and single page application](/2014/10/seo-with-phantomjs-part-2.html) where we will understand the problem and 2 solutions introduced by google and html5.
