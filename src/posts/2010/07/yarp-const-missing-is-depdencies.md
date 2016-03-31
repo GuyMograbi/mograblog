@@ -7,7 +7,7 @@ layout: post.hbs
 ---
 
 
-[![](http://3.bp.blogspot.com/_J3A8WqpdCX0/S82ZwITYVxI/AAAAAAAAAiE/pGk-YNcy4I8/s1600/rails_pothole.png)](http://3.bp.blogspot.com/_J3A8WqpdCX0/S82ZwITYVxI/AAAAAAAAAiE/pGk-YNcy4I8/s1600/rails_pothole.png)
+
 
 I am living on the edge, working with rails 2.3.4.. As I am moving to production, I decided to integrate with "[exception_notification](http://github.com/rails/exception_notification)" gem. (or plugin?) , and that's after looking at [Ryan's RailsCasts](http://railscasts.com/episodes/104-exception-notifications) that I love.  
 
@@ -50,3 +50,5 @@ Well, as I dug around, it seems what I had was loading order problems. The envir
 
 so I reverted back the plugin configuration, and it sorted everything out.  
 Another "nice" thing with plugins is that you don't need to install them on each new environment. You just checkout and go..
+
+[![](http://3.bp.blogspot.com/_J3A8WqpdCX0/S82ZwITYVxI/AAAAAAAAAiE/pGk-YNcy4I8/s1600/rails_pothole.png)](http://3.bp.blogspot.com/_J3A8WqpdCX0/S82ZwITYVxI/AAAAAAAAAiE/pGk-YNcy4I8/s1600/rails_pothole.png)
