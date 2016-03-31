@@ -6,9 +6,6 @@ keywords: python, pickle
 layout: post.hbs
 ---
 
-
-[![](http://3.bp.blogspot.com/-igKVD-8DeZI/TeN1pX4VLdI/AAAAAAAAA1w/K7i4vz7Joa0/s1600/python-logo-glassy_ori.png)](http://3.bp.blogspot.com/-igKVD-8DeZI/TeN1pX4VLdI/AAAAAAAAA1w/K7i4vz7Joa0/s1600/python-logo-glassy_ori.png)
-
 I recently learned how to write to a file in Python, and among it how to use Object Serialization library called "pickle".  
 
 According to [Documentation](http://docs.python.org/tutorial/inputoutput.html#the-pickle-module) it should be quite easy  
