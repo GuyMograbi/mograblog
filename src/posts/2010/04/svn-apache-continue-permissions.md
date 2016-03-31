@@ -6,13 +6,14 @@ keywords: svn, apache, security, permissions
 layout: post.hbs
 ---
 
-[![](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s200/rails-flash.jpg)](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s1600/rails-flash.jpg)
+
 
 [Last time](http://mograblog.blogspot.com/2010/04/svn-apache-easy-lets-make-it-work.html) I explained how I got my Apache to forward calls to the SVN.  
 It was pretty hard due to lack of documentation.  
 
 This time I wanted to configure some basic permissions. It was pretty easy - and I also found great documentation. One catch though... as always.  
 
+[![](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s200/rails-flash.jpg)](http://1.bp.blogspot.com/_J3A8WqpdCX0/S7mA62ZCkHI/AAAAAAAAAbY/TFOnWXhtrr0/s1600/rails-flash.jpg)
 
 # Goal Definition
 
