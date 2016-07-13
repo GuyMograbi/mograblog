@@ -4,7 +4,7 @@
   "scripts": {
     "start": "metalsmith-start",
     "build": "node metalsmith.js",
-    "upload": "npm run build && bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
+    "upload": "npm run build && echo 'starting upload' && bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
   },
   "dependencies": {
     "bucketful": "^0.15.5",
