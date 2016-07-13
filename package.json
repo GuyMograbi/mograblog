@@ -2,9 +2,9 @@
   "name": "mograblog",
   "version": "0.0.0",
   "scripts": {
-    "start": "./node_modules/.bin/metalsmith-start",
+    "start": "metalsmith-start",
     "build": "node metalsmith.js",
-    "upload": "npm run build && ./node_modules/.bin/bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
+    "upload": "npm run build && bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
   },
   "dependencies": {
     "bucketful": "^0.15.5",
