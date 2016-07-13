@@ -2,10 +2,4 @@
 
 
 
-# Roadmap
-
- - import content from blogger
- - apply new layout
- - link to google + profile
- - add google analytics
- - add ads
+http://www.mograblog.com/
