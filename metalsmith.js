@@ -17,7 +17,8 @@ var excerpts = require('metalsmith-excerpts');
 var ShortcodeParser = require('meta-shortcodes');
 var logger = require('log4js').getLogger('metalsmith');
 var moveUp = require('metalsmith-move-up');
-var blc = require('metalsmith-broken-link-checker')
+var blc = require('metalsmith-broken-link-checker');
+var rss = require('metalsmith-rss');
 
 
 
@@ -107,6 +108,7 @@ var app = new Metalsmith(__dirname)
                 p.path = '/' + path.replace(/\.md$/,'.html');
                 if (p.path.indexOf('/posts') === 0){
                     p.path = p.path.substring('/posts'.length);
+                    p.url = p.path;
                 }
             });
 
@@ -147,6 +149,13 @@ var app = new Metalsmith(__dirname)
         .use(layouts({engine:'handlebars', partials:'layouts'}))
         .use(sass())
         .use(blc())
+        .use(rss({
+            collection: 'articles',
+            feedOptions:{
+                title:'Mograblog',
+                site_url: 'http://www.mograblog.com'
+            }
+        }))
 
         //.use(function(pages, metalsmith){
         //    var articles = _.filter(pages,{'collection' : ['articles']});
