@@ -6,4 +6,19 @@
   .about-me{
     position:fixed;
   }
+  h1>a{
+    color:black;
+    &:active, &:hover{
+      text-decoration: none;
+    }
+  }
+  
+  .read-more{
+    float:right;
+  }
+  
+  .entry{
+    padding-bottom: 40px;
+    padding-top:20px;
+  }
 }

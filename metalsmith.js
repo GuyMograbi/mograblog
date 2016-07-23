@@ -11,6 +11,7 @@ var layouts = require('metalsmith-layouts');
 var sass = require('metalsmith-sass');
 var collections = require('metalsmith-collections');
 var path = require('path');
+var drafts = require('metalsmith-drafts');
 var _ = require('lodash');
 var moment = require('moment');
 var excerpts = require('metalsmith-excerpts');
@@ -53,6 +54,7 @@ handlebars.registerHelper('hbs', function(context){
 });
 
 var app = new Metalsmith(__dirname)
+        .use(drafts())
         .use(function( pages, metalsmith){
             //console.log(metalsmith.collections);
             metalsmith._metadata = {};
