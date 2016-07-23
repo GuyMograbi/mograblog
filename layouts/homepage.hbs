@@ -14,13 +14,14 @@
         {{{contents}}}
             <div class="logo"></div>
             {{#each collections.articles}}
-                <div>
+                <div class="entry">
                 <!--{{!json .}}-->
-                <h1>{{ title }}</h1>
+                <h1><a href="{{path}}">{{ title }}</a></h1>
                 <h3>{{moment published 'DD MMM YYYY' }}</h3>
 
-                {{{excerpt}}}<a href="{{path}}">read more</a>
+                {{{excerpt}}}<a class="read-more" href="{{path}}">read more &#8594;</a>
                 </div>
+                <hr/>
             {{/each}}
         </div>
 
