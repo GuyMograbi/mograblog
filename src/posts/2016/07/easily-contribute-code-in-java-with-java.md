@@ -82,5 +82,29 @@ Well, lets say `mvn install` crashed. How can you debug the problem?
 You have a build log available at: 
 
 `https://jitpack.io/com/github/__username__/__repo_name__/__tag__/build.log`
+
+# Few reason to write a micro lib
+
+Micro libs are awesome because: 
+
+ - They are usually well documented due to the fact there's not much to document. 
+ - If needed, you can read and debug their code easily. 
+ - The last point means you can also easily contribute. 
+ - They are easy to write. Everyone has something to contribute and github makes it even easier with the markdown rendering.
+ - All of the above is what makes an active community, which in itself is awesome and brings diversity and ingenuity. 
+ 
+# Conclusion 
+ 
+I really hope Java will be able to create a healthy, micro lib based community.    
+JitPack certainly makes this dream possible. I can't see this community starting with it.   
+
+There is just one more problem I thing should be resolved before people will feel safe to go micro.   
+And that's the classpath hell problem...
+npm/nodejs resolve this problem by not using a global `require`. Importing in nodejs is always relative to the requiring file.  
+
+
+So I will address this problematic issue next.   
+At the meantime, you can follow and contribute to [my stackoverflow question](http://stackoverflow.com/questions/38477570/how-can-i-have-multiple-and-separated-classpaths-in-java). 
+ 
  
 
