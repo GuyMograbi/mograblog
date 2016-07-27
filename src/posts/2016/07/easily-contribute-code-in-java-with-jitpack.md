@@ -81,7 +81,9 @@ and then add the dependency with the details mentioned above.
 Well, lets say `mvn install` crashed. How can you debug the problem?   
 You have a build log available at: 
 
-`https://jitpack.io/com/github/__username__/__repo_name__/__tag__/build.log`
+```
+https://jitpack.io/com/github/__username__/__repo_name__/__tag__/build.log
+```
 
 # Few reason to write a micro lib
 
