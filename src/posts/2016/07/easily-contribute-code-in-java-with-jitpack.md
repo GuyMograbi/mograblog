@@ -33,7 +33,7 @@ In node/npm it is fairly easy because:
  - is supports source repositories like github out of the box. 
  - it does not require any module building beforehand
  - it does not have any hard requirements to comply to
- - [libraries exist](https://github.com/sindresorhus/np) that make this process a painless one command without any code change.  
+ - [libraries exist](https://github.com/sindresorhus/np) that make this process a painless single-command without any code change.  
 
  
 but in maven? How to you easily publish a micro library (framework!).
