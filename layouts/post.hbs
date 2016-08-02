@@ -21,7 +21,7 @@
                 <a style="float:right" href="{{next.path}}" title="{{next.title}}">Next &#8594;</a>
             {{/if}}
         </div>
-        <h1>{{title}}</h1>
+        <h1 class="post-title">{{title}}</h1>
         <h3>{{moment published 'DD MMM YYYY' }}<span class="gitter-link"><a href="https://gitter.im/GuyMograbi/mograblog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/GuyMograbi/mograblog.svg"/></a></span></h3>
         
         {{{hbs contents}}}
@@ -36,6 +36,10 @@
         </div>
         <div style="height:100px" class="push"></div>
     </div>
+    
+    <script src="/scripts/mograblog-events.js"></script>
+       
+    
 
     <div id="disqus_thread"></div>
     <script>
