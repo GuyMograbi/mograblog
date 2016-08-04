@@ -238,6 +238,9 @@ Once you've done this the Typescript compiler is happy and you can work as usual
 
 # That's all folks
  
-So this sums up all my setup experience in Typescript. 
+So this sums up all my setup experience in typescript.     
+As you can see adding typescript to an existing project is easy and can be done in a none intrusive way.   
+While for a new project programs like webpack and rollup might get you an easier start, there is no reason 
+why not to add typescript to your existing projects right now. 
 
-If you are starting a new project, I recommend you check out webpack or something. 
+ 
