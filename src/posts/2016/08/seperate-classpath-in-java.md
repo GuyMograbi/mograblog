@@ -1,113 +1,154 @@
 ---
-title: Contribute a micro library to java with jit today!
-draft: true
-published: false
+title: Java classpath hell solution
+published: 2016-08-14T22:30:00.001-07:00
 layout: post.hbs
-keywords: java jit
-description: Contributing open source in java is suprt easy with jit.  
+keywords: java, classpath
+description: Keep your classpath clean and sweet using this trick  
 ---
 
-After a looot of reading.. This is what I came up with to make java acts a little more like nodejs require method. 
+If there's one thing I really like in `nodejs` is how it loads dependencies.   
+Each dependency is loaded relatively from the current file or from a known path (usually `node_modules`).   
+Unfortunately in java things are much messier. Today I will show how you can create a folder named `java_modules` that acts similarly to `node_modules`.      
+      
+# The example
 
+In today's post we will consider the following as the example at hand: 
 
-# Assumption before I begin
+```java
+package guymograbi;
 
-The assumption I make is based on how node_modules behave. So lets have a look at it first: 
-
-## Fact: how it is in npm
-
-The `node_modules` folder looks like so
-
-    node_modules
-              +----  dep_1
-              +----  dep_2
-
-each `dep_x` is a folder representing a single dependency.    
-
-the `package.json` can declare a `main` file that will be used if we simple `require('dep_1')`
-
-
-## Assuming the following on Java
-
-Each dependency we have in our maven `pom.xml` represents a single dependency as well. In Java, this is correct if one of the following applies: 
- 
-- a dependency is a single jar containing all its dependencies. 
-- a dependency is implemented in the same way I am suggesting right here(will be explained again at the bottom)
-
-So lets assume our code has a `java_modules` library with the following structure: 
-
-    java_modules
-             +---- dep_1.jar
-             +---- dep_2.jar
-
-where each `dep_x.jar` contains all its dependencies inside and is never dependent on `dep_y.jar`
-
-# Lets talk about a specific use-case
-
-So lets assume dep_1 and dep_2 has some class called `guymograbi.MyMessage` with method `getMessage` that returns a string. 
-
-    package guymograbi;
-
-    public class MyMessage {
-    
-        public String getMessage(){
-            return "message from dep_1";
-        }
-    
+public class MyMessage {
+    public String getMessage(){
+        return "message from dep_1";
     }
+}
+```
 
-# And now for the code
+The problem we are trying to solve is about multiple classes named `guymograbi.MyMessage` in the classpath.   
+What is I have `module-a.jar` and `module-b.jar` (which can represent different versions of the same jar, right?), each containing `guymograbi.MyMessage`.    
 
-## Option 1 - all reflection all the way
+What if we have `dependency-a` and `dependency-b` both relying on `module-a` and `module-b` respectively?   
+Lets also assumes there's no backward compatibility.    
+We need to find some way to let `dependency-a` load `module-a` , while letting `dependency-b` load `module-b` and avoid collisions. 
 
-So given the assumption above, we can now write the following code require class `MyMessage` from dependency `dep_1` and invoke function `getMessage`
+Turns out the solution is not that hard or crazy.. We might want to consider changing the way we pack our project in java.
 
+# First solution - Use reflection
+       
+We will soon see that this solution is not so good. We are actually losing all of java's benefits.   
+But this is how it would look like should we choose to use this method
+       
+       
+```java
+public String runGetMessageFromDep1() throws MalformedURLException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    URL url = new File("java_modules/dep_1.jar").toURI().toURL();
+    URLClassLoader urlClassLoader = new URLClassLoader(new URL[]{url});
+    Object o = urlClassLoader.loadClass("guymograbi.MyMessage").newInstance();
+    return (String) o.getClass().getMethod("getMessage").invoke(o);
+}       
+```
+       
+Ug-ly!
+      
+Do I even need to specify the reasons why not to use this method?       
 
-
-     public String runGetMessageFromDep1() throws MalformedURLException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        URL url = new File("java_modules/dep_1.jar").toURI().toURL();
-        URLClassLoader urlClassLoader = new URLClassLoader(new URL[]{url});
-        Object o = urlClassLoader.loadClass("guymograbi.MyMessage").newInstance();
-        return (String) o.getClass().getMethod("getMessage").invoke(o);
-    }
-
-This code can be made generic enough to suite for all our needs..   
-However! this is not nice because it does not: 
-
- - benefit from java strong typing. 
+ - does not benefit from java strong typing. 
  - will not produce nice stack traces
  - simply not the java way.. 
 
-# One more assumption to make it all fit
+### Note! It would be better to find the jar by using `getResource` rather than `File`
 
-Then, I considered `typescript` and how it behaves in `nodejs`.   
-For `typescript` to work well in `nodejs` you have the `definitions` available somewhere. 
+This is a good point to bring up now, and this will be very useful below when we try to resolve problems to scale this solution.    
 
-In Java - this simply means an API is exposed. 
+If we could assume that `java_modules` is in our classpath, all we need to do is
 
-So now, lets assume each dependency we have also exposes a separate `api.jar`. so that if I want to use `MyMessage` there is an `IMyMessage` class somewhere exposing its interface, and `MyMessage` is implementing that interface. 
+```java
+return MyMain.class.getClassLoader().getResource("dep_1.jar").toURI().toURL();
+```
 
-The api will be in the main classpath, so I can reference it. I will only separate the implementation's classpath. 
+This is even more similar to how `node_modules` behave in `nodejs`. Which for me looks like a good sign. 
 
-Then, I found out that java actually supports this built in(!) since java 6! with something called `ServiceLoader`. 
+# Second solution - ServiceLoader!
 
-## How to use it
-
+This solution assumes there's an API exposed in an external jar, which is quite reasonable nowadays. 
 So ServiceLoader assumes each interface has a declared implementation. In our example it is : 
 
-   resource/META-INF/services
-                          +---- guymograbi.IMyMessage
+```
+resource/META-INF/services
+                    +---- guymograbi.IMyMessage
+```                        
  
-and the file's content is the implementation classname - `guymograbi.MyMessage`. 
+And the file's content is the implementation classname - `guymograbi.MyMessage`.   
+This is similar to `package.json` `main` entry.   
+Still this is a bit ugly.. can we avoid this?    
+For now, this is how the code looks like: 
 
-This is actually an assumption I would like to avoid.. we will see how soon. 
 
-And now the code will now look like this
+```java
+// .. create class loader like before
+ServiceLoader<IMyMessage> load = ServiceLoader.load(IMyMessage.class, urlClassLoader);
+for (IMyMessage t : load) {
+    return t;
+}
+throw new RuntimeException("could not find implementation to IMyMessage"); 
+```    
+
+# Using both worlds
+
+Do we really need the `ServiceLoader`?   
+Why not simply use: 
+
+```
+return (IMyMessage) urlClassLoader.loadClass("guymograbi.MyMessage").newInstance();
+```
+
+Now this is becoming more like `nodejs`. We are requiring classes relative to their classpath.    
+Now there's no need to declare all interfaces and their implementations in `META-INF`.   
+
+# Piece of cake
+
+Do you use any factory? Spring, Guice?    
+Then you can simply implement a factory that uses `ServiceLoader` and you will never know the difference :)   
+You will get the same behavior but a cleaner classpath. 
+
+# So what's stopping me from using it right now? 
 
 
-    // .. create class loader like before
-    ServiceLoader<IMyMessage> load = ServiceLoader.load(IMyMessage.class, urlClassLoader);
-    for (IMyMessage t : load) {
-        return t;
-    }
-    throw new RuntimeException("could not find implementation to IMyMessage"); 
+## Better way to pack my project 
+
+Before I use it, there is 1 more thing I am missing.. An easy way to pack the project.     
+I would like to have the following structure
+
+```
+   - my-jar.jar
+   + java_modules // a directory that contains all my dependencies but is not included in the classpath
+       - dependency #1
+       - etc.. 
+       
+```
+
+While this problem exists, it is less interesting. 
+
+## I need this solution to scale
+
+If I use `ServiceLoader` in my module as described, I need a way to make my module reused.   
+Basically this means I need the first problem to scale.    
+ 
+This is a much more interesting problem to solve. 
+
+If everyone were to use `ServiceLoader` tomorrow it would be easier, but that's not the case.    
+
+So we need
+
+ - a single jar solution for anyone not using `ServiceLoader`
+ - a `java_modules` solution for anyone using `ServiceLoader`
+ 
+# How to solve those problems
+ 
+ - We can use `mvn dependencies:tree` plugin to construct the desired folder structure once we packaged 3rd-parties properly. 
+ - We will need a way to allow dependencies to find their dependencies. There are 2 simple ways to do that:
+   - rely on whoever invoked us that he defined the ClassLoader in a way that puts our `java_modules` in our classpath..  - This is my favorite solution as mentioned before. 
+   - specify the relative path to the desired `jar` files for the `UrlClassLoader`. [This is an interesting suggestion](http://stackoverflow.com/a/5667601/1068746) to solve that problem.    
+     While this is also nice, we still rely on whoever packed us.. so why bother?
+   
+ 
