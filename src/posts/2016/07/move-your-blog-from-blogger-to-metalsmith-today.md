@@ -118,8 +118,8 @@ To get your secret S3 credentials you need to install travis command line and ru
 
 `travis S3_SECRET_KEY="$S3_SECRET_KEY" S3_KEY="$S3_KEY" --add env`
 
-
 And that's it - now if you enable the repository in travis, it will upload the website. 
 
 
+<div class="info">Checkout my next post on [static website and how to add pageviews counter](/2016/08/static-site-page-counter.html)</div>
 

@@ -20,6 +20,7 @@ var logger = require('log4js').getLogger('metalsmith');
 var moveUp = require('metalsmith-move-up');
 var blc = require('metalsmith-broken-link-checker');
 var rss = require('metalsmith-rss');
+var fs = require('fs-extra');
 
 
 var parsers = {
@@ -155,6 +156,10 @@ var app = new Metalsmith(__dirname)
         site_url: 'http://www.mograblog.com'
       }
     }))
+  .use(function(pages,metalsmith){
+    console.log(metalsmith._destination);
+    fs.copySync('bower_components', path.join(metalsmith._destination,'bower_components'));
+  })
 
 //.use(function(pages, metalsmith){
 //    var articles = _.filter(pages,{'collection' : ['articles']});
