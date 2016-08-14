@@ -15,10 +15,6 @@
 
   a {
     line-height: 20px;
-    &:hover {
-      background: $MAIN_COLOR;
-      color: $SECONDARY_COLOR;
-    }
   }
 
   .links {
@@ -31,8 +27,25 @@
       &:first-child {
         border-right: 1px solid $MAIN_COLOR;
       }
-      text-decoration: none;
+      
 
     }
+  }
+}
+
+a.mograblog-link{
+  text-decoration: none;
+  &:hover {
+    background: $MAIN_COLOR;
+    color: $SECONDARY_COLOR;
+  }
+}
+
+a.mograblog-link-inverse{
+  text-decoration: none;
+  color:white;
+  &:hover{
+    color:#4B77BE;
+    background:white;
   }
 }

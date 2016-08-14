@@ -15,3 +15,9 @@ References
  - http://www.echojs.com/submit
  - https://www.infoq.com/contribute
  - http://www.oreilly.com/work-with-us.html
+ 
+ 
+Add counter
+ 
+ - https://www.sendgrowth.com/resources/realtime-counter/
+ - https://mixpanel.com/help/reference/jql/api-reference#api/access

@@ -1,0 +1,7 @@
+{
+  "name": "mograblog",
+  "version": "0.0.0",
+  "dependencies": {
+    "slug": "~0.9.1"
+  }
+}
