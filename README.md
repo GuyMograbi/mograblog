@@ -15,6 +15,8 @@ References
  - http://www.echojs.com/submit
  - https://www.infoq.com/contribute
  - http://www.oreilly.com/work-with-us.html
+ - https://www.javascript.com/
+ - https://news.js.org
  
  
 Add counter

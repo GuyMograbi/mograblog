@@ -2,7 +2,7 @@
 title: Move your blog from blogger to metalsmith today
 published: 2016-07-13T22:30:00.001-07:00
 layout: post.hbs
-keywords: metalsmith
+keywords: metalsmith, javascript
 description: Moving your blog out of blogger and migrating to metalsmith is easy and worth your while. This is how you can do it. 
 ---
 

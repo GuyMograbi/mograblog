@@ -1,7 +1,7 @@
 ---
 title: AngularJS - Table Paging Directive
 published: 2013-06-24T13:49:00.000-07:00
-keywords: angular
+keywords: angular, javascript
 description: you can write a paging directive in a couple of minutes.
 layout: post.hbs
 shortcodes: true

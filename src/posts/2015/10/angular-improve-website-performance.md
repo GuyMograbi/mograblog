@@ -2,7 +2,7 @@
 title: Angular - improve website performance with 5 lines of code..
 published: 2015-10-11T22:30:00.001-07:00
 layout: post.hbs
-keywords: angular
+keywords: angular, javascript
 description: 5 lines of code in angular written once can affect your entire project by auto releasing resources and cancel delayed action after navigating away from the page. in this post i will explore and explain the problem and its solutions.
 ---
 
