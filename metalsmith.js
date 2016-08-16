@@ -103,6 +103,12 @@ var app = new Metalsmith(__dirname)
       }
       pList.reverse(); // reverse back for index page..
     })
+    .use(function (pages, metalsmith) {
+      metalsmith._metadata.collections.javascriptArticles = _.filter(metalsmith._metadata.collections.articles, function (a) {
+        return a.keywords.indexOf('javascript') >= 0;
+      });
+      console.log(metalsmith._metadata.collections.javascriptArticles.length);
+    })
 
     .use(function (pages) {
       _.each(pages, function (p, path) {
@@ -156,10 +162,19 @@ var app = new Metalsmith(__dirname)
         site_url: 'http://www.mograblog.com'
       }
     }))
-  .use(function(pages,metalsmith){
-    console.log(metalsmith._destination);
-    fs.copySync('bower_components', path.join(metalsmith._destination,'bower_components'));
-  })
+    .use(rss({
+      collection: 'javascriptArticles',
+      destination: 'javascript-rss.xml',
+      feedOptions: {
+        title: 'Mograblog',
+        site_url: 'http://www.mograblog.com'
+
+      }
+    }))
+    .use(function (pages, metalsmith) {
+      console.log(metalsmith._destination);
+      fs.copySync('bower_components', path.join(metalsmith._destination, 'bower_components'));
+    })
 
 //.use(function(pages, metalsmith){
 //    var articles = _.filter(pages,{'collection' : ['articles']});
