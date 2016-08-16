@@ -1,7 +1,7 @@
 ---
 title: AngularJS Cookies Example
 published: 2013-05-06
-keywords: angular
+keywords: angular, javascript
 description: here is how you can use cookies in angular
 layout: post.hbs
 ---

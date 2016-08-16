@@ -2,7 +2,7 @@
 title: Gruntfile.js - adding another HTML file to usemin
 published: 2013-11-04T22:34:00.000-08:00
 description: how to use usemin and grunt
-keywords: grunt, usemin
+keywords: grunt, usemin, javascript
 layout: post.hbs
 ---
 

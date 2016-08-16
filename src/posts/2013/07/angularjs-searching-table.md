@@ -1,7 +1,7 @@
 ---
 title: AngularJS - Searching The Table
 published: 2013-07-15T07:00:00.000-07:00
-keywords: angular
+keywords: angular, javascript
 description: lets add search on our tables
 layout: post.hbs
 ---

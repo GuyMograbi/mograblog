@@ -2,7 +2,7 @@
 title: AngularJS - Adding "Toggle Header" Feature
 published: 2013-07-08T06:39:00.000-07:00
 description: lets add 'toggle' for column sorting
-keywords: angular
+keywords: angular, javascript
 layout: post.hbs
 ---
 
