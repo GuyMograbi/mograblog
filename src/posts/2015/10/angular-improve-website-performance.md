@@ -1,5 +1,5 @@
 ---
-title: Angular - improve website performance with 5 lines of code..
+title: Angular - 5 lines of code to prevent memory leaks
 published: 2015-10-11T22:30:00.001-07:00
 layout: post.hbs
 keywords: angular, javascript
