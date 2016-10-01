@@ -27,6 +27,7 @@ References
     - https://www.reddit.com/r/javascript/submit 
  - all 
     - https://dzone.com
+    - https://news.ycombinator.com/newest
     
  
  
