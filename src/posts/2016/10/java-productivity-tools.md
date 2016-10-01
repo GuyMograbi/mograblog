@@ -25,7 +25,12 @@ Simply add JitPack as a repository in your project, use your github account as y
         
 I'd still love to see something similar to this but with compilation on the client side.   
 Which means the sources are downloaded to your machine and then compiled for your project.      
-While this idea sounds counterintuitive, I think it will show lots of benefits. 
+While this idea sounds counterintuitive, I think it will show lots of benefits.    
+One of those benefits is that everything is debuggable - just like in node.    
+If I have a problem with some 3rd-party, I can simply debug it and modify its sources.  
+
+In Java I need the sources, and even if I have them I usually cannot change the source - it is definitely not easy. 
+But if the dependency mechanism will assume building the sources is always required, then there'd be no problem. 
 
 # [mavenmon](https://github.com/coder-on-deck/mavenmon) 
 
