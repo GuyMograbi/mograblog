@@ -37,3 +37,11 @@ Add counter
  
  - https://www.sendgrowth.com/resources/realtime-counter/
  - https://mixpanel.com/help/reference/jql/api-reference#api/access
+ 
+ 
+# Roadmap
+
+ - [ ] compile only modified files
+ - [ ] create 'future posts' section
+ - [ ] use webpack to pack js for mograblog. remove task to copy bower_components in this case..
+ 
