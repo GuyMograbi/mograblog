@@ -43,6 +43,7 @@ Add counter
  - http://kangax.github.io/compat-table/es2016plus/
  - https://github.com/angular/angular/blob/master/CHANGELOG.md
  - http://angularjs.blogspot.co.il/
+ - https://www.npmjs.com/browse/updated
  
 # Roadmap
 
