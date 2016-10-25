@@ -30,14 +30,19 @@ References
     - https://news.ycombinator.com/newest
     
  
- 
- 
- 
+  
 Add counter
  
  - https://www.sendgrowth.com/resources/realtime-counter/
  - https://mixpanel.com/help/reference/jql/api-reference#api/access
  
+# Good Resources 
+
+ - https://www.chromestatus.com/features/5062926088011776
+ - https://platform-status.mozilla.org/
+ - http://kangax.github.io/compat-table/es2016plus/
+ - https://github.com/angular/angular/blob/master/CHANGELOG.md
+ - http://angularjs.blogspot.co.il/
  
 # Roadmap
 
