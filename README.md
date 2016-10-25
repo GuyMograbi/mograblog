@@ -44,6 +44,7 @@ Add counter
  - https://github.com/angular/angular/blob/master/CHANGELOG.md
  - http://angularjs.blogspot.co.il/
  - https://www.npmjs.com/browse/updated
+ - http://blog.npmjs.org/
  
 # Roadmap
 
