@@ -188,7 +188,7 @@ and you end up with a lot of APIs that you need to know to quickly write a test.
 
 And this is a problem Typescript solves perfectly.
  
-So to make intellij run `ts` files, you simply need to run `ts-node`. Similar to the trick I should you before, running `ts-node ./node_modules/.bin/protractor protractor.conf.js` does the trick here too. 
+So to make intellij run `ts` files, you simply need to run `ts-node`. Similar to the trick I showed you before, running `ts-node ./node_modules/.bin/protractor protractor.conf.js` does the trick here too. 
 
 And when I need to debug, I fallback to the compilation method. 
 
