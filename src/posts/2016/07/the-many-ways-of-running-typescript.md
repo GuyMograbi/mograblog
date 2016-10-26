@@ -206,9 +206,9 @@ Typings is very similar to `npm` in nature - for example it can save the depende
 Simply do `npm install typings -S` and then `./node_modules/.bin/typings search protractor` and you will find the package you need to install. 
 
 ```bash
-typings install td~angular-protractor -S --global
-typings install td~selenium-webdriver -S --global
-typings install td~jasmine -S --global
+typings install dt~angular-protractor -S --global
+typings install dt~selenium-webdriver -S --global
+typings install dt~jasmine -S --global
 ```
 
 will install the definitions for protractor, selenium and jasmine. all are needed to run tests in protractor.  
