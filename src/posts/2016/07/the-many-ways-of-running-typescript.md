@@ -178,7 +178,7 @@ angular.bootstrap(document, ['myApp']);
 Which you can either pack as another file that systemjs loads, or as a callback on the `System.import().then(...)` to execute when everything is loaded.
 
 
-# Running in some 3 library like protractor
+# Running protractor with typescript
 
 So protractor is actually the reason I am inspired to use typescript.     
 I think tests are a wonderful starting point for new technologies to be experienced in a project/team.   
@@ -235,6 +235,29 @@ So write a test for protractor will have these lines at the top of the file
 Note the path is relative and so might change in your project. 
 
 Once you've done this the Typescript compiler is happy and you can work as usual. 
+
+# Using existing nodejs libraries
+
+One last item is left for this post, and that's how to use existing nodejs libraries (like 'path' and 'fs') with Typescript.
+All you will need is to install nodejs typings
+
+```
+typings install dt~node -S --global
+```
+
+and then reference it
+
+```
+/// <reference path="../typings/globals/node/index.d.ts" />
+```
+
+Then you can write code as you know it
+
+```
+var path = require('path');
+//or
+import path = require('path');
+```
 
 # That's all folks
  
