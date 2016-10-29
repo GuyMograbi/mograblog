@@ -3,7 +3,7 @@ title: Configuration Module for NodeJS
 published: 2013-10-28T02:45:00.000-07:00
 description: write your own configuration module in play with couple lines of code
 keywords: node, nodejs, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 

@@ -3,7 +3,7 @@ title: Implementing Base Templates In Play 2.0 Without Passing Arguments
 published: 2013-01-15T20:08:00.000-08:00
 keywords: play!framework
 description: define easy templates in play2.0
-layout: post.hbs
+layout: post.pug
 ---
 
 I just migrated from Java+Play1.0 to Java+Play2.0 and the templates are the hardest part so far, and the best way I found to implement a base template (for title, head etc..) is by using the Http.Context. There is a very nice syntax you can achieve with tags.

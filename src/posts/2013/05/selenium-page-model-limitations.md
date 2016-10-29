@@ -3,7 +3,7 @@ title: Selenium Page Model Limitations
 published: 2013-05-13
 description: selenium is nice and all, but it is quite limited.
 keywords: selenium
-layout: post.hbs
+layout: post.pug
 ---
 
 

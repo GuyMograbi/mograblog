@@ -1,7 +1,7 @@
 ---
 title: 3 tools to increase your Java productivity 
 published: 2016-10-1T22:30:00.001-07:00
-layout: post.hbs
+layout: post.pug
 keywords: java,nodejs,mavenmon, jitpack, jabba
 description: mavenmon, jitpack and jabba will help you write better and faster java code 
 ---

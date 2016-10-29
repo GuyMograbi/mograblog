@@ -3,7 +3,7 @@ title: Troubleshooting Missing Artifact in Eclipse Maven Repository -
 published: 2013-01-01T02:42:00.000-08:00
 description: another reason why i hate eclipse and how to solve it
 keywords: eclipse
-layout: post.hbs
+layout: post.pug
 ---
 
 

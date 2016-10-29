@@ -3,7 +3,7 @@ title: Rails Quicky - path , xxx_path function is undefined
 published: 2010-04-03T01:52:00.000-07:00
 keywords: rails
 description: how to resolve xxx_path function is undefined
-layout: post.hbs
+layout: post.pug
 ---
 
 As I am going over the rails book - I reached the I18N section.  

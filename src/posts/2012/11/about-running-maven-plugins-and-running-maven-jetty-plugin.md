@@ -3,7 +3,7 @@ title: About Running Maven Plugins and Running Maven Jetty Plugin
 published: 2012-11-21T09:07:00.001-08:00
 description: some notes you should know when running jetty plugin with maven
 keywords: maven, jetty
-layout: post.hbs
+layout: post.pug
 ---
 
 

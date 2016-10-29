@@ -3,7 +3,7 @@ title: Gruntfile.js - adding another HTML file to usemin
 published: 2013-11-04T22:34:00.000-08:00
 description: how to use usemin and grunt
 keywords: grunt, usemin, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 Recently I started using node and with it yo, grunt and bower. It is nice to get a quick kickstart. But now when I have to add/modify something in the build process, I get stumped a lot.

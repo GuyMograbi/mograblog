@@ -3,7 +3,7 @@ title:  AngularJS - Using Our Table Paging Directive
 published: 2013-07-01T06:06:00.000-07:00
 keywords: angular, javascript
 description: final step of tutorial - start using the directive you wrote.
-layout: post.hbs
+layout: post.pug
 ---
 
 

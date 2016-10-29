@@ -3,7 +3,7 @@ title: Rails Quicky - Rails Layout Pothole
 published: 2010-04-20T05:21:00.000-07:00
 description: don't repeat my mistakes with rails layout. read this post.
 keywords: rails
-layout: post.hbs
+layout: post.pug
 ---
 
 

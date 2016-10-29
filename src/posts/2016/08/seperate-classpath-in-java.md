@@ -1,7 +1,7 @@
 ---
 title: Java classpath hell solution
 published: 2016-08-15T22:30:00.001-07:00
-layout: post.hbs
+layout: post.pug
 keywords: java, classpath
 description: Keep your classpath clean and sweet using this trick  
 ---

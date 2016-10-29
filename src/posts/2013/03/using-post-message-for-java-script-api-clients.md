@@ -3,7 +3,7 @@ title: Using postMessage for JavaScript API clients
 published: 2013-03-08T04:46:00.001-08:00
 description: see what postmessage can do and why you should use it
 keywords: postmessage, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 

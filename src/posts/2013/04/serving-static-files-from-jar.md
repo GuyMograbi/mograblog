@@ -3,7 +3,7 @@ title: Serving Static Files From JAR
 published: 2013-04-01
 description: how to serve static resources from a jar
 keywords: webapp, static, jar
-layout: post.hbs
+layout: post.pug
 ---
 
 If you have a lot of static files (images, JS, css) in your WAR,  

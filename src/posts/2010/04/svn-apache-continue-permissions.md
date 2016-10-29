@@ -3,7 +3,7 @@ title: SVN + Apache (Continue) - Permissions
 published: 2010-04-27T13:38:00.000-07:00
 description: setting up permissions for your SVN with Apache
 keywords: svn, apache, security, permissions
-layout: post.hbs
+layout: post.pug
 ---
 
 

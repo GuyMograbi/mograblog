@@ -3,7 +3,7 @@ title: Play 2.0 DB migrations shell script
 published: 2012-12-18T12:52:00.000-08:00
 description: update your schema easily and safely
 keywords: play!framework
-layout: post.hbs
+layout: post.pug
 ---
 
 I recently joined a Play!Framework 2.X project.

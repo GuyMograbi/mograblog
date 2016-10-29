@@ -3,7 +3,7 @@ title: My Rails Experience - afterthought
 published: 2010-04-05T00:17:00.000-07:00
 description: so this is what i think about rails
 keywords: rails
-layout: post.hbs
+layout: post.pug
 shortcodes: true
 ---
 

@@ -3,7 +3,7 @@ title: SLF4J with Logback in a Maven Project
 published: 2013-03-05T01:09:00.000-08:00
 description: setting up slf4jw ith logback
 keywords: slf4j, logback, maven, java
-layout: post.hbs
+layout: post.pug
 ---
 
 I recently started migrating my projects to SLF4J.

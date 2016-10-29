@@ -3,7 +3,7 @@ title: Setting up log4j in a maven project
 published: 2010-08-21T12:23:00.000-07:00
 description: easily setup log4js in a maven project
 keywords: log4js
-layout: post.hbs
+layout: post.pug
 ---
 
 I always forget how to quickly set up log4j in my maven project, even though it is really easy.  

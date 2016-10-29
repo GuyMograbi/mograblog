@@ -3,7 +3,7 @@ title: "When Play Framework 2.X Sass plugin says 'Sass compiler: ruby.exe: No su
 published: 2013-10-21T00:51:00.000-07:00
 description: troubleshoot sass compiler in playframework
 keywords: sass, playframework
-layout: post.hbs
+layout: post.pug
 ---
 
 
