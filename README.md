@@ -46,8 +46,14 @@ Add counter
  - https://www.npmjs.com/browse/updated
  - http://blog.npmjs.org/
  
+
+ 
 # Roadmap
 
+ - Mobile friendly
+   - [ ] Text too small to read
+   - [ ] Mobile viewport not set
+   - [ ] Links too close together
  - [ ] compile only modified files
  - [ ] create 'future posts' section
  - [ ] use webpack to pack js for mograblog. remove task to copy bower_components in this case..

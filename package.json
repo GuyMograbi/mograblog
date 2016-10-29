@@ -37,5 +37,8 @@
     "npm-run-all": "^2.3.0",
     "typogr": "0.5.x",
     "underscore": "1.4.x"
+  },
+  "devDependencies": {
+    "kill-by-port": "0.0.1"
   }
 }
