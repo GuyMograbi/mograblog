@@ -3,7 +3,7 @@ title: seo with phantomjs
 published: 2014-10-01T02:04:00.000-07:00
 description: make your angular website be seo friendly.
 keywords: angular, seo, phantomjs, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 ### angularjs, seo, nginx, phantomjs, facebook share, node and sitemaps - in 60 minutes or less

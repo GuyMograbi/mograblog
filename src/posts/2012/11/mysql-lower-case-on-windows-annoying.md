@@ -3,7 +3,7 @@ title: Mysql lower case on windows! Annoying!!!!
 published: 2012-11-13T13:23:00.000-08:00
 keywords: mysql
 description: lets make mysql case sensitive in windows
-layout: post.hbs
+layout: post.pug
 ---
 
 try running the following query on a MYSQL instance running on windows  

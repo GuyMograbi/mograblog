@@ -3,7 +3,7 @@ title: AngularJS - Adding Sort
 published: 2013-07-22T07:12:00.000-07:00
 description: lets add sort on a table
 keywords: angular, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 

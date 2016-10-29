@@ -3,7 +3,7 @@ title: Overriding Spring MVC Context From Java Arguments And Environment Variabl
 published: 2013-03-25T07:51:00.000-07:00
 description: help make spring mvc responsive for the environment
 keywords: spring, java
-layout: post.hbs
+layout: post.pug
 ---
 
 Recently I added spring MVC to an existing project using Jetty.

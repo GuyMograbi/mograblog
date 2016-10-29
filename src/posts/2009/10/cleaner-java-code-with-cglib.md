@@ -3,7 +3,7 @@ title: Cleaner Java Code with CGLIB
 published: 2009-10-20T08:42:00.000-07:00
 description: this is why i recommend using cglib and how
 keywords: java, cglib
-layout: post.hbs
+layout: post.pug
 ---
 
 [ASM -](http://asm.ow2.org/) allows you to generate byte code at runtime.  

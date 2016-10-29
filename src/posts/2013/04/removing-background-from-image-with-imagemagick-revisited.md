@@ -3,7 +3,7 @@ title: Removing background from image with imagemagick - revisited
 published: 2013-04-08
 description: removing background with imagemagick
 keywords: imagemagick
-layout: post.hbs
+layout: post.pug
 ---
 
 

@@ -3,7 +3,7 @@ title: Helpful things to have with Rails
 published: 2010-06-12T00:00:00.000-07:00
 keywords: rails
 description: here are some helpful details with rails
-layout: post.hbs
+layout: post.pug
 ---
 
 Some stuff I picked up about rails that I wanted to share

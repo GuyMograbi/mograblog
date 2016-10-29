@@ -1,7 +1,7 @@
 ---
 title: The Many Ways Of Running Typescript 
 published: 2016-07-29T22:30:00.001-07:00
-layout: post.hbs
+layout: post.pug
 keywords: typescript, javascript
 description: Lets see how we can run typescript on node, browser and protractor  
 ---

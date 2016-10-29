@@ -3,7 +3,7 @@ title: javax.persistence.PersistenceException org.hibernate.PropertyAccessExcept
 published: 2010-09-28T03:10:00.001-07:00
 description: hibernate exception resolved easily
 keywords: hibernate
-layout: post.hbs
+layout: post.pug
 ---
 
 

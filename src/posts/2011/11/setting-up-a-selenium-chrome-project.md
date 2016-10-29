@@ -3,7 +3,7 @@ title: Setting up a selenium/chrome project
 published: 2011-11-26T09:40:00.001-08:00
 description: setting up a project using selenium and chrome
 keywords: selenium, chrome
-layout: post.hbs
+layout: post.pug
 ---
 
 

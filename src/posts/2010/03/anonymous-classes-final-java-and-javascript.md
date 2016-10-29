@@ -3,7 +3,7 @@ title: Anonymous classes, Final - Java and Javascript
 published: 2010-03-17T10:28:00.000-07:00
 keywords: java
 description: the curious case of the misunderstood final keyword in java
-layout: post.hbs
+layout: post.pug
 ---
 
 final is a very intuitive keyword, and even though I use it a lot, I never really took the time to ponder about it. Today is a good day for pondering.. .  

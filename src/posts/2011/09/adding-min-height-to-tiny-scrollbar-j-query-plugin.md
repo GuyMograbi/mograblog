@@ -3,7 +3,7 @@ title: Adding min-height to TinyScrollbar JQuery plugin
 published: 2011-09-21T02:35:00.001-07:00
 description: fixing an issue with tiny scrollbar plugin
 keywords: jquery, tinyscrollbar
-layout: post.hbs
+layout: post.pug
 ---
 
 Today I added "minHeight" feature a JQuery plugin a became quite fond of..

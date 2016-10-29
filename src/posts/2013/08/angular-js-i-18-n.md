@@ -3,7 +3,7 @@ title:  AngularJS - I18N
 published: 2013-08-05T22:35:00.000-07:00
 description: this is how you can implement an i18n module in angular
 keywords: i18n, angular, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 

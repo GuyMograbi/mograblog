@@ -3,7 +3,7 @@ title: Being Your Own REST Client
 published: 2013-02-05T22:56:00.000-08:00
 description: things to note with rest api that you write and consume
 keywords: rest
-layout: post.hbs
+layout: post.pug
 ---
 
 REST and API are two words that got stuck together.  
