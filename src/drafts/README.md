@@ -7,5 +7,6 @@ Idea
  - [ ] angular1 before and after
  - [ ] angular simple setup 
  - [ ] write your own angular module
+ - [ ] write translation website with Angular2!
  
  
