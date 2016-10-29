@@ -1,4 +1,4 @@
-Idea 
+Post Idea 
 
  - [ ] webpack easy setup 
  - [ ] webpack loader for optimizejs (or some other library? maybe unicorns?)
@@ -8,5 +8,12 @@ Idea
  - [ ] angular simple setup 
  - [ ] write your own angular module
  - [ ] write translation website with Angular2!
+ 
+ 
+For the website
+ 
+ - [ ] Add section to published posts 
+ - [ ] Turn to mobile friendly
+ - [ ] Have my picture somewhere as author
  
  
