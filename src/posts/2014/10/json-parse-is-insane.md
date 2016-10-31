@@ -3,7 +3,7 @@ title: json parse is insane
 published: 2014-10-29T02:39:00.000-07:00
 description: 3 reasons why I think JSON.parse is insane!
 keywords: javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 every project i've been in so far had the same stupid bug with `JSON.parse`.

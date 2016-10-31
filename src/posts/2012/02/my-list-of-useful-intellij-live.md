@@ -3,7 +3,7 @@ title: My list of useful Intellij Live Templates
 published: 2012-02-14T06:03:00.000-08:00
 keywords: intellij
 description: some live templates i found useful
-layout: post.hbs
+layout: post.pug
 ---
 
   

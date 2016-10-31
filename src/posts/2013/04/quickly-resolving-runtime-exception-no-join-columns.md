@@ -3,7 +3,7 @@ title: "Quickly resolving RuntimeException: No join columns"
 published: 2013-04-15
 description: here is what you can do when you run into "no join columns" error
 keywords: playframework
-layout: post.hbs
+layout: post.pug
 ---
 
 

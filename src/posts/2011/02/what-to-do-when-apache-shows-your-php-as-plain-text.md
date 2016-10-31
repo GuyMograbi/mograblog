@@ -3,7 +3,7 @@ title: What to do when Apache shows your PHP as plain text
 published: 2011-02-21T13:16:00.000-08:00
 keywords: apache, plaintext
 description: this is how you can resolve apache showing plaintext instead of html
-layout: post.hbs
+layout: post.pug
 ---
 
 I enabled my apache with SSL recently.. Had to change many files.  

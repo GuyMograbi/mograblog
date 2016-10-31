@@ -3,7 +3,7 @@ title: removing backgrounds from images with 2 commands and a freeware
 published: 2012-01-11T13:56:00.000-08:00
 description: using imagemagick to remove background
 keywords: imagemagick
-layout: post.hbs
+layout: post.pug
 shortcodes: true
 ---
 

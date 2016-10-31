@@ -3,7 +3,7 @@ title: Integration Between Maven And Eclipse Sucks
 published: 2013-01-08T12:44:00.000-08:00
 keywords: eclipse
 description: another reason why i don't like eclipse
-layout: post.hbs
+layout: post.pug
 ---
 
 

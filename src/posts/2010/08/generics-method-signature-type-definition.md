@@ -3,7 +3,7 @@ title: Generics - method signature type definition
 published: 2010-08-03T02:09:00.000-07:00
 description: defining a generic on a method signature
 keywords: generics, java
-layout: post.hbs
+layout: post.pug
 ---
 
 On my [previous post](http://mograblog.blogspot.com/2010/02/generics-did-you-know.html) I introduce some advanced things about generics, when I discovered I forgot a very important feature.  

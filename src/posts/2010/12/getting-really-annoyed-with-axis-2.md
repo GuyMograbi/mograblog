@@ -3,7 +3,7 @@ title: Getting really annoyed with Axis2
 published: 2010-12-14T07:27:00.000-08:00
 description: how to setup axis2 properly in your project
 keywords: axis2, java
-layout: post.hbs
+layout: post.pug
 ---
 
 ## Axis 2 - Not Axis!

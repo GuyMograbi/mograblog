@@ -3,7 +3,7 @@ title: Setting Logback with Play!Framework 2.0
 published: 2013-03-11T06:58:00.000-07:00
 description: setting logback with playframework
 keywords: logback, playframework
-layout: post.hbs
+layout: post.pug
 ---
 
 Last time I wrote about [how to setup a Maven Project with SLF4J using Logback](/2013/03/slf4j-with-logback-in-maven-project.html "how to setup a Maven Project with SLF4J using Logback").

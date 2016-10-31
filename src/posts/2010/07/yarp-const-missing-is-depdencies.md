@@ -3,7 +3,7 @@ title: YARP - const_missing is dependencies
 published: 2010-07-03T01:03:00.000-07:00
 description: yet another rails pitfall - const_missing
 keywords: rails
-layout: post.hbs
+layout: post.pug
 ---
 
 

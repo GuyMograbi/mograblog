@@ -3,7 +3,7 @@ title: How to export DB Schema in Play! 1.2.1
 published: 2012-11-06T13:05:00.003-08:00
 description: use hibernate to export your schema
 keywords: hibernate, schema
-layout: post.hbs
+layout: post.pug
 ---
 
 So I am writing an application in Play 1.2.1

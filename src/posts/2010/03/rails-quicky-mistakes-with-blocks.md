@@ -3,7 +3,7 @@ title: Rails Quicky - Mistakes with Blocks
 published: 2010-03-09T09:09:00.000-08:00
 keywords: rails, ruby
 description: avoid my mistakes using rails/ruby blocks
-layout: post.hbs
+layout: post.pug
 ---
 
 

@@ -3,7 +3,7 @@ title: Zigzag my CSS
 published: 2013-07-29T02:38:00.000-07:00
 description: this is how you can implement a zigzag in css.
 keywords: css
-layout: post.hbs
+layout: post.pug
 ---
 
 

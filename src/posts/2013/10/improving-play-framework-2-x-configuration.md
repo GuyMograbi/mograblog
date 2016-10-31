@@ -3,7 +3,7 @@ title: Improving Play!Framework 2.x Configuration
 published: 2013-10-14T14:19:00.000-07:00
 description: lets make playframework more configurable
 keywords: playframework
-layout: post.hbs
+layout: post.pug
 shortcodes: true
 ---
 

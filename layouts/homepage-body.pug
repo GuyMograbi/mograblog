@@ -1,0 +1,20 @@
+div.homepage
+    div.head
+        include about-me.pug
+    div.content
+        div.logo
+        div.gitter-link
+            a(href="https://gitter.im/GuyMograbi/mograblog")
+                img(src="https://badges.gitter.im/GuyMograbi/mograblog.svg")
+
+        each article in articles
+            div.entry
+                <!--{{!json .}}-->
+                h1
+                    a(href=article.path) #{article.title}
+                h3 #{moment(published).format('DD MMM YYYY')} 
+
+                div!= article.excerpt
+                a.read-more(href=article.path) read more &#8594;
+            hr
+script mixpanel.track("homepage-view");
