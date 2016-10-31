@@ -8,6 +8,7 @@ Post Idea
  - [ ] angular simple setup 
  - [ ] write your own angular module
  - [ ] write translation website with Angular2!
+ - [ ] posts I really liked in 2016 - https://www.fiverr.com/designer9491/create-a-unique-infographic?context=adv.cat_3.subcat_246&context_type=auto&pckg_id=1&pos=14&funnel=42d7cec4-a17a-473f-b0ea-98f3ca21d7b1
  
  
 For the website
