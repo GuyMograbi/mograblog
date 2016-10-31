@@ -3,7 +3,7 @@ title: HTML5 - cross domain messaging with postMessage
 published: 2013-02-12T08:20:00.000-08:00
 description:  postmessage rocks - this is why
 keywords: postmessage, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 

@@ -17,6 +17,9 @@ var changed = require('metalsmith-changed');
 var rss = require('metalsmith-rss');
 var fs = require('fs-extra');
 
+// free up the port before we start the server.. 
+require('kill-by-port').killByPort(3000)
+
 var app = new Metalsmith(__dirname)
     .clean(false)
     .use(drafts())

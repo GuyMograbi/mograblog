@@ -3,7 +3,7 @@ title: Intellij - "J" is shown instead of "C"
 published: 2011-05-31T02:24:00.000-07:00
 description: what do these icons in intellij mean? lets find out
 keywords: intellij
-layout: post.hbs
+layout: post.pug
 ---
 
 

@@ -3,7 +3,7 @@ title: Extending Selenium Even More
 published: 2013-09-25T01:40:00.000-07:00
 keywords: java, selenium, reflection
 description: lets extend selenium a bit more.
-layout: post.hbs
+layout: post.pug
 ---
 
 My last post was about how we can easily correct the faults in Selenium's Page Model

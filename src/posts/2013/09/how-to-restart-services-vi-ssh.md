@@ -3,7 +3,7 @@ title: How to restart services vi ssh?
 published: 2013-09-09T12:20:00.000-07:00
 description: handle your process in an automatic manner.
 keywords: service, ssh
-layout: post.hbs
+layout: post.pug
 shortcodes: true
 ---
 

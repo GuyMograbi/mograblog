@@ -4,7 +4,7 @@ published: 2013-06-17T20:18:00.000-07:00
 keywords: angular, javascript
 description: here is how you can easily write a table sort, filter and paging directive
 shortcodes: true
-layout: post.hbs
+layout: post.pug
 
 ---
 

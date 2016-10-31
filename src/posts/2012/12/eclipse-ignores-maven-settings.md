@@ -3,7 +3,7 @@ title: Eclipse Ignores Maven Settings
 published: 2012-12-25T00:00:00.000-08:00
 description: another reason why i hate eclipse
 keywords: eclipse
-layout: post.hbs
+layout: post.pug
 ---
 
 I defined a custom local repository for Maven, but eclipse simply ignored it.

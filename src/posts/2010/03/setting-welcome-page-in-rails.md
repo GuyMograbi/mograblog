@@ -3,7 +3,7 @@ title: Setting welcome page in Rails
 published: 2010-03-08T22:43:00.000-08:00
 keywords: rails
 description: This is how you can set up a welcome page in rails
-layout: post.hbs
+layout: post.pug
 ---
 
 In Java/Tomcat I have a web.xml to define a "welcome-page" which usually points to some index.jsp. This means that if my root URL is http://www.mograbi.co.il/guy_mograbi

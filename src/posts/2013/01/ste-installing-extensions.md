@@ -3,7 +3,7 @@ title: Installing Extensions - Sublime Text Editor
 published: 2013-01-22T09:47:00.000-08:00
 description: how to install plugins in sublime
 keywords: sublime
-layout: post.hbs
+layout: post.pug
 ---
 
 

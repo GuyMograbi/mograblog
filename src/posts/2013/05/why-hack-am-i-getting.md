@@ -3,7 +3,7 @@ title: Why the Hack am I Getting OptimisticLockException?
 published: 2013-05-20
 description: see how i resolved this exception quickly
 keywords: optimisticlockexception, ebean, playframework
-layout: post.hbs
+layout: post.pug
 ---
 
 

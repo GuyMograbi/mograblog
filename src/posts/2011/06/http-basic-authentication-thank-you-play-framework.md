@@ -3,7 +3,7 @@ title: HTTP Basic Authentication - Thank you PlayFramework!
 published: 2011-06-07T05:51:00.000-07:00
 description: understand how basic authentication works
 keywords: authentication
-layout: post.hbs
+layout: post.pug
 ---
 
 Finally, one of my mysteries is resolved.

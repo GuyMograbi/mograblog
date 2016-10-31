@@ -3,7 +3,7 @@ title: Open Files From Console With Sublime
 published: 2012-11-20T07:52:00.000-08:00
 description: shorten sublime command for easy command line use
 keywords: sublime
-layout: post.hbs
+layout: post.pug
 ---
 
 

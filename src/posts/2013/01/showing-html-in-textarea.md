@@ -3,7 +3,7 @@ title: playframework - Showing HTML in textarea
 published: 2013-01-29T14:36:00.000-08:00
 description: make html to display in textarea with playframework
 keywords: playframework, html, textarea
-layout: post.hbs
+layout: post.pug
 ---
 
 

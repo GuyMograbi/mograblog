@@ -3,7 +3,7 @@ title: Extending Selenium In Java
 published: 2013-08-12T00:37:00.000-07:00
 description: see how you can make selenium even better
 keywords: selenium
-layout: post.hbs
+layout: post.pug
 shortcodes: true
 ---
 

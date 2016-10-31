@@ -3,7 +3,7 @@ title: Adding IFrame Support To Our Selenium Framework - Part 2
 published: 2013-10-07T04:52:00.000-07:00
 description: make iframe handling seamless in selenium
 keywords: selenium, java
-layout: post.hbs
+layout: post.pug
 shortcodes: true
 ---
 

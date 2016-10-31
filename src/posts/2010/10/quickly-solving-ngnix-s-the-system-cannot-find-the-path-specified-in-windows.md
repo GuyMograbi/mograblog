@@ -3,7 +3,7 @@ title: Quickly Solving NGNIX's "The system cannot find the path specified" in Wi
 published: 2010-10-21T03:07:00.000-07:00
 keywords: nginx
 description: why does nginx cannot seem to find my files? read to know the answer.
-layout: post.hbs
+layout: post.pug
 ---
 
 I just downloaded nginx for a bug/feature to simulate the production environment, and I immediately got :  

@@ -3,7 +3,7 @@ title: How to make postMessage support multi origins and multi messages
 published: 2013-02-19T14:43:00.002-08:00
 description: make postmessage even better
 keywords: postmessage, javascript
-layout: post.hbs
+layout: post.pug
 ---
 
 In my [previous post I talked about HTML5 - cross domain messaging with postMessage](/2013/02/html-5-cross-domain-messaging-with-post-message.html "HTML5 - cross domain messaging with postMessage"). I showed how to use a JQuery plugin written by Ben Alman that wraps this method and falls back on hash tags

@@ -3,7 +3,7 @@ title: SVN + Apache - Easy ? Lets make it work!
 published: 2010-04-10T13:57:00.000-07:00
 description: so i decided to setup an SVN with apache on my computer..
 keywords: svn, apache
-layout: post.hbs
+layout: post.pug
 shortcodes: true
 ---
 
