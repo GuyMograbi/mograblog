@@ -14,6 +14,8 @@ having the same tools I had in nodejs for my java environment.
 Tools like `nodemon`, `nvm` and `npm` help boost nodejs development and made my life easier.      
 So now I am always on the look out for similar tools in Java.    
 
+![cover - Coffee Mug With Mograblog Logo](images/java-productivity-tools-cover.jpg)
+
 # [JitPack](https://jitpack.io/) 
 
 JitPack helps you reference Java libraries straight from GitHub.   
