@@ -1,7 +1,7 @@
 ---
 title: 2016 Mograblog Wrap Up
 published: 2016-10-15T22:30:00.001-07:00
-layout: post.hbs
+layout: post.pug
 keywords: mograblog, java, javascript, devops
 description: I want to revisit articles, tweets, videos and major things I liked or I think worth mentioning in 2016
 ---
