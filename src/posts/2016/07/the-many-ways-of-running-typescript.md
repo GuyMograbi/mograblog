@@ -48,6 +48,20 @@ npm install typescript
 
 will generate `index.js`
 
+## You will need to use browserify/webpack to complete the process
+
+This technique will only work if you are not importing external dependencies. 
+For example if I import `angular2` or `react`, it will not include it.  
+
+Typescript will provide 2 ways to reference an external library out of the box when compiling to single file. 
+ 
+  - amd 
+  - system 
+  
+If you want to go the extra mile you can use `webpack` or `browserify` (and I am sure there are more tools) to compile everything to single file.   
+
+In this post I don't cover using external libraries in the browser, but I will cover it when I write about `angular2` (and perhaps `react`).
+
 ## Why am I not using a global installation? 
 
 Note that I use the relative method to `./node_modules/.bin` rather than installing the library globally.   
