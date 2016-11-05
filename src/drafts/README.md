@@ -22,6 +22,6 @@ For the website
  
  Graphics for wrapup
  
- [Wrap up cover](/style/images/koala_art.jpg)
+![Wrap up cover](../style/images/koala_art.jpg)
  
  
