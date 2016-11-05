@@ -224,7 +224,16 @@ I sure hope this will happen and that the transition is smooth.
 When I do the transition myself I will update here.    
 For now I am still using typings.
  
-## Installing definition
+## Installing definitions
+
+[#alert-info]
+As mentioned above typings is changing.   
+It is not becoming more popular to publish the types alongside your code at npm repository.     
+It seems the need for `reference` comments is also going away. 
+   
+However, you might still find yourself in need for this if you are working on an old project.    
+I will keep this here for now and update it when I feel it is time. 
+[#/alert-info]
 
 Typings is very similar to `npm` in nature - for example it can save the dependencies using `-S` or `--save` flags to a `typings.json` file.. 
  
