@@ -37,6 +37,31 @@ body,.post{ padding-top:1px;}
   .footer {
     height: 100px;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    &:hover{
+      span:before{
+        font-weight:200;
+        padding-right:3px;
+        content: "🔗";
+        position: absolute;
+        display:inline-block;
+        $ROTATE:45deg;
+        -webkit-transform: rotate($ROTATE);
+        -moz-transform: rotate($ROTATE);
+        -o-transform: rotate($ROTATE);
+        -ms-transform: rotate($ROTATE);
+        transform: rotate($ROTATE);
+        left: -40px;
+        top: 0px;
+        bottom: 0px;
+      }
+    }
+  }
+   
+  
+
 }
 
 #disqus_thread {
