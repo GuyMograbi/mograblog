@@ -211,7 +211,18 @@ And when I need to debug, I fallback to the compilation method.
 When I tried to use nodejs libraries like `fs`, or protractor api like `browser.get` I started getting errors from the compiler about undefined variables.   
 It seems it is pretty easy to bridge the gap between Typescript and existing js libraries.   
 
-All Typescript needs is `definition` for the missing types. Definitions are managed with `typings` - the definition manager for Typescript. 
+All Typescript needs is `definition` for the missing types. Definitions are managed with `typings` - the definition manager for Typescript.
+ 
+ 
+### Update - typings no longer required? (updated on november 2016) 
+
+According to [this stackoverflow question](http://stackoverflow.com/questions/37548066/typescript-typings-in-npm-types-org-packages) it seems that typings might be going away soon to a more comfortable
+setup with `npm` and [`@types` project](https://github.com/Microsoft/types-publisher).
+
+I sure hope this will happen and that the transition is smooth.   
+
+When I do the transition myself I will update here.    
+For now I am still using typings.
  
 ## Installing definition
 
