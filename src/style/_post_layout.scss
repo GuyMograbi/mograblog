@@ -40,7 +40,7 @@ body,.post{ padding-top:1px;}
 
   h1, h2, h3, h4, h5, h6 {
     position: relative;
-    &:hover{
+    &[id]:hover{
       span:before{
         font-weight:200;
         padding-right:3px;
