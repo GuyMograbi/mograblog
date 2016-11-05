@@ -10,7 +10,7 @@ Recently, everywhere I look, I see Typescript.
 The web is full of tutorials about the Typescript language and discussion around it.   
 
 However those posts ignore the question of 'where and how to begin?'.   
-So I came put a stop to it.    
+So I came to put a stop to it.    
 The following is a short and to the point technical walkthrough of how to execute typescript.
  
 The methods I will find to run typescript will be measured by their support to different environments and features.
