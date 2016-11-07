@@ -10,7 +10,7 @@ Recently, everywhere I look, I see Typescript.
 The web is full of tutorials about the Typescript language and discussion around it.   
 
 However those posts ignore the question of 'where and how to begin?'.   
-So I came put a stop to it.    
+So I came to put a stop to it.    
 The following is a short and to the point technical walkthrough of how to execute typescript.
  
 The methods I will find to run typescript will be measured by their support to different environments and features.
@@ -47,6 +47,20 @@ npm install typescript
 ```
 
 will generate `index.js`
+
+## You will need to use browserify/webpack to complete the process
+
+This technique will only work if you are not importing external dependencies. 
+For example if I import `angular2` or `react`, it will not include it.  
+
+Typescript will provide 2 ways to reference an external library out of the box when compiling to single file. 
+ 
+  - amd 
+  - system 
+  
+If you want to go the extra mile you can use `webpack` or `browserify` (and I am sure there are more tools) to compile everything to single file.   
+
+In this post I don't cover using external libraries in the browser, but I will cover it when I write about `angular2` (and perhaps `react`).
 
 ## Why am I not using a global installation? 
 
@@ -197,9 +211,29 @@ And when I need to debug, I fallback to the compilation method.
 When I tried to use nodejs libraries like `fs`, or protractor api like `browser.get` I started getting errors from the compiler about undefined variables.   
 It seems it is pretty easy to bridge the gap between Typescript and existing js libraries.   
 
-All Typescript needs is `definition` for the missing types. Definitions are managed with `typings` - the definition manager for Typescript. 
+All Typescript needs is `definition` for the missing types. Definitions are managed with `typings` - the definition manager for Typescript.
  
-## Installing definition
+ 
+### Update - typings no longer required? (updated on november 2016) 
+
+According to [this stackoverflow question](http://stackoverflow.com/questions/37548066/typescript-typings-in-npm-types-org-packages) it seems that typings might be going away soon to a more comfortable
+setup with `npm` and [`@types` project](https://github.com/Microsoft/types-publisher).
+
+I sure hope this will happen and that the transition is smooth.   
+
+When I do the transition myself I will update here.    
+For now I am still using typings.
+ 
+## Installing definitions
+
+[#alert-info]
+As mentioned above typings is changing.   
+It is not becoming more popular to publish the types alongside your code at npm repository.     
+It seems the need for `reference` comments is also going away. 
+   
+However, you might still find yourself in need for this if you are working on an old project.    
+I will keep this here for now and update it when I feel it is time. 
+[#/alert-info]
 
 Typings is very similar to `npm` in nature - for example it can save the dependencies using `-S` or `--save` flags to a `typings.json` file.. 
  
