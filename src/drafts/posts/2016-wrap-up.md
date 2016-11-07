@@ -17,4 +17,4 @@ description: I want to revisit articles, tweets, videos and major things I liked
  - http://www.metalsmith.io/
  - chrome 54
  - angular 2 release
-
+ - npm scripts youtube video
