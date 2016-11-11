@@ -6,7 +6,6 @@ keywords: java,nodejs,mavenmon, jitpack, jabba
 description: mavenmon, jitpack and jabba will help you write better and faster java code 
 ---
 
-
 In the last few months I have been taking part in a big Java project.    
 After several years in the nodejs community, which I love, I find myself obsessing over 
 having the same tools I had in nodejs for my java environment.
@@ -48,7 +47,6 @@ It allows your to easily switch between Java versions.
   
 While I am not sure if it has something similar to nvm's `.nvmrc` file support - which allows you to commit the desired version alongside your project -      
 I know I can always replicate it easily using command like this `` jabba use `cat .jabbarc` `` to get a similar behavior. 
-
 
 # Wishful thinking - npm as Java Package Manager - the missing tool. 
 

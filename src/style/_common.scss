@@ -30,7 +30,7 @@ p {
 p, li, div.content-entry, dl, dt,dd{
   line-height: $LINE_HEIGHT;
   font-size: $FONT_SIZE;
-  & > code {
+  & > code , & > pre > code {
     background: #ECECEC;
     color: $MAIN_COLOR;
     padding: 5px;

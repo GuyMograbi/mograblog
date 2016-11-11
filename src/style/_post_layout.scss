@@ -3,6 +3,15 @@ body,.post{ padding-top:1px;}
 
 .post {
 
+  overflow-x : hidden;
+  
+  .pre {
+    margin-left:-1000px;
+    margin-right:-1000px;
+    padding-right:1000px;
+    padding-left:1000px;
+  } 
+  
   img[alt^="cover"]{
     width:1000px;
     height:500px;
@@ -25,12 +34,9 @@ body,.post{ padding-top:1px;}
     float:right;
     margin-right:10px;
   }
-
-
-  .content {
+  
+  .first-content {
     margin-top: 100px;
-    padding: 0 20px;
-
   }
 
 
