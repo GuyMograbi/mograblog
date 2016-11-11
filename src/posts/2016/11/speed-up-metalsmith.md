@@ -16,6 +16,9 @@ I'd like to share with you what I did.
 
 If you are here, but you are unfamiliar with metalsmith, you should go ahead and read [my previous post on the topic](/2016/07/move-your-blog-from-blogger-to-metalsmith-today.html). 
 
+
+![Mograblog](/style/images/mograblog-stationary.jpg)
+
 # Use metalsmith-timer to find the bottleneck
 
 First I had to see what was causing the delay.   
