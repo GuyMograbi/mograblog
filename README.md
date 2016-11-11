@@ -24,6 +24,7 @@ References
     - http://jsfeeds.com/
     - https://jslive.com
     - https://www.reddit.com/r/javascript/submit 
+    - http://javascriptkicks.com/stories
  - all 
     - https://dzone.com
     - https://news.ycombinator.com/newest
