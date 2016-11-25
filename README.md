@@ -49,6 +49,9 @@ Add counter
  - https://www.npmjs.com/browse/updated
  - http://blog.npmjs.org/
  
+# Tips to improve
+
+ - http://nibbler.silktide.com/en/reports/www.mograblog.com
 
  
 # Roadmap
