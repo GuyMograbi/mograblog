@@ -24,6 +24,7 @@ References
     - http://jsfeeds.com/
     - https://jslive.com
     - https://www.reddit.com/r/javascript/submit 
+    - http://javascriptkicks.com/stories
  - all 
     - https://dzone.com
     - https://news.ycombinator.com/newest
@@ -48,6 +49,9 @@ Add counter
  - https://www.npmjs.com/browse/updated
  - http://blog.npmjs.org/
  
+# Tips to improve
+
+ - http://nibbler.silktide.com/en/reports/www.mograblog.com
 
  
 # Roadmap
