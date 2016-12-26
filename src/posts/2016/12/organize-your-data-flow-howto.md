@@ -7,11 +7,9 @@ description: You won't believe how easy it is to organize your data flow!
 ---
 
 Unidirectional data flow has many benefits. I am sure you already heard about them.      
-
-Here is a way you can start implementing it in a couple of minutes!
-
+Here is a way you can start implementing it in a couple of minutes!   
 No new library, no new learning curve.. 
-   
+
 For the purpose of this post I will use Angular 1.x but it can easily translate to Angular2 and React.
 
 # 2 types of components
