@@ -8,12 +8,12 @@ shortcodes: true
 ---
 
 [#alert-info]
-This post is old. nowadays you can implement it with [some css code](http://stackoverflow.com/questions/2091168/disable-a-link-using-css).
+This post is old. nowadays you can disable buttons/links with [some css code](http://stackoverflow.com/questions/2091168/disable-a-link-using-css).
 [#/alert-info]
 
 As you probably know, if you want to make a sexy button, you need to implement it with a link.
 
-Here is [a simple search I did with Google](http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=how+to+make+an+expanding+button), and [an example for it I found right away](http://www.oscaralexander.com/tutorials/how-to-make-sexy-buttons-with-css.html)  
+Here is [a simple search I did with Google](http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=how+to+make+a+sexy+button), and [an example for it I found right away](http://www.whoishostingthis.com/resources/sliding-door-buttons/)  
 
 Note - that the post does not explain how to disable/enable the button... And who wants a button that cannot be disabled?  
 
@@ -30,7 +30,7 @@ But it seems it does not block anchors - I could still click the anchors.
 A really good solution would be to change the opacity to 0.4 and add "onclick" as required.  
 This works great.  
 
-And at first I used this technic in a Utils function... cool ain't it?  
+And at first I used this technique in a Utils function... cool ain't it?  
 
 However, soon enough, I had to have it as a JQuery prototype function (method).  
 
