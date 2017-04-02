@@ -2,7 +2,7 @@
   "name": "mograblog",
   "version": "0.0.0",
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install && npm run build",
     "start": "npm-run-all --parallel build:watch server",
     "test": "standard",
     "build:watch": "DEBUG=metalsmith-timer WATCH=true node metalsmith.js",
