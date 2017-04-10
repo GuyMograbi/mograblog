@@ -12,7 +12,7 @@ div.homepage
                 <!--{{!json .}}-->
                 h1
                     a(href=article.path) #{article.title}
-                h3 #{moment(published).format('DD MMM YYYY')} 
+                h3 #{moment(article.published).format('DD MMM YYYY')}
 
                 div!= article.excerpt
                 a.read-more(href=article.path) read more &#8594;
