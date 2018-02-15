@@ -1,5 +1,5 @@
 ---
-title: Visual Tests Made Easy
+title: Add Visual Testing To Your Project Easily With Gemini
 published: 2017-04-01T22:30:00.001-07:00
 layout: post.pug
 keywords: nodejs, test, visual, gemini
@@ -7,56 +7,28 @@ description: Don't settle on unit test. Add visual tests to your project in a co
 ---
    
    
-Testing your code is one of any project's corner stone.   
-When it is an easy task, you are more likely to see it happening.   
+Visual testing is a crucial step of your UI release process. In this step you validate your UI looks as expected. 
 
-If you used some boilerplate to kick start your project it is even likely you got a unit test setup with it.    
+Despite its obvious necessity, this process lacked proper tools until recently. 
 
-Overall, functional testing is pretty much covered.    
+As a developer, I want to be able to change my html and css code without manually reviewing all the supported 
+browsers, devices and resolutions. I would also like the automated process to be stable and not generate false build failures. 
+ 
+Recently I discovered [Gemini](https://github.com/gemini-testing/gemini) written by [Yandex](https://www.yandex.com/) and found it very useful. 
+Adding visual tests to my project is now as simple as adding unit tests. In this post I will show how to test all your resolutions easily with Gemini.
 
-In this post, I'd like to share with you another kind of testing made easy.    
-I will talk about testing your website visually as well.    
-I will mention some tools and focus on one that I've used recently. 
 
-# CSS should also be tested
+# What do I need for Visual Tests? 
 
-You don't have to write a responsive UI to suffer from CSS issues in your project.    
-
-CSS has some qualities that make it more likely to break, such as it being mostly global and interpreted differently between 
-devices and browsers. 
-
-The good news are that recently a lot of tools spawned that make testing your website style relatively easy!    
-
-# Some basic concepts before we begin
-
-In functional tests we define the expected behavior of our code and compare the actual result to the expected one.   
-In some frameworks the code expresses it so well that it looks like this 
+Like any other test, we need to define the expected behavior and compare it to the actual behavior.    
+In unit test it can look like this: 
 
 
 ```
 expect( sum(1,1) ).toBe(2)
 ```
 
-As you can see, it is very easy to express the desired functional side of the code, and then assert the actual behavior. 
 
-
-In visual testing, expressing the expected behavior and comparing to it is a bit more tricky. 
-To express the desired look of your website you have a set of images - your baseline - in the screen size and resolution that you want.   
-Then you take another screenshot of actual behavior and compare it to the baseline. 
-
-The comparison to the baseline is usually done by comparing bits.   
-But this method should be handled gently as different browsers and different devices will generate different results.   
-
-The most common solution to solve this topic is by defining sensitivity to noise - tolerance.   
-This basically means you are ok if the screenshot is a bit different (say 20% different), but not more than that.    
-
-This is not an ideal solution but it may give you the desired results.   
-
-Another approach is comparing small parts of the screen - for example just a single button, or just one components on the page.    
-The smaller the area you test, the less noise you should get.    
-The downside is that you are missing out on the entire page layout test, which is very important obviously.    
-
-Other issues you may face is with animations and moving parts in the page.    
 
 # Honorable Mentions 
 
