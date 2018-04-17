@@ -13,3 +13,8 @@ Found myself revisiting them every now and then.
 # Nice Websites
 
  - [Ideas Watch](http://www.ideaswatch.com/)
+
+
+# Nice Libraries
+
+ - [Node Lambda](https://www.npmjs.com/package/node-lambda) 
