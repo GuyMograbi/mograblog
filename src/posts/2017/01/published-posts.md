@@ -6,6 +6,8 @@ keywords: javascript, mograblog, published
 description: Read some more posts of mine on other websites.
 ---
 
+![Koala With Laptop](/style/images/koala_art.jpg)
+
 Here are some posts I wrote on other sites
 
 
