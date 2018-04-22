@@ -11,7 +11,12 @@
     "upload": "npm run build && echo 'starting upload' && bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
   },
   "standard": {
-    "globals": [ "$","mixpanel","firebase","slug" ]
+    "globals": [
+      "$",
+      "mixpanel",
+      "firebase",
+      "slug"
+    ]
   },
   "dependencies": {
     "bower": "^1.7.9",
