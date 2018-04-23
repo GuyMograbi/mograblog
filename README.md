@@ -55,6 +55,7 @@ Add counter
 
 # Posts Ideas
 
+ - [ ] Webpack The Missing Guide - this post was published somewhere, no it's not there... so I can publish it. 
  - [ ] People/Threads I recommend to follow for javascript
  - [ ] How to setup protractor
  - [ ] How to setup visual tests with gemini testing
