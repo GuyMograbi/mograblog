@@ -8,6 +8,12 @@ description: Make sure your tests are actually running! 3 things that
 
 <center>![Pencils With Bad Design](/style/images/2017/02/test-failure.jpg)</center>
 
+Non running tests are a huge threat to any software project.    
+Sometimes you are resting assured thinking the tests will catch bugs before they reach production.    
+
+But sometimes, you discover your tests are not actually running!   
+Here are 3 common things that might cause your build to skip tests.
+
 # Item 1: Process Exit
 
 If someone snuck a `process.exit` to you tests that means your build is passing but **tests are NOT running**
