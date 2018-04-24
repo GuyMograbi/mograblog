@@ -1,5 +1,5 @@
 ---
-title: Don't overthink it - undirectional data flow
+title: Don't overthink it - unidirectional data flow
 published: 2016-12-17T22:30:00.001-07:00
 layout: post.pug
 keywords: javascript, flux, angular, unidirectional, event-driven

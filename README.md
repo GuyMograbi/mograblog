@@ -53,6 +53,14 @@ Add counter
 
  - http://nibbler.silktide.com/en/reports/www.mograblog.com
 
+# Posts Ideas
+
+ - [ ] Webpack The Missing Guide - this post was published somewhere, no it's not there... so I can publish it. 
+ - [ ] People/Threads I recommend to follow for javascript
+ - [ ] How to setup protractor
+ - [ ] How to setup visual tests with gemini testing
+ - [ ] How to setup your gitlab tests
+ - [ ] A dockerfile for ui testing
  
 # Roadmap
 
@@ -61,7 +69,7 @@ Add counter
    - [ ] Mobile viewport not set
    - [ ] Links too close together
  - [ ] consider other layouts - https://babeljs.io/docs/plugins/preset-react/  
- - [ ] compile only modified files
+ - [X] compile only modified files
  - [X] create 'future posts' section
  - [ ] use webpack to pack js for mograblog. remove task to copy bower_components in this case..
  - [ ] make facebook share easier:
