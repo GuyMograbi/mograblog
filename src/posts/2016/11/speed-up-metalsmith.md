@@ -4,6 +4,8 @@ published: 2016-11-7T22:30:00.001-07:00
 layout: post.pug
 keywords: nodemon, mograblog, metalsmith
 description: See how I took my metalsmith build from 7 seconds to less that 500ms !
+cover: /style/images/mograblog-stationary.jpg
+coverTitle: Mograblog Logo
 ---
 
 
@@ -12,12 +14,9 @@ I love metalsmith. Since I transitioned to it I write more on my blog.
 The only thing that annoyed me is that it became a bit slow.     
 I found myself waiting several seconds between changes.    
 So yesterday I decided to do something about it and I reached to a 500ms build on change.    
-I'd like to share with you what I did. 
+I'd like to share with you what I did.
 
 If you are here, but you are unfamiliar with metalsmith, you should go ahead and read [my previous post on the topic](/2016/07/move-your-blog-from-blogger-to-metalsmith-today.html). 
-
-
-![Mograblog](/style/images/mograblog-stationary.jpg)
 
 # Use metalsmith-timer to find the bottleneck
 
@@ -33,8 +32,8 @@ To add it to your project you need to do the following
  ```
  "build": "DEBUG=metalsmith-timer node metalsmith.js",
  ```
- 
-This will generate a very nice output like this 
+
+This will generate a very nice output like this
 
 ```
   metalsmith-timer init +0ms
@@ -60,32 +59,32 @@ This will generate a very nice output like this
 
 So as you can see I have quite a lot of steps.    
 But the one I need to focus on to speed up my process was `handlebars`.   
-The way for me to reduce the amount of time spent on handlebars was to only process the modified files. 
+The way for me to reduce the amount of time spent on handlebars was to only process the modified files.
 
 At first I tried using [metalsmith-updated](https://www.npmjs.com/package/metalsmith-updated) which has a very simple setup and gives good result.   
 The handlebars task was not taking 7 seconds anymore.   
-But now I had another task to calculated updated files, which took about a second.. and I knew I can do better, and I had to go for it.. 
+But now I had another task to calculated updated files, which took about a second.. and I knew I can do better, and I had to go for it..
 
 # In comes chokidar
 
 The reason why `metalsmith-updated` was taking too long is because it had to check on each file if it is modified.   
 But.. that's exactly what `watch` is doing.   
- 
+
 So far I've been using [metalsmith-start](https://github.com/rstacruz/metalsmith-start) to trigger rebuilds on change.   
 But the way it is implemented, it is doing full builds each time.   
 
 So I decided to implement it myself using one of my most favorite libraries ever [chokidar](https://github.com/paulmillr/chokidar).   
-You probably know [nodemon](https://github.com/remy/nodemon) - which uses chokidar as well.. 
-   
+You probably know [nodemon](https://github.com/remy/nodemon) - which uses chokidar as well..
+
 Chokidar will trigger an event whenever a file changed.  
- 
- 
+
+
 ```
 
-var app = new Metalsmith ... 
+var app = new Metalsmith ...
 
 
-... 
+...
 
      // lets filter all unmodified files..
      // we only reference markdown files, because they are the bottleneck
@@ -115,7 +114,7 @@ function buildApp () { // execute the metalsmith build. report problems and rese
   })
 }
 
-buildApp(); // first build. 
+buildApp(); // first build.
 if (process.env.WATCH) { // register to file changes and trigger build on change.
   var chokidar = require('chokidar')
   var triggerBuild = () => {
@@ -129,9 +128,9 @@ if (process.env.WATCH) { // register to file changes and trigger build on change
   }
 
   var watcher = chokidar.watch(['src', 'layouts', 'partials', 'plugins'])
-  var triggerBuildDebounced = _.debounce(triggerBuild, 100) // use debounce if many changes occurred. 
+  var triggerBuildDebounced = _.debounce(triggerBuild, 100) // use debounce if many changes occurred.
   watcher.on('change', (file) => { // register modified files, they will be referenced during the build
-    if (modifiedFiles === null) { 
+    if (modifiedFiles === null) {
       modifiedFiles = []
     }
     modifiedFiles.push(file)
@@ -141,8 +140,8 @@ if (process.env.WATCH) { // register to file changes and trigger build on change
 ```   
 
 The snippet above is the general idea. You register to changes, remember the modifications and during the build modify metalsmith to only include the modified files.
- 
-## What is left? 
+
+## What is left?
 
 So now that we are processing only the modified files, some tasks may start to fail.    
 For example [metalsmith-rss](https://github.com/MoOx/metalsmith-rss) throws exception if it cannot find pages that match its criteria.   
@@ -168,26 +167,26 @@ In this example, I will generate an RSS feed for my JavaScript articles only if 
     }
   })
 ```
-   
-And that's it.. 
 
-## Serving the files 
+And that's it..
+
+## Serving the files
 
 `metalsmith-start` used to also serve the files.   
-To replace it use `lite-server` and tell it that metlamisth's destination folder is its base directory. 
+To replace it use `lite-server` and tell it that metlamisth's destination folder is its base directory.
 
 ## Conclusion and taking the next step
- 
+
 This idea can be extended easily by wrapping the chokidar code to a reusable function that executes metalsmith's build directly.   
-We can also expose a plugin to metalsmith that filters pages. 
+We can also expose a plugin to metalsmith that filters pages.
 
 The effort was only a couple of hours and the result is awesome.    
 It would probably take me less time if I followed a post like this one.   
 
 Speeding up the cycle between applying a change and seeing the results enables me to try out more options.   
-If I had to wait 8 seconds between each CSS change, I'd avoid making such changes, but now I don't have to. 
+If I had to wait 8 seconds between each CSS change, I'd avoid making such changes, but now I don't have to.
 
 Using `metalsmith-timer` really helped me monitor my progress and keep me focused.    
 Without it, I could not have made the choice to only filter out markdown files and make my life easier as I wouldn't have known the saas plugin is really quick.    
 
-Don't forget to leave comments and share if you liked the post. 
+Don't forget to leave comments and share if you liked the post.

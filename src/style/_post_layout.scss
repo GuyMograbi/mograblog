@@ -4,15 +4,15 @@ body,.post{ padding-top:1px;}
 .post {
 
   overflow-x : hidden;
-  
+
   .pre {
     margin-left:-1000px;
     margin-right:-1000px;
     padding-right:1000px;
     padding-left:1000px;
-  } 
-  
-  img[alt^="cover"]{
+  }
+
+  img[alt^="cover"], .cover-image img{
     width:1000px;
     height:500px;
   }
@@ -34,7 +34,7 @@ body,.post{ padding-top:1px;}
     float:right;
     margin-right:10px;
   }
-  
+
   .first-content {
     margin-top: 100px;
   }
@@ -65,8 +65,8 @@ body,.post{ padding-top:1px;}
       }
     }
   }
-   
-  
+
+
 
 }
 
@@ -87,7 +87,7 @@ and (orientation: portrait) {
       font-size:28px;
     }
     .head{
-      position:absolute;      
+      position:absolute;
     }
     p,li{
       margin-top:40px;
@@ -125,7 +125,7 @@ and (orientation: portrait) {
   padding-left:43px;
   font-size:16px;
   padding-top:30px;
-  
+
   &.initialized{
     display:block;
   }

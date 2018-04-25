@@ -4,13 +4,12 @@ published: 2017-02-01T22:30:00.001-07:00
 layout: post.pug
 keywords: mocha, javascript
 description: Make sure your tests are actually running! 3 things that
+cover: /style/images/2017/02/test-failure.jpg
+coverTitle: Pencils With Bad Design
 ---
 
-<center>![Pencils With Bad Design](/style/images/2017/02/test-failure.jpg)</center>
-
 Non running tests are a huge threat to any software project.    
-Sometimes you are resting assured thinking the tests will catch bugs before they reach production.    
-
+Sometimes you are resting assured thinking the tests will catch bugs before they reach production.      
 But sometimes, you discover your tests are not actually running!   
 Here are 3 common things that might cause your build to skip tests.
 

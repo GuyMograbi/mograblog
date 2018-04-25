@@ -13,8 +13,12 @@ div.homepage
                 h1
                     a(href=article.path) #{article.title}
                 h3 #{moment(article.published).format('DD MMM YYYY')}
-
-                div!= article.excerpt
+                if article.cover 
+                  div.cover-image
+                    img(src=article.cover)
+                  div.with-cover-image!= article.excerpt
+                else
+                  div!= article.excerpt
                 a.read-more(href=article.path) read more &#8594;
             hr
 script mixpanel.track("homepage-view");

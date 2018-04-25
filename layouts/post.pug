@@ -27,6 +27,10 @@ block body
                 span.help-improve
                     a(href="https://github.com/GuyMograbi/mograblog/blob/master/src/" + filepath,target="_blank",title="help me improve this post with pull request")
                         img(src="https://img.shields.io/badge/improve-post-blue.svg")
+        if cover
+          div.content
+            div.cover-image 
+              img(src=cover,title=coverTitle)                  
         div.content !{contents}
         div.content    
             p
@@ -62,4 +66,3 @@ block body
                 |     d.body.appendChild(s);
                 | 
                 | })();
-
