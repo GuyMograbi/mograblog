@@ -9,37 +9,37 @@ http://www.mograblog.com/
 
 References
 
- - java 
+ - java
     - https://www.javacodegeeks.com/join-us/w4g/submission-guidelines/
     - http://www.javaworld.com/blogs/
     - https://www.infoq.com/contribute
     - http://www.oreilly.com/work-with-us.html
     - https://www.javacodegeeks.com/join-us/jcg
     - https://www.reddit.com/r/java/submit
-    
- - javascript 
+
+ - javascript
     - http://www.echojs.com/submit
     - https://www.javascript.com/
     - https://news.js.org
     - http://jsfeeds.com/
     - https://jslive.com
-    - https://www.reddit.com/r/javascript/submit 
+    - https://www.reddit.com/r/javascript/submit
     - http://javascriptkicks.com/stories
- - all 
+ - all
     - https://dzone.com
     - https://news.ycombinator.com/newest
     - Linkedin
     - Facebook
     - Google+
-    
- 
-  
+
+
+
 Add counter
- 
+
  - https://www.sendgrowth.com/resources/realtime-counter/
  - https://mixpanel.com/help/reference/jql/api-reference#api/access
- 
-# Good Resources 
+
+# Good Resources
 
  - https://www.chromestatus.com/features/5062926088011776
  - https://platform-status.mozilla.org/
@@ -48,20 +48,20 @@ Add counter
  - http://angularjs.blogspot.co.il/
  - https://www.npmjs.com/browse/updated
  - http://blog.npmjs.org/
- 
+
 # Tips to improve
 
  - http://nibbler.silktide.com/en/reports/www.mograblog.com
 
 # Posts Ideas
 
- - [ ] Webpack The Missing Guide - this post was published somewhere, no it's not there... so I can publish it. 
+ - [ ] Webpack The Missing Guide - this post was published somewhere, no it's not there... so I can publish it.
  - [ ] People/Threads I recommend to follow for javascript
  - [ ] How to setup protractor
  - [ ] How to setup visual tests with gemini testing
  - [ ] How to setup your gitlab tests
  - [ ] A dockerfile for ui testing
- 
+
 # Roadmap
 
  - Mobile friendly

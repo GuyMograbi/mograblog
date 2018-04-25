@@ -4,9 +4,9 @@ published: 2017-01-01T22:30:00.001-07:00
 layout: post.pug
 keywords: javascript, mograblog, published
 description: Read some more posts of mine on other websites.
+cover: /style/images/koala_art.jpg
+coverTitle: Koala With Laptop
 ---
-
-![Koala With Laptop](/style/images/koala_art.jpg)
 
 Here are some posts I wrote on other sites
 

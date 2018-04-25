@@ -4,10 +4,9 @@ published: 2016-12-17T22:30:00.001-07:00
 layout: post.pug
 keywords: javascript, flux, angular, unidirectional, event-driven
 description: You won't believe how easy it is to organize your data flow!
+cover: /style/images/2016/12/drawing-hands.jpg
+coverTitle: Escher Drawing Hands
 ---
-
-
-![Escher Drawing Hands](/style/images/2016/12/drawing-hands.jpg)
 
 Unidirectional data flow has many benefits. I am sure you already heard about them.      
 Here is a way you can start implementing it in a couple of minutes!   
