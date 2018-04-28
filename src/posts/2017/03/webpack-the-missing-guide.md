@@ -10,113 +10,11 @@ coverTitle: Webpack Logo
 
 # Webpack - the missing guide
 
-> The majesty in Webpack's simplicity explained. Ease your web development today! Learn Webpack by examples.
-
-# Introduction
-
-The JavaScript world is bursting with new concepts that spawn ingenious libraries.   
-So much so that it is becoming harder to keep up with this community's pace.   
-
-Every now and then one of those tools changes the way we look at things and paves the way for new possibilities.    
-One such tool is Webpack which is simply referred to as a module bundler but is so much more - and as time goes it is getting more and more attention.      
-This is why I chose to focus on Webpack for this post.        
-
-By the end of this post you will learn how to use Webpack and then I will dive into loaders and their significance.      
-I will also show how to write a loader with a source map.
-
-You can find the sources used in this post at [my github repository](https://github.com/GuyMograbi/webpack-the-missing-guide) alongside instructions on how to use it.
-
-## Why webpack
-
-Webpack is an awesome module bundler that you should use if:
-
- - You are publishing a reusable library (e.g. twitter's bootstrap)
- - You want an easy and hassle free setup for web development
- - You want to join a big and rich community
-
-Webpack is getting more and more attention. It has become the default for [angular2 build system](https://github.com/angular/angular-cli#webpack-update)
-and its [npm stats](https://npm-stat.com/charts.html?package=webpack) show a very clear incline.   
-
-## Webpack is NOT just a module bundler
-
-Actually, Webpack is much more than just a module bundler.    
-Webpack is:
-
-  - A loaders runner. Loaders modify resources' content.  (more below)
-  - A plugins runner. Plugins affect the build process.
-  - A preprocessor
-  - A development environment
-  - A build tool
-
-Module bundlers usually combine JavaScript files together and expose them in one of the existing modules standards that exist today (e.g. commonjs, amd and es2015)        
-
-Webpack goes beyond the JavaScript limit and allows you to bundle anything.    
-For webpack everything is a module.
-
-#### Example: bundling a `sass` file
-
-In webpack you bundle a `sass` file by writing `require('style!css!sass../style/main.scss');` which does the following:
-
- - requires a resource
- - tells the sass loader to processes the resources - which converts `sass` to `css`
- - pipes the sass loader's output to css loader - which further processes the `css`, for example `url` and `@import` statements
- - pipes the css loader's output to style loader - which adds `css` to the `dom` by injecting a `<style>` tag
-
-
-![Complete Flow](/style/images/2017/03/complete-flow.png)
-
-## Webpack in 60 seconds
-
-As I said before Webpack is a `loader` runner.   
-You start with a JavaScript file - like `main.js` - and an environment to run JavaScript.
-Lets assume our environment is a browser and so we will have an `html` file - like `index.html`.
-
-Your main JavaScript file requires all the resources you want to bundle while declaring which loader to use on each resource.       
-Here is such a `main.js` for example    
-
-```javascript
-var name = require('console-printer!startcase!./name.txt');
-name.print()
-```
-
-In the example we can see
-
- - `name.txt` is a resource required by main.js and processed by 2 (imaginery) loaders
- - `startcase` is the first loader
- - `console-printer` is the second loader, it gets the output from the previous loader
- - The `console-printer` output is kept on a variable named `name`
- - Then function `print` is invoked on `name`
-
-The loaders can do whatever they want as long as at the end I get an invocable `print()` method.   
-Here is a [list of available loaders](https://webpack.github.io/docs/list-of-loaders.html). Chances are what you need already exists.
-
-You run webpack on `main.js` by running `webpack --output-filename dist/bundle.js main.js`.
-Webpack will write the output to `dist/bundle.js` which you reference in `index.html` like so
-
-```html
-<html>
-    <body>
-        <script src="dist/bundle.js></script>
-    </body>
-</html>
-```
-
-And then you simply load `index.html` to the browser and everything should work.  
-
-Now you know what webpack is and how to use it.    
-Before we continue you should also know that
-
- - Webpack can watch your project for changes.
- - Webpack has a configuration file that makes using it much easier.
- - [Webpack development server](https://webpack.github.io/docs/webpack-dev-server.html) is a server written by the webpack team and tailored to webpack abilities.  
-
-
-Next, lets review the loaders up close and learn how to write them.
-
+> A close look at webpack loaders.
 
 # Praise the Load
 
-Loaders are what makes webpack truly powerful, unique and worth your while thanks to their genious simplicity.     
+Loaders are make webpack truly powerful, unique and worth your while thanks to their genius simplicity.     
 This is why I chose to focus on them in this post.
 
 
@@ -314,22 +212,3 @@ Here are some things loaders can do:
 
 There's [a guide for writing loaders](https://webpack.github.io/docs/loaders.html#loader-context) but I also strongly recommend reading source for existing loaders and reading `NormalModuleMixin.js` in webpack's sources.
 It helped me clarify some stuff.
-
-
-# The meaning of it all  
-
-In this post we talked about what webpack is and what it is not.
-We saw how to use it and how to extend it with loaders.
-We drilled down to a loader implementation and saw how powerful it can be without much effort thanks to webpack's awesome api.
-
-I'd love to hear about your experience with webpack in the comments below.
-
-
-# How to use this repo
-
-This repo contains all the code showed above.
-To use it you have to have node version 4.x and above.
-
- - run `npm install` to install the dependencies
- - run `npm run compile` to run webpack
- - run `npm run server` to open the `index.html` file
