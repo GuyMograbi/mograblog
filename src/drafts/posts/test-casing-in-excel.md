@@ -41,7 +41,10 @@ Some of the actions you should test are:
 
 Lets try to define a test case in a table. It might look something like this:
 
-| Step | Test Case 1 |
+
+
+| Step  | Test Case 1 |
+|---|---|
 | Add task | buy milk |
 | Check list size | 1 |
 | Mark task as completed | buy milk |
