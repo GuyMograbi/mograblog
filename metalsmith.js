@@ -8,6 +8,7 @@ var collections = require('metalsmith-collections')
 var path = require('path')
 var drafts = require('metalsmith-drafts')
 var _ = require('lodash')
+const marked = require('marked');
 var excerpts = require('metalsmith-excerpts')
 
 var timer = require('metalsmith-timer')
@@ -83,7 +84,14 @@ var app = new Metalsmith(__dirname)
   .use(timer('keyword'))
   .use(require('./plugins/shortcodes-parsers'))
   .use(timer('shortcodes'))
-  .use(markdown())
+  .use(markdown({
+            "smartypants": true,
+            "smartLists": true,
+            "gfm": true,
+            "tables": true,
+            "breaks": false,
+            "sanitize": false
+        }))
   .use(timer('markdown'))
   .use(require('metalsmith-headings-identifier')())
   .use(timer('headings-identifier'))
