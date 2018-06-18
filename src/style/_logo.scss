@@ -1,8 +1,12 @@
 $SIZE:250px;
 .logo{
-  background:url('images/logo_transparent.png') no-repeat;
+  // background:url('images/logo_transparent.png') no-repeat;
   background-size:$SIZE;
-  width:$SIZE;
-  height:$SIZE;
   display:inline-block;
+  width: 100px;
+  height: 100px;
+  @media (min-width: $MOBILE_SIZE){
+    width:$SIZE;
+    height:$SIZE;
+  }
 }

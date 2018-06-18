@@ -28,13 +28,13 @@ p {
   padding: 10px 0;
 }
 p, li, div.content-entry, dl, dt,dd{
-  line-height: $LINE_HEIGHT;
-  font-size: $FONT_SIZE;
+  // line-height: $LINE_HEIGHT;
+  // font-size: $FONT_SIZE;
   & > code , & > pre > code {
     background: #ECECEC;
     color: $MAIN_COLOR;
     padding: 5px;
-    font-size: $FONT_SIZE - 5px;
+    // font-size: $FONT_SIZE - 5px;
   }
 }
 
@@ -45,7 +45,12 @@ p, li, div.content-entry, dl, dt,dd{
   }
 
   h1{
-    line-height:42px;
+    font-size: 2em;
+  //   line-height:42px;
+  }
+
+  h2 {
+    font-size: 1.5em;
   }
 }
 
@@ -60,7 +65,7 @@ blockquote:before {
   color: #ccc;
   content: open-quote;
   font-size: 4em;
-  line-height: 0.1em;
+  // line-height: 0.1em;
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }

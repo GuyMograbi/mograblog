@@ -13,8 +13,10 @@ body,.post{ padding-top:1px;}
   }
 
   img[alt^="cover"], .cover-image img{
-    width:1000px;
-    height:500px;
+    @media(min-width: $MOBILE_SIZE){
+      width:1000px;
+      height:500px;
+    }
   }
   .logo {
     float: right;
@@ -26,13 +28,27 @@ body,.post{ padding-top:1px;}
 
   }
 
-  .gitter-link{
-    float:right;
+  .post-navigation {
+    a {
+      display: inline-block;
+      width: 50%;
+      text-align:center;
+    }
+
   }
 
-  .help-improve{
-    float:right;
-    margin-right:10px;
+  .action-wrapper{
+    .gitter-link{
+      // float:right;
+    }
+
+    .help-improve{
+      margin-left: 10px;
+    }
+
+    @media(min-width: $MOBILE_SIZE){
+      float:right;
+    }
   }
 
   .first-content {
@@ -83,9 +99,6 @@ and (max-device-width: 480px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
   .post{
-    pre>code{
-      font-size:28px;
-    }
     .head{
       position:absolute;
     }
@@ -97,7 +110,11 @@ and (orientation: portrait) {
 }
 
 .details{
-  font-size:13px;
+  // font-size: 2rem;
+  font-size: 1rem;
+  @media(min-width: 450px) {
+    font-size:13px;
+  }
   font-weight: normal;
   margin-left:20px;
   display:inline-block;

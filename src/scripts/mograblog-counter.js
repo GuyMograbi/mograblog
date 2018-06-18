@@ -1,8 +1,19 @@
 $(function () {
+
+  function showCount (count) {
+    var $pageviews = $('.pageviews')
+    $pageviews.attr('title', count + ' people saw this post')
+    $pageviews.find('.pageviews-content').text(count)
+    if (count > 20) {
+      $pageviews.addClass('initialized')
+    }
+  }
+
   if (window && window.location && window.location.hostname === 'localhost') {
+    showCount(200);
     return // don't trigger counter on localhost
   }
-  
+
   $.getScript('https://www.gstatic.com/firebasejs/3.2.1/firebase.js', function () {
     /**
      * initialize
@@ -31,12 +42,7 @@ $(function () {
       pageRef.on('value', function (pageviews) {
         var pageviewsCount = pageviews.val()
         console.log('this is value', pageviewsCount)
-        var $pageviews = $('.pageviews')
-        $pageviews.attr('title', pageviewsCount + ' people saw this post')
-        $pageviews.text(pageviewsCount)
-        if (pageviewsCount > 20) {
-          $pageviews.addClass('initialized')
-        }
+        showCount(pageviewsCount);
         if (!counted) {
           counted = true
           pageRef.transaction(function (views) {

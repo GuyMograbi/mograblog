@@ -15,7 +15,7 @@ Here are 3 common things that might cause your build to skip tests.
 
 # Item 1: Process Exit
 
-If someone snuck a `process.exit` to you tests that means your build is passing but **tests are NOT running**
+If someone snuck a `process.exit` in your tests that means your build is passing but **tests are NOT running**
 
 This issue might go unnoticed for a while and will produce errors in production.
 
