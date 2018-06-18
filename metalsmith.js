@@ -4,11 +4,11 @@ var Metalsmith = require('metalsmith')
 var sitemap = require('metalsmith-sitemap')
 var markdown = require('metalsmith-markdown')
 var sass = require('metalsmith-sass')
+var webpack = require('webpack')
 var collections = require('metalsmith-collections')
 var path = require('path')
 var drafts = require('metalsmith-drafts')
 var _ = require('lodash')
-const marked = require('marked');
 var excerpts = require('metalsmith-excerpts')
 
 var timer = require('metalsmith-timer')
@@ -41,6 +41,8 @@ var app = new Metalsmith(__dirname)
   .use(timer('remove unmodified'))
   .use(drafts())
   .use(timer('drafts'))
+  .use(sass())
+  .use(timer('sass'))
   .use(function addFilepath (pages, metalsmith) {
     // console.log(metalsmith.collections)
     metalsmith._metadata = {}
@@ -50,6 +52,18 @@ var app = new Metalsmith(__dirname)
     // metalsmith.collections.articles = null
   })
   .use(timer('addFilePath'))
+  .use((files, metalsmith, done)=>{
+      webpack([
+        { entry: './src/scripts/index.js', output: { path: __dirname, filename: './build/scripts/bundle.js'}}
+      ], (err, stats) => {
+        if (err || stats.hasErrors()) {
+          done(err || stats.hasErrors());
+          return;
+        }
+        done();
+      })
+  })
+  .use(timer('webpack'))
   .use(collections({
     articles: {
       pattern: 'posts/**/*.md',
@@ -102,8 +116,6 @@ var app = new Metalsmith(__dirname)
   .use(mograblogHandlebars)
 
   .use(timer('handlebars'))
-  .use(sass())
-  .use(timer('sass'))
 if (process.env.BLC) {
   app.use(blc())
     .use(timer('blc'))
