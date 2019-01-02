@@ -45,14 +45,29 @@ p, li, div.content-entry, dl, dt,dd{
   }
 
   h1{
-    font-size: 2em;
+    font-size: 1em;
+    @media (min-width: $MOBILE_SIZE) {
+        font-size: 2em;
+    }
+
   //   line-height:42px;
   }
 
   h2 {
-    font-size: 1.5em;
+    font-size: 0.75em;
+    @media(min-width: $MOBILE_SIZE) {
+      font-size: 1.5em;
+    }
+  }
+
+  h3 {
+    font-size: 0.75em;
+    @media(min-width: $MOBILE_SIZE) {
+      font-size: 1.2em;
+    }
   }
 }
+
 
 blockquote {
   background: #f9f9f9;
@@ -68,6 +83,7 @@ blockquote:before {
   // line-height: 0.1em;
   margin-right: 0.25em;
   vertical-align: -0.4em;
+  line-height: 0px;
 }
 blockquote p {
   display: inline;

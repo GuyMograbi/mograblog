@@ -7,7 +7,11 @@ html, body, [class^="icon-"] > *, [class*=" icon-"] > *{
     padding:0;
     margin:0;
   }
-  font-size: 20px;
+  font-size: 14px;
+  @media(min-width: $MOBILE_SIZE) {
+    font-size: 20px;
+  }
+
 
   // font-size:100%;
   // line-height:1.5;

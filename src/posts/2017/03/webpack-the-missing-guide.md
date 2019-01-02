@@ -8,13 +8,14 @@ cover: /style/images/2017/03/feature-cover.jpg
 coverTitle: Webpack Logo
 ---
 
+
 # Webpack - the missing guide
 
 > A close look at webpack loaders.
 
 # Praise the Load
 
-Loaders are make webpack truly powerful, unique and worth your while thanks to their genius simplicity.     
+Loaders make webpack truly powerful, unique and worth your while thanks to their genius simplicity.     
 This is why I chose to focus on them in this post.
 
 
