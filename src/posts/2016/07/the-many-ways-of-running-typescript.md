@@ -290,7 +290,7 @@ Then you can write code as you know it
 ```
 var path = require('path');
 //or
-import path = require('path');
+import path from 'path';
 ```
 
 # That's all folks
