@@ -4,8 +4,10 @@
   "scripts": {
     "postinstall": "bower install",
     "start": "npm-run-all --parallel build:watch server",
+    "start:homepage": "npm-run-all --parallel build:homepage:watch server",
     "test": "standard",
     "build:watch": "DEBUG=metalsmith-timer WATCH=true node metalsmith.js",
+    "build:homepage:watch": "DEBUG=metalsmith-timer WATCH=true FULL=true HOMEPAGE=true node metalsmith.js",
     "build": "DEBUG=metalsmith-timer FULL=true node metalsmith.js",
     "server": "lite-server -c lite-server-config.json",
     "upload": "npm run build && echo 'starting upload' && bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"

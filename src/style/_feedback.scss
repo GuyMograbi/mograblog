@@ -1,8 +1,9 @@
 .feedback {
   position: fixed;
   bottom: 0;
-  right:0;
+  right: 0;
   padding: 20px;
+  //
   .thank-you {
     display:none;
 
@@ -10,6 +11,7 @@
     text-align:center;
 
     i {
+      // transform-origin: 0px 0px;
       color: green;
 
 
@@ -85,6 +87,7 @@
   }
 
   .icon-thumbs-o-down {
+    transform: rotate(180deg);
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;

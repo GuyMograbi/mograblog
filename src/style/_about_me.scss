@@ -1,13 +1,15 @@
 .about-me {
-  display: inline-block;
   padding: 0;
   font-size: $FONT_SIZE;
 
   color: $MAIN_COLOR;
   text-align: center;
   line-height: 50px;
-  width: 210px;
-
+  width: 100%;
+  @media(min-width: $MOBILE_SIZE){
+    display: inline-block;
+    width: 210px;
+  }
   & > a {
     display: block;
     padding: 20px;
@@ -18,7 +20,11 @@
   }
 
   .links {
-    display: table-row;
+    display:none;
+    @media(min-width: $MOBILE_SIZE){
+      display: table-row;
+    }
+
     float: right;
     a {
       display: table-cell;
@@ -27,7 +33,7 @@
       &:first-child {
         border-right: 1px solid $MAIN_COLOR;
       }
-      
+
 
     }
   }

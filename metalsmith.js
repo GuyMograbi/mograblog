@@ -27,7 +27,7 @@ var app = new Metalsmith(__dirname)
   .clean(false)
   .use(timer('init'))
   .use((pages) => { // remove all pages but what we need
-    if (modifiedFiles !== null && modifiedFiles !== false) {
+    if (!process.env.FULL && modifiedFiles !== null && modifiedFiles !== false) {
       console.log('modified files are', modifiedFiles)
       _.each(pages, (page, filepath) => {
         if (modifiedFiles.indexOf(filepath) < 0 &&
@@ -202,6 +202,6 @@ if (!process.env.WATCH) {
       modifiedFiles = []
     }
     modifiedFiles.push(file)
-    triggerBuildDebounced()
+    triggerBuild()
   })
 }

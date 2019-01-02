@@ -2,13 +2,13 @@ div.homepage
     div.head
         include about-me.pug
     div.content
-        div.logo
+        img.logo(src="/style/images/logo_transparent.png")
         div.gitter-link
             a(href="https://gitter.im/GuyMograbi/mograblog")
                 img(src="https://badges.gitter.im/GuyMograbi/mograblog.svg")
 
         each article in articles
-            div.entry
+            div.entry(article=article.path)
                 <!--{{!json .}}-->
                 h1
                     a(href=article.path) #{article.title}
@@ -21,4 +21,9 @@ div.homepage
                   div!= article.excerpt
                 a.read-more(href=article.path) read more &#8594;
             hr
-script mixpanel.track("homepage-view");
+script.
+   mixpanel.track("homepage-view");
+   $('body').on('click', '.entry[article]', function (event) {
+     console.log('article clicked!', event.target);
+     window.location = $(this).find('a:first').attr('href');
+   })

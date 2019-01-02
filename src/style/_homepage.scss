@@ -5,30 +5,39 @@
   }
 
   .cover-image{
-    float: left;
-
-    padding-right: 20px;
-    padding-top: 20px;
-    &, img{
-      height: 100px;
-      width: 200px;
+    @media (min-width: $MOBILE_SIZE) {
+      float: left;
+      padding-right: 20px;
+      &, img{
+        height: 100px;
+        width: 200px;
+      }
     }
+    padding-top: 20px;
+
   }
 
   .with-cover-image{
-    padding-left: 220px;
-    max-width: 500px;
-    min-height: 100px;
+    @media(min-width: $MOBILE_SIZE) {
+      max-width: 500px;
+      min-height: 100px;
+      padding-left: 220px;
+    }
+
   }
 
   .gitter-link{
     text-align: center;
   }
   .about-me{
-    position:absolute;
+    @media(min-width: $MOBILE_SIZE){
+      position:absolute;
+
+    }
   }
   h1>a{
     color:black;
+
     &:active, &:hover{
       text-decoration: none;
     }
@@ -39,6 +48,7 @@
   }
 
   .entry{
+    cursor: pointer;
     padding-bottom: 40px;
     padding-top:20px;
     min-height: 200px;
