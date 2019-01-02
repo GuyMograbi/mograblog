@@ -1,5 +1,5 @@
 ---
-title: Serverless Blog Feedback Implementation
+title: Serverless Feedback For Your Blog
 published: 2017-04-01T22:30:00.001-07:00
 layout: post.pug
 keywords: lambda, aws, ses
@@ -8,8 +8,6 @@ cover: /style/images/2017/04/feedback_needed.jpg
 coverTitle: Feedback is important and easy to collect
 ---
 
-
-# Serverless Feedback For Your Blog
 
 > You do what you can with what you have.. but you should always ask for feedback! With this super easy serverless implementation, there are not more excuses. In this post I will show you how you can get feedback from your readers with just a bit of JavaScript.
 
