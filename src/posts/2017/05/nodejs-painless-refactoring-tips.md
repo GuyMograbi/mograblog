@@ -1,10 +1,9 @@
 ---
-draft: true
 title: Organize your NodeJS code without learning curve or new technology
 published: 2017-05-01T22:30:00.001-07:00
 layout: post.pug
 keywords: nodejs, refactor
-description: Organize your code and still move fast. No learning curve required. Do not compromise your code quality. 
+description: Organize your code and still move fast. No learning curve required. Do not compromise your code quality.
 cover: /style/images/2017/05/easy_refactoring.jpg
 coverTitle: Organized Closet
 ---
