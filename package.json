@@ -48,7 +48,7 @@
     "metalsmith-sitemap": "^1.1.0",
     "metalsmith-timer": "0.0.2",
     "metalsmith-updated": "^0.1.4",
-    "moment": "2.3.x",
+    "moment": "2.24.x",
     "nodemon": "^1.10.0",
     "npm-run-all": "^2.3.0",
     "pug": "^2.0.0-beta6",
