@@ -10,7 +10,7 @@
     "build:homepage:watch": "DEBUG=metalsmith-timer WATCH=true FULL=true HOMEPAGE=true node metalsmith.js",
     "build": "DEBUG=metalsmith-timer FULL=true node metalsmith.js",
     "server": "lite-server -c lite-server-config.json",
-    "upload": "npm run build && echo 'starting upload' && bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY"
+    "upload": "npm run build && echo 'starting upload' && bucketful --source build --bucket www.mograblog.com --key $S3_KEY --secret $S3_SECRET_KEY --acl-public false"
   },
   "standard": {
     "globals": [
