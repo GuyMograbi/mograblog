@@ -6,14 +6,14 @@ block body
         ul
           li Nice post, but not what I was looking for
           li Nice post, but a bit confusing
-          li Nice post, but please improve your English 
+          li Nice post, but please improve your English
           li Nice post, but not as interesting as I was hoping
           li Nice post! I liked it!
       div.thank-you
-        i.icon-check 
+        i.icon-check
         div Thank you very much for taking the time and giving me feedback.
         div.close close
-        
+
       i.icon-thumbs-o-down
     div.post
         div.head
@@ -22,7 +22,7 @@ block body
             img.logo(src="/style/images/logo_transparent.png")
         div.currently-reading-wrapper
             div Visitors are also reading...
-            div.currently-reading    
+            div.currently-reading
         div.content.first-content
             div.post-navigation
                 if previous && previous.path
@@ -37,18 +37,18 @@ block body
                       span.pageviews-content
                     span.likes
                 div.action-wrapper
-                  span.gitter-link
-                    a(href="https://gitter.im/GuyMograbi/mograblog")
-                        img(src="https://badges.gitter.im/GuyMograbi/mograblog.svg")
+                  span.discord-link
+                    a(href="https://discord.gg/5MPRhJnk")
+                        img(src="https://img.shields.io/badge/Discord-Join%20Chat-7289da?logo=discord&logoColor=white")
                   span.help-improve
                     a(href="https://github.com/GuyMograbi/mograblog/blob/master/src/" + filepath,target="_blank",title="help me improve this post with pull request")
                         img(src="https://img.shields.io/badge/improve-post-blue.svg")
         if cover
           div.content
-            div.cover-image 
-              img(src=cover,title=coverTitle)                  
+            div.cover-image
+              img(src=cover,title=coverTitle)
         div.content !{contents}
-        div.content    
+        div.content
             p
                 if previous && previous.path
                     a(href=previous.path, title=previous.title) &#8592;  Previous
@@ -58,10 +58,10 @@ block body
               script(src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js")
             script(src="/bower_components/slug/slug.js")
             script(src="/scripts/bundle.js")
-            
+
         div#disqus_thread
         script
-                |     
+                |
                 | /**
                 |  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
                 |  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
@@ -74,12 +74,12 @@ block body
                 | */
                 | (function() { // DON'T EDIT BELOW THIS LINE
                 |     var d = document, s = d.createElement('script');
-                | 
+                |
                 |     s.src = '//mograblog.disqus.com/embed.js';
-                | 
+                |
                 |     s.setAttribute('data-timestamp', +new Date());
                 |     var post = document.getElementsByClassName('post')[0];
-                | 
+                |
                 |     d.body.appendChild(s);
-                | 
+                |
                 | })();

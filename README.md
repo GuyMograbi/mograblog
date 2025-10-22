@@ -2,7 +2,7 @@
 
 
 
-[![Gitter](https://badges.gitter.im/GuyMograbi/mograblog.svg)](https://gitter.im/GuyMograbi/mograblog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Chat-7289da?logo=discord&logoColor=white)](https://discord.gg/5MPRhJnk)
 [![Build Status](https://travis-ci.org/GuyMograbi/mograblog.svg?branch=master)](https://travis-ci.org/GuyMograbi/mograblog)
 
 http://www.mograblog.com/

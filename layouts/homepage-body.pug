@@ -3,9 +3,9 @@ div.homepage
         include about-me.pug
     div.content
         img.logo(src="/style/images/logo_transparent.png")
-        div.gitter-link
-            a(href="https://gitter.im/GuyMograbi/mograblog")
-                img(src="https://badges.gitter.im/GuyMograbi/mograblog.svg")
+        div.discord-link
+            a(href="https://discord.gg/5MPRhJnk")
+                img(src="https://img.shields.io/badge/Discord-Join%20Chat-7289da?logo=discord&logoColor=white")
 
         each article in articles
             div.entry(article=article.path)
@@ -13,7 +13,7 @@ div.homepage
                 h1
                     a(href=article.path) #{article.title}
                 h3 #{moment(article.published).format('DD MMM YYYY')}
-                if article.cover 
+                if article.cover
                   div.cover-image
                     img(src=article.cover)
                   div.with-cover-image!= article.excerpt
