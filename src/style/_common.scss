@@ -1,9 +1,12 @@
 a {
     text-decoration: none;
-&:hover {
+    color: $MAIN_COLOR;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: darken($MAIN_COLOR, 10%);
         text-decoration: underline;
     }
-    color: $MAIN_COLOR;
 }
 
 .content {
@@ -11,80 +14,116 @@ a {
   & > *:not(pre), & > pre > code {
     max-width: $CONTENT_WIDTH;
     margin: 0 auto;
-
+    padding-left: 20px;
+    padding-right: 20px;
   }
   & > pre {
     background: $CODE_BACKGROUND;
-    padding: 20px;
+    padding: 24px;
+    margin: 32px auto;
+    border-radius: 8px;
+    overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
     & > code {
       display: block;
-      color: white;
-
+      color: #e2e8f0;
+      font-size: 15px;
+      line-height: 1.6;
     }
   }
 }
 
 p {
-  padding: 10px 0;
+  padding: 8px 0;
+  line-height: $LINE_HEIGHT;
+  font-size: $FONT_SIZE;
+  color: $TEXT_COLOR;
 }
-p, li, div.content-entry, dl, dt,dd{
-  // line-height: $LINE_HEIGHT;
-  // font-size: $FONT_SIZE;
-  & > code , & > pre > code {
-    background: #ECECEC;
-    color: $MAIN_COLOR;
-    padding: 5px;
-    // font-size: $FONT_SIZE - 5px;
+
+p, li, div.content-entry, dl, dt, dd {
+  line-height: $LINE_HEIGHT;
+
+  & > code, & > pre > code {
+    background: #f1f5f9;
+    color: #e11d48;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    font-weight: 500;
   }
+}
+
+li {
+  margin: 4px 0;
+  color: $TEXT_COLOR;
 }
 
 
 .content {
   h1, h2, h3 {
-    margin: 10px auto;
+    margin: 32px auto 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f172a;
   }
 
-  h1{
-    font-size: 1em;
+  h1 {
+    font-size: 1.5em;
     @media (min-width: $MOBILE_SIZE) {
-        font-size: 2em;
+      font-size: 1.875em;
     }
-
-  //   line-height:42px;
+    margin-top: 40px;
+    margin-bottom: 24px;
   }
 
   h2 {
-    font-size: 0.75em;
+    font-size: 1.25em;
     @media(min-width: $MOBILE_SIZE) {
       font-size: 1.5em;
     }
+    margin-top: 32px;
   }
 
   h3 {
-    font-size: 0.75em;
+    font-size: 1.1em;
     @media(min-width: $MOBILE_SIZE) {
-      font-size: 1.2em;
+      font-size: 1.25em;
     }
+    margin-top: 24px;
+  }
+
+  h4 {
+    font-size: 1em;
+    @media(min-width: $MOBILE_SIZE) {
+      font-size: 1.1em;
+    }
+    margin: 20px auto 12px;
+    font-weight: 600;
   }
 }
 
 
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  // line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-  line-height: 0px;
-}
-blockquote p {
-  display: inline;
+  background: #f8fafc;
+  border-left: 4px solid $MAIN_COLOR;
+  margin: 24px 0;
+  padding: 16px 20px;
+  border-radius: 4px;
+  font-style: italic;
+  color: $TEXT_SECONDARY;
+
+  p {
+    margin: 0;
+    padding: 4px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
 }

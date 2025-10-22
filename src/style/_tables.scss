@@ -1,32 +1,44 @@
 
 table {
-  border: 1px solid #FFFFFF;
-  width: 350px;
-  height: 200px;
-  text-align: center;
+  border: 1px solid #e5e7eb;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
   border-collapse: collapse;
+  margin: 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
   td, th {
-    border: 1px solid #FFFFFF;
-    padding: 3px 2px;
+    border: 1px solid #e5e7eb;
+    padding: 12px 16px;
   }
 
   tbody td {
-    font-size: 13px;
+    font-size: 0.95rem;
+    color: $TEXT_COLOR;
   }
+
   tr:nth-child(even) {
-    background: #D0E4F5;
+    background: #f9fafb;
+  }
+
+  tr:hover {
+    background: #f3f4f6;
   }
 
   thead {
-    background: #0B6FA4;
-    border-bottom: 5px solid #FFFFFF;
+    background: $MAIN_COLOR;
+    border-bottom: 2px solid darken($MAIN_COLOR, 10%);
 
     th {
-      font-size: 17px;
-      font-weight: bold;
+      font-size: 0.95rem;
+      font-weight: 600;
       color: #FFFFFF;
-      text-align: center;
-      border-left: 2px solid #FFFFFF;
+      text-align: left;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+
       &:first-child {
         border-left: none;
       }
@@ -34,13 +46,14 @@ table {
   }
 
   tfoot {
-   font-size: 14px;
-   font-weight: bold;
-   color: #333333;
-   background: #D0E4F5;
-   border-top: 3px solid #444444;
-   td {
-      font-size: 14px;
-   }
- }
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $TEXT_COLOR;
+    background: #f3f4f6;
+    border-top: 2px solid #e5e7eb;
+
+    td {
+      font-size: 0.9rem;
+    }
+  }
 }

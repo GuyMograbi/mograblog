@@ -1,60 +1,113 @@
 
-body,.post{ padding-top:1px;}
+body, .post {
+  padding-top: 1px;
+  background: #ffffff;
+}
 
 .post {
-
-  overflow-x : hidden;
+  overflow-x: hidden;
 
   .pre {
-    margin-left:-1000px;
-    margin-right:-1000px;
-    padding-right:1000px;
-    padding-left:1000px;
+    margin-left: -1000px;
+    margin-right: -1000px;
+    padding-right: 1000px;
+    padding-left: 1000px;
   }
 
-  img[alt^="cover"], .cover-image img{
-    @media(min-width: $MOBILE_SIZE){
-      width:1000px;
-      height:500px;
+  img[alt^="cover"], .cover-image img {
+    @media(min-width: $MOBILE_SIZE) {
+      width: 1000px;
+      height: 500px;
+      object-fit: cover;
     }
   }
-  .logo {
-    float: right;
-  }
-  .head {
-    position: absolute;
-    left: 0;
-    padding: 0 20px;
 
+  .logo-link {
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+
+    @media(min-width: $MOBILE_SIZE) {
+      margin-right: 16px;
+    }
+
+    .logo {
+      height: 32px;
+      width: auto;
+      display: block;
+
+      @media(min-width: $MOBILE_SIZE) {
+        height: 40px;
+      }
+    }
+  }
+
+  .head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+    border-bottom: 2px solid $MAIN_COLOR;
+    padding: 6px 12px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media(min-width: $MOBILE_SIZE) {
+      padding: 8px 20px;
+    }
+  }
+
+  .post-title {
+    font-size: 1.5em !important;
+
+    @media (min-width: $MOBILE_SIZE) {
+      font-size: 1.875em !important;
+    }
   }
 
   .post-navigation {
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    @media(min-width: $MOBILE_SIZE) {
+      display: inline-block;
+    }
+
     a {
       display: inline-block;
-      width: 50%;
-      text-align:center;
-    }
+      padding: 8px 16px;
+      margin-left: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border-radius: 4px;
 
+      &:hover {
+        background: rgba(255,255,255,0.8);
+      }
+    }
   }
 
-  .action-wrapper{
-    .discord-link{
-      // float:right;
-    }
-
-    .help-improve{
+  .action-wrapper {
+    .help-improve {
       margin-left: 10px;
     }
 
-    @media(min-width: $MOBILE_SIZE){
-      float:right;
+    @media(min-width: $MOBILE_SIZE) {
+      float: right;
     }
   }
 
   .first-content {
-    margin-top: 100px;
+    margin-top: 80px;
   }
-
 
   .footer {
     height: 100px;
@@ -110,19 +163,20 @@ and (orientation: portrait) {
 }
 
 .details{
-  // font-size: 2rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   @media(min-width: 450px) {
-    font-size:13px;
+    font-size: 0.9rem;
   }
-  font-weight: normal;
-  margin-left:20px;
-  display:inline-block;
-  margin-top:-10px;
+  font-weight: 400;
+  margin-left: 20px;
+  display: inline-block;
+  margin-top: -10px;
+  color: $TEXT_SECONDARY;
+
   .pageviews{
-    display:none;
+    display: none;
     &.initialized{
-      display:inline;
+      display: inline;
     }
   }
 }

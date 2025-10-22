@@ -1,15 +1,41 @@
 body {
-  line-height: 1.5;
+  line-height: 1.7;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
 }
 
 code {
-  font-weight: bold;
-}
-pre > code  {
-  // font-size: 2rem;
-  font-weight: normal;
+  font-weight: 500;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
 }
 
-h1,h2,h3{
-  text-decoration: underline;
+pre > code {
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+strong, b {
+  font-weight: 600;
+  color: $TEXT_COLOR;
+}
+
+em, i {
+  font-style: italic;
+}
+
+ul, ol {
+  padding-left: 28px;
+  margin: 12px 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 32px 0;
 }

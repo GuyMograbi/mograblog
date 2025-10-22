@@ -1,57 +1,74 @@
 .about-me {
+  display: inline-block;
   padding: 0;
-  font-size: $FONT_SIZE;
-
+  font-size: 0.9rem;
   color: $MAIN_COLOR;
-  text-align: center;
-  line-height: 50px;
-  width: 100%;
-  @media(min-width: $MOBILE_SIZE){
-    display: inline-block;
-    width: 210px;
-  }
-  & > a {
-    display: block;
-    padding: 20px;
+  line-height: 1;
+  flex: 1;
+
+  .desktop-text {
+    display: none;
+    @media(min-width: $MOBILE_SIZE) {
+      display: inline;
+    }
   }
 
-  a {
-    line-height: 20px;
+  .mobile-text {
+    display: inline;
+    @media(min-width: $MOBILE_SIZE) {
+      display: none;
+    }
+  }
+
+  & > a {
+    display: inline-block;
+    padding: 8px 12px;
+    font-weight: 500;
+    margin-right: 4px;
+
+    @media(min-width: $MOBILE_SIZE) {
+      padding: 8px 16px;
+      margin-right: 8px;
+    }
   }
 
   .links {
-    display:none;
-    @media(min-width: $MOBILE_SIZE){
-      display: table-row;
-    }
+    display: inline-block;
 
-    float: right;
     a {
-      display: table-cell;
-      width: 100px;
-      padding: 5px 2px;
-      &:first-child {
-        border-right: 1px solid $MAIN_COLOR;
+      display: inline-block;
+      padding: 8px 12px;
+      font-weight: 500;
+      border-left: 1px solid rgba(37, 99, 235, 0.3);
+
+      @media(min-width: $MOBILE_SIZE) {
+        padding: 8px 16px;
       }
 
-
+      &:first-child {
+        border-left: none;
+      }
     }
   }
 }
 
-a.mograblog-link{
+a.mograblog-link {
   text-decoration: none;
+  transition: all 0.2s ease;
+
   &:hover {
     background: $MAIN_COLOR;
-    color: $SECONDARY_COLOR;
+    color: white;
   }
 }
 
-a.mograblog-link-inverse{
+a.mograblog-link-inverse {
   text-decoration: none;
-  color:white;
-  &:hover{
-    color:#4B77BE;
-    background:white;
+  color: white;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $MAIN_COLOR;
+    background: white;
   }
 }

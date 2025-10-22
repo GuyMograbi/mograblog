@@ -1,56 +1,144 @@
-.homepage{
-  .logo{
-    display:block;
-    margin:0 auto;
+.homepage {
+  .logo {
+    display: block;
+    margin: 0 auto 32px;
+    padding-top: 20px;
   }
 
-  .cover-image{
+  .cover-image {
+    display: none;
+
     @media (min-width: $MOBILE_SIZE) {
+      display: block;
       float: left;
-      padding-right: 20px;
-      &, img{
-        height: 100px;
-        width: 200px;
+      margin-right: 16px;
+      margin-bottom: 8px;
+
+      img {
+        height: 80px;
+        width: 120px;
+        object-fit: cover;
+        border-radius: 6px;
       }
     }
-    padding-top: 20px;
-
   }
 
-  .with-cover-image{
-    @media(min-width: $MOBILE_SIZE) {
-      max-width: 500px;
-      min-height: 100px;
-      padding-left: 220px;
-    }
-
+  .with-cover-image {
+    // No special styling needed
   }
 
-  .discord-link{
+  // Wrapper for excerpt content
+  div:not(.cover-image):not(.discord-link):not(.head):not(.content) {
+    overflow: auto;
+  }
+
+  .discord-link {
     text-align: center;
+    margin-bottom: 48px;
   }
-  .about-me{
-    @media(min-width: $MOBILE_SIZE){
-      position:absolute;
 
+  .head {
+    @media(min-width: $MOBILE_SIZE) {
+      position: absolute;
+      left: 0;
+      top: 0;
     }
   }
-  h1>a{
-    color:black;
 
-    &:active, &:hover{
+  .about-me {
+    @media(min-width: $MOBILE_SIZE) {
+      position: static;
+    }
+  }
+
+  .content {
+    @media(min-width: $MOBILE_SIZE) {
+      padding-left: 240px;
+    }
+  }
+
+  h1 {
+    font-size: 1.15em;
+    @media (min-width: $MOBILE_SIZE) {
+      font-size: 1.25em;
+    }
+    margin-bottom: 4px;
+    margin-top: 0;
+    line-height: 1.4;
+  }
+
+  h1 > a {
+    color: #0f172a;
+    font-weight: 600;
+    transition: color 0.2s ease;
+
+    &:active, &:hover {
+      text-decoration: none;
+      color: $MAIN_COLOR;
+    }
+  }
+
+  h3 {
+    font-size: 0.8rem;
+    color: $TEXT_SECONDARY;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  // Excerpt text styling
+  .entry > div {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: $TEXT_SECONDARY;
+    margin-bottom: 8px;
+
+    p {
+      padding: 4px 0;
+      margin: 0;
+    }
+  }
+
+  .read-more {
+    display: block;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: $MAIN_COLOR;
+    padding: 4px 0;
+    transition: all 0.2s ease;
+    clear: both;
+    text-align: right;
+
+    &:hover {
+      color: darken($MAIN_COLOR, 15%);
       text-decoration: none;
     }
   }
 
-  .read-more{
-    float:right;
+  .entry {
+    cursor: pointer;
+    padding: 16px 0;
+    min-height: auto;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #f9fafb;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // Clear floats
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
   }
 
-  .entry{
-    cursor: pointer;
-    padding-bottom: 40px;
-    padding-top:20px;
-    min-height: 200px;
+  hr {
+    display: none;
   }
 }
