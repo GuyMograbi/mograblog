@@ -1,5 +1,7 @@
 # mograblog
 
+
+
 [![Gitter](https://badges.gitter.im/GuyMograbi/mograblog.svg)](https://gitter.im/GuyMograbi/mograblog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Build Status](https://travis-ci.org/GuyMograbi/mograblog.svg?branch=master)](https://travis-ci.org/GuyMograbi/mograblog)
 
@@ -68,7 +70,7 @@ Add counter
    - [ ] Text too small to read
    - [ ] Mobile viewport not set
    - [ ] Links too close together
- - [ ] consider other layouts - https://babeljs.io/docs/plugins/preset-react/  
+ - [ ] consider other layouts - https://babeljs.io/docs/plugins/preset-react/
  - [X] compile only modified files
  - [X] create 'future posts' section
  - [ ] use webpack to pack js for mograblog. remove task to copy bower_components in this case..
