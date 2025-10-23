@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Playfair+Display:wght@700;900&family=Raleway:ital,wght@0,400;1,300&display=swap');
 @import './variables';
 
 html, body, [class^="icon-"] > *, [class*=" icon-"] > *{
@@ -24,7 +24,8 @@ img{
   height: auto;
 }
 
-$MAIN_COLOR:#2563eb;
+$MAIN_COLOR:#1e3a8a;
+$ACCENT_COLOR:#d97706;
 $SECONDARY_COLOR:#eff6ff;
 $TEXT_COLOR:#1a1a1a;
 $TEXT_SECONDARY:#4b5563;

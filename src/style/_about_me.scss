@@ -1,10 +1,14 @@
 .about-me {
-  display: inline-block;
+  display: none;
   padding: 0;
   font-size: 0.9rem;
   color: $MAIN_COLOR;
   line-height: 1;
   flex: 1;
+
+  @media(min-width: 900px) {
+    display: inline-block;
+  }
 
   .desktop-text {
     display: none;
@@ -25,6 +29,7 @@
     padding: 8px 12px;
     font-weight: 500;
     margin-right: 4px;
+    vertical-align: middle;
 
     @media(min-width: $MOBILE_SIZE) {
       padding: 8px 16px;
@@ -34,6 +39,7 @@
 
   .links {
     display: inline-block;
+    vertical-align: middle;
 
     a {
       display: inline-block;
