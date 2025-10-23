@@ -2,19 +2,26 @@
   padding-top: 60px; // Space for fixed header
 
   .cover-image {
-    display: none;
+    display: block;
+    margin-bottom: 12px;
+    text-align: center;
+
+    img {
+      width: 50%;
+      height: auto;
+      border-radius: 6px;
+    }
 
     @media (min-width: $MOBILE_SIZE) {
-      display: block;
       float: left;
       margin-right: 16px;
       margin-bottom: 8px;
+      text-align: left;
 
       img {
-        height: 80px;
-        width: 120px;
+        height: 150px;
+        width: 225px;
         object-fit: cover;
-        border-radius: 6px;
       }
     }
   }

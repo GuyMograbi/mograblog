@@ -15,10 +15,13 @@ body, .post {
   }
 
   img[alt^="cover"], .cover-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
     @media(min-width: $MOBILE_SIZE) {
       width: 1000px;
       height: 500px;
-      object-fit: cover;
     }
   }
 
