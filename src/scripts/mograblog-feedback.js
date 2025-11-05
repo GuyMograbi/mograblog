@@ -1,43 +1,91 @@
-var sns = new AWS.SNS({ accessKeyId: 'AKIAIKB67YFUHBYFKITQ', secretAccessKey: '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', region: 'us-east-1'});
-
-
+// Getform.io endpoint for feedback
+const GETFORM_ENDPOINT = 'https://getform.io/f/apjzgvka';
 
 /**
+ * Submit feedback to getform.io
  * @param {object} info
  * @param {string} info.post
  * @param {string} info.url
- * @param {string} feedback
+ * @param {string} info.feedback
  **/
-var params = (info) => ({
-  Message: JSON.stringify(info,{},2), /* required */
-  Subject: `Mograblog Feedback: ${info.feedback}`,
-  TopicArn: 'arn:aws:sns:us-east-1:547507846372:mograblogFeedback'
-});
-const publish = (info) => sns.publish(params(info), function(err, data) {
-  if (err) console.log(err, err.stack); // an error occurred
-  else     console.log(data);           // successful response
-});
-
-  $('body').on('click' , '.feedback i', function(e){
-    $(this).closest('.feedback').toggleClass('show-menu');
-    e.stopPropagation();
-    e.preventDefault();
-    console.log('sending feedback');
-    return false;
+const submitFeedback = (info) => {
+  fetch(GETFORM_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(info)
   })
-
-  $('body').on('click', '.feedback .menu li', function(e){
-    const info = {
-      feedback: $(this).text(),
-      post: $('.post-title').text(),
-      url: window.location.href
-
+  .then(response => {
+    if (response.ok) {
+      console.log('Feedback submitted successfully');
+    } else {
+      console.error('Failed to submit feedback');
     }
-    publish(info);
-    $('.feedback').removeClass('show-menu');
-    $('.feedback').addClass('show-thank-you');
+  })
+  .catch(err => {
+    console.error('Error submitting feedback:', err);
+  });
+};
+
+$('body').on('click', '.feedback-trigger', function(e){
+  $('.feedback').toggleClass('show-form');
+  e.stopPropagation();
+  e.preventDefault();
+  console.log('opening feedback form');
+  return false;
+})
+
+$('body').on('submit', '.feedback-form', function(e){
+  e.preventDefault();
+
+  // Hide any previous error
+  $('.form-error').fadeOut(200);
+
+  // Collect checked quick feedback options
+  const quickFeedback = [];
+  $('input[name="feedback-quick"]:checked').each(function(){
+    quickFeedback.push($(this).val());
   });
 
-  $('body').on('click', '.feedback .close', function(){
-    $('.feedback').removeClass('show-thank-you');
-  })
+  const message = $('#feedback-message').val().trim();
+
+  // Validate: require at least quick feedback OR custom message
+  if (quickFeedback.length === 0 && !message) {
+    $('.form-error').fadeIn(300);
+    // Scroll to error message
+    $('.feedback-form-container').animate({
+      scrollTop: 0
+    }, 300);
+    return;
+  }
+
+  const formData = {
+    name: $('#feedback-name').val(),
+    email: $('#feedback-email').val(),
+    message: message,
+    quick_feedback: quickFeedback.join(', '),
+    post: $('.post-title').text(),
+    url: window.location.href
+  };
+
+  submitFeedback(formData);
+
+  // Reset form
+  $('.feedback-form')[0].reset();
+
+  // Show thank you
+  $('.feedback').removeClass('show-form');
+  $('.feedback').addClass('show-thank-you');
+});
+
+$('body').on('click', '.feedback .btn-cancel', function(){
+  $('.feedback').removeClass('show-form');
+  $('.feedback-form')[0].reset();
+  $('.form-error').hide();
+});
+
+$('body').on('click', '.feedback .close', function(){
+  $('.feedback').removeClass('show-thank-you');
+})

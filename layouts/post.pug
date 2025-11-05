@@ -1,20 +1,8 @@
 extend scaffold.pug
 
 block body
-    div.feedback
-      div.menu
-        ul
-          li Nice post, but not what I was looking for
-          li Nice post, but a bit confusing
-          li Nice post, but please improve your English
-          li Nice post, but not as interesting as I was hoping
-          li Nice post! I liked it!
-      div.thank-you
-        i.icon-check
-        div Thank you very much for taking the time and giving me feedback.
-        div.close close
+    include feedback-modal.pug
 
-      i.icon-thumbs-o-down
     div.post
         div.head
             a.logo-link(href="/")
@@ -37,6 +25,8 @@ block body
                 span.details
                     span.pageviews.icon-eye
                       span.pageviews-content
+                    span.feedback-trigger
+                      i.fa-regular.fa-envelope
                     span.likes
                 div.action-wrapper
                   span.discord-link
@@ -57,7 +47,6 @@ block body
                 if next && next.path
                     a(href=next.path, style="float:right", title=next.title) Next &#8594;
             div.push(style="height:100px")
-              script(src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js")
             script(src="/bower_components/slug/slug.js")
             script(src="/scripts/bundle.js")
 

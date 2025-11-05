@@ -1,0 +1,44 @@
+div.feedback
+  div.feedback-form-container
+    h3 Share Your Feedback
+    p.form-note Please select quick feedback or write a custom message (or both!)
+    div.form-error(style="display:none;")
+      i.fa-solid.fa-circle-exclamation
+      span Please select at least one quick feedback option or write a custom message.
+    form.feedback-form
+      div.form-group
+        label Quick feedback
+        div.checkbox-group
+          label.checkbox-label
+            input(type="checkbox" name="feedback-quick" value="Nice post, but not what I was looking for")
+            span Not what I was looking for
+          label.checkbox-label
+            input(type="checkbox" name="feedback-quick" value="Nice post, but a bit confusing")
+            span A bit confusing
+          label.checkbox-label
+            input(type="checkbox" name="feedback-quick" value="Nice post, but please improve your English")
+            span Please improve English
+          label.checkbox-label
+            input(type="checkbox" name="feedback-quick" value="Nice post, but not as interesting as I was hoping")
+            span Not as interesting as hoped
+          label.checkbox-label
+            input(type="checkbox" name="feedback-quick" value="Nice post! I liked it!")
+            span I liked it!
+      div.form-group
+        label(for="feedback-message") Custom message
+        textarea(id="feedback-message" name="message" placeholder="Share your thoughts..." rows="4")
+      div.form-group
+        label(for="feedback-name") Name (optional)
+        input(type="text" id="feedback-name" name="name" placeholder="Your name")
+      div.form-group
+        label(for="feedback-email") Email (optional)
+        input(type="email" id="feedback-email" name="email" placeholder="your@email.com")
+      div.form-actions
+        button.btn-cancel(type="button") Close
+        button.btn-submit(type="submit") Send Feedback
+
+  div.thank-you
+    i.icon-check
+    div Thank you very much for taking the time and giving me feedback.
+    div.close close
+

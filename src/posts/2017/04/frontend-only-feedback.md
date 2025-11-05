@@ -6,8 +6,20 @@ keywords: lambda, aws, ses
 description: Easy frontend only implementation for feedback to use on your blog with notification.
 cover: /style/images/2017/04/feedback_needed.jpg
 coverTitle: Feedback is important and easy to collect
+shortcodes: true
 ---
 
+[#alert-info]
+<strong>Update (2025):</strong> This blog has since migrated to using <a href="https://getform.io/">getform.io</a> for feedback collection instead of AWS SNS.<br><br>
+
+While the AWS SNS approach described below worked, it had two significant issues:<br><br>
+
+<strong>1. AWS doesn't like credentials exposed publicly</strong> - Even with very limited IAM permissions, having credentials in frontend code is against AWS best practices and could lead to account security issues.<br><br>
+
+<strong>2. No rate limiting protection</strong> - The method provided no way to prevent abuse. Someone could have bombarded the SNS topic and potentially inflated the AWS bill.<br><br>
+
+Using a dedicated form service like getform.io solves both problems with better security and built-in spam protection.
+[#/alert-info]
 
 > You do what you can with what you have.. but you should always ask for feedback! With this super easy serverless implementation, there are not more excuses. In this post I will show you how you can get feedback from your readers with just a bit of JavaScript.
 
@@ -50,8 +62,8 @@ If you are still doubtful - you can always write a AWS Lambda and expose it with
 
 # Write frontend JS to publish the feedback
 
-Now it's time to actually send the feedback.    
-I assume in this post you can write a simple form that will collect feedback input from the user and trigger a function.   
+Now it's time to actually send the feedback.
+I assume in this post you can write a simple form that will collect feedback input from the user and trigger a function.
 So I will allow myself to focus on the publish side only.
 
 For implementation I will use AWS SDK library found at: `https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js`
@@ -85,4 +97,4 @@ And that's it!
  - We defined very limited permissions to the user that should allow us to feel comfortable to use in the frontend.
  - The cost was insignificant.
 
-Write comments below if you've used this technique and what you did with it.    
+Write comments below if you've used this technique and what you did with it.

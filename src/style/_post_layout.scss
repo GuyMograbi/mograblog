@@ -219,6 +219,20 @@ and (orientation: portrait) {
       display: inline;
     }
   }
+
+  .feedback-trigger {
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #4B77BE;
+    }
+
+    i {
+      font-size: 1rem;
+    }
+  }
 }
 
 .currently-reading-wrapper {
