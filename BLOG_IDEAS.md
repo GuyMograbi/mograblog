@@ -448,3 +448,524 @@ The frontend world is moving toward:
 
 Svelte embodies all of these trends.
 
+---
+
+## 5. Bazel - Great Concept, Frustrating Reality
+
+### Overview
+Bazel promises incremental builds and reproducibility through accurate dependency tracking. In practice, the dependency tree is often inaccurate, leading to unnecessary rebuilds and developer frustration.
+
+### Possible Angles
+
+#### Option A: "I Tried Bazel - The Promise vs The Reality"
+- **The Promise:**
+  - Incremental builds (only rebuild what changed)
+  - Accurate dependency tracking
+  - Reproducible builds
+  - Scales to monorepos
+  - Used by Google
+- **The Reality:**
+  - Adding a comment triggers rebuild
+  - Dependency tree is too coarse
+  - Configuration is complex
+  - Debugging is painful
+  - Learning curve is steep
+- **Specific Pain Points:**
+  - **Inaccurate dependencies:**
+    - File-level dependencies, not function-level
+    - Comments count as changes
+    - Formatting changes trigger rebuilds
+    - No semantic understanding of code
+  - **Configuration overhead:**
+    - BUILD files everywhere
+    - WORKSPACE setup
+    - Custom rules are complex
+  - **Developer experience:**
+    - Slow feedback loop
+    - Hard to debug why something rebuilt
+    - Error messages are cryptic
+- **When it works:**
+  - Very large monorepos (Google scale)
+  - Polyglot projects
+  - When you have dedicated build engineers
+- **When it doesn't:**
+  - Small/medium projects
+  - Teams without build expertise
+  - When DX matters more than build time
+- **Outcome:** Honest assessment of Bazel's trade-offs
+
+#### Option B: "Bazel's Dependency Problem: Why Adding a Comment Triggers a Rebuild"
+- **The Core Issue:**
+  - Bazel tracks file changes, not semantic changes
+  - Any file modification = dependency changed
+  - No understanding of what actually matters
+- **Deep Dive:**
+  - How Bazel's dependency tracking works
+  - Why it's file-based (hash of file content)
+  - Why semantic analysis is hard
+  - Trade-offs in build system design
+- **Compare to other tools:**
+  - **Webpack/Vite:** Module-level dependencies
+  - **Turborepo:** Hash-based caching (same issue)
+  - **Nx:** Similar approach to Bazel
+  - **Make:** Timestamp-based (even worse)
+- **What would fix it:**
+  - AST-based dependency tracking
+  - Semantic understanding of code
+  - But: complexity and language-specific
+- **The fundamental trade-off:**
+  - Accuracy vs simplicity
+  - Generic vs language-specific
+  - Fast analysis vs accurate analysis
+- **Outcome:** Understanding why build systems struggle
+
+#### Option C: "Build Tools in 2025: Bazel vs Turborepo vs Nx vs Just Use npm"
+- **The Landscape:**
+  - **Bazel:** Google's approach (complex, powerful)
+  - **Turborepo:** Vercel's approach (simple, fast)
+  - **Nx:** Nrwl's approach (middle ground)
+  - **Rush:** Microsoft's approach
+  - **Lerna:** The OG (mostly dead)
+  - **npm workspaces:** The simple way
+- **Compare:**
+  - Setup complexity
+  - Build speed
+  - Cache accuracy
+  - Developer experience
+  - Ecosystem support
+  - When to use each
+- **The Bazel section:**
+  - Pros: Powerful, scales infinitely
+  - Cons: Complex, inaccurate dependencies, steep learning curve
+  - Best for: Google-scale monorepos
+  - Not for: Most projects
+- **The Recommendation:**
+  - Start simple (npm workspaces)
+  - Graduate to Turborepo/Nx if needed
+  - Only use Bazel if you're Google
+- **Outcome:** Decision framework for build tools
+
+#### Option D: "What I Learned from Bazel (And Why I Stopped Using It)"
+- **Why I tried it:**
+  - Monorepo was getting slow
+  - Heard about Bazel's incremental builds
+  - Wanted reproducible builds
+- **The setup journey:**
+  - Initial configuration (painful)
+  - Converting existing project
+  - Writing BUILD files
+  - Fighting with rules
+- **The problems I hit:**
+  - Comment changes trigger rebuilds
+  - Hard to debug cache misses
+  - Team couldn't understand it
+  - Slower than expected
+- **What I learned:**
+  - Build systems are hard
+  - Generic tools have limitations
+  - DX matters more than I thought
+  - Simplicity > Power (for most projects)
+- **What I switched to:**
+  - Turborepo (or Nx, or just npm)
+  - Why it's better for my use case
+  - What I miss from Bazel (nothing)
+- **When I'd use Bazel:**
+  - If I worked at Google
+  - If I had 1000+ packages
+  - If I had dedicated build engineers
+- **Outcome:** Personal experience and lessons
+
+### Key Points to Make
+- **Bazel's concept is sound** (incremental builds, caching)
+- **Implementation has fundamental limitations** (file-level dependencies)
+- **Trade-off: generic vs accurate** (can't have both)
+- **Complexity cost is real** (team productivity matters)
+- **Right tool for right scale** (Bazel is for Google-scale)
+- **Most projects should use simpler tools** (Turborepo, Nx, npm)
+
+### Technical Deep Dive
+- **Show why comment triggers rebuild:**
+  ```javascript
+  // Before
+  function add(a, b) {
+    return a + b;
+  }
+
+  // After (triggers rebuild!)
+  function add(a, b) {
+    // This is an addition function
+    return a + b;
+  }
+  ```
+  - File hash changed
+  - Bazel sees dependency changed
+  - Rebuilds everything that depends on it
+  - Even though semantics unchanged
+
+- **What would fix it:**
+  - Parse to AST
+  - Hash the AST (ignoring comments)
+  - But: language-specific, complex, slow
+
+### Connection to Other Posts
+Fits the "Rethinking Frontend Conventions" theme:
+- **Questioning "best practices"** (Bazel is often recommended)
+- **Complexity vs simplicity** (Bazel is complex)
+- **When magic fails** (Bazel's caching isn't as smart as promised)
+- **Right tool for the job** (not one-size-fits-all)
+
+### Potential Controversy (Good for Engagement)
+- "Bazel is overkill for 99% of projects"
+- "Google's tools don't work outside Google"
+- "Build tool complexity is killing developer productivity"
+- "Just use npm workspaces"
+
+### Balanced Take
+- Bazel solves real problems at Google scale
+- For most projects, it's too much
+- The dependency tracking issue is fundamental (not a bug)
+- Simpler tools (Turborepo, Nx) are better for most teams
+- But acknowledge: some projects do need Bazel
+
+### Data to Include
+- Build time comparisons (Bazel vs Turborepo vs npm)
+- Cache hit rates (how often does Bazel rebuild unnecessarily?)
+- Setup time (how long to configure each tool)
+- Team productivity impact (anecdotal but important)
+
+---
+
+## Updated Series: "Rethinking Frontend Conventions"
+
+### Posts
+1. **State Management:** Do we really need stores?
+2. **Zone.js:** Why automatic change detection is going away
+3. **The Rise of Svelte:** Why compile-time frameworks are winning
+4. **Bazel:** Great concept, frustrating reality
+5. **TypeScript:** When is it overkill? (controversial!)
+6. **Testing:** Are we testing the wrong things?
+
+### Expanded Theme
+The series is about **questioning complexity** in modern development:
+- Tools that promise magic but deliver frustration
+- When "best practices" aren't best for your project
+- The cost of complexity vs the benefit
+- Simpler alternatives that work better
+
+### Common Thread
+- **Bazel:** Complex build tool with inaccurate dependencies
+- **State management:** Complex stores when you don't need them
+- **Zone.js:** Complex change detection being removed
+- **Svelte:** Simple framework winning against complex ones
+
+**Pattern:** The industry is moving toward simplicity, but we keep adopting complex tools.
+
+---
+
+## 6. Deployment in 2025 - The Unsolved Problem
+
+### Overview
+While frontend frameworks evolve rapidly (React → Svelte, etc.), deployment tooling feels stuck. Terraform requires state management, Kubernetes makes external resources painful, no standard exists. The market is flooded with partial solutions. Deployment remains a hill yet to be conquered.
+
+### Possible Angles
+
+#### Option A: "Why Is Deployment Still So Hard in 2025?"
+- **The Observation:**
+  - Frontend: Huge progress (React → Svelte, build tools, DX)
+  - Backend: Huge progress (Node.js, frameworks, ORMs)
+  - Deployment: Still a mess
+- **The Problems:**
+  - **Terraform:**
+    - Great concept (infrastructure as code)
+    - But: State management is a pain
+    - Remote state, locking, drift
+    - Not beginner-friendly
+    - Destroying resources is scary
+  - **Kubernetes:**
+    - Great for orchestration
+    - But: Managing external resources (RDS, S3) is painful
+    - Removing resources isn't automatic (manual cleanup)
+    - Complexity is overwhelming
+    - Overkill for most projects
+  - **The Fragmentation:**
+    - No standard approach
+    - Every company does it differently
+    - Need to combine many tools:
+      - IaC (Terraform, Pulumi, CDK)
+      - Orchestration (K8s, ECS, Nomad)
+      - CI/CD (GitHub Actions, GitLab, Jenkins)
+      - Secrets (Vault, AWS Secrets, etc.)
+      - Monitoring (Datadog, Prometheus, etc.)
+      - Logging (ELK, CloudWatch, etc.)
+    - Each piece has its own learning curve
+- **Why hasn't this been solved?**
+  - Too many variables (cloud providers, languages, scales)
+  - No one-size-fits-all solution
+  - Enterprise needs ≠ startup needs
+  - Money in consulting, not in simplicity
+- **What "solved" would look like:**
+  - `deploy` command that just works
+  - Handles infrastructure automatically
+  - Cleans up resources when removed
+  - Works across clouds
+  - Scales from hobby to enterprise
+- **Why we're not there:**
+  - Technical challenges (state, dependencies, cleanup)
+  - Business incentives (complexity = consulting $$$)
+  - Fragmented ecosystem
+- **Outcome:** Understanding why deployment lags behind
+
+#### Option B: "The Deployment Tooling Landscape - A Fragmented Mess"
+- **Map the landscape:**
+  - **Simple (but limited):**
+    - Vercel, Netlify, Railway, Render
+    - Great DX, but limited control
+  - **Infrastructure as Code:**
+    - Terraform (state management pain)
+    - Pulumi (better, but still complex)
+    - AWS CDK (AWS-only, verbose)
+    - SST (promising, but new)
+  - **Orchestration:**
+    - Kubernetes (overkill for most)
+    - Docker Compose (too simple for prod)
+    - ECS (AWS-specific, complex)
+    - Nomad (niche)
+  - **Platform Engineering:**
+    - Backstage (Spotify)
+    - Humanitec
+    - Internal platforms (every big company builds one)
+  - **The Problem:**
+    - No clear winner
+    - Each solves part of the problem
+    - Need to combine multiple tools
+    - Steep learning curve for each
+- **The Missing Piece:**
+  - A tool that:
+    - Handles infrastructure (like Terraform)
+    - Manages state automatically (no manual S3 buckets)
+    - Cleans up resources (garbage collection)
+    - Works with any cloud
+    - Simple for small projects, scales to large
+  - **Why it doesn't exist:**
+    - Technically very hard
+    - Different clouds have different APIs
+    - State management is fundamentally complex
+    - Resource cleanup is dangerous (what if you delete prod?)
+- **Outcome:** Understanding the fragmentation
+
+#### Option C: "Terraform's Dirty Secret: State Management Shouldn't Be Your Problem"
+- **The Promise:**
+  - Infrastructure as code
+  - Declarative configuration
+  - Version controlled
+  - Reproducible
+- **The Reality:**
+  - State file management is manual
+  - Need to set up remote state (S3 + DynamoDB)
+  - State locking issues
+  - State drift (reality ≠ state file)
+  - Destroying resources is terrifying
+  - Team collaboration is painful
+- **The Specific Pain Points:**
+  - **Initial setup:**
+    ```hcl
+    # You have to manually create:
+    # 1. S3 bucket for state
+    # 2. DynamoDB table for locking
+    # 3. IAM permissions
+    # Before you can even start using Terraform
+    ```
+  - **State drift:**
+    - Someone changes something in AWS console
+    - State file is now wrong
+    - `terraform plan` shows unexpected changes
+    - How do you fix it?
+  - **Removing resources:**
+    - Remove from .tf file
+    - Run `terraform apply`
+    - Hope it deletes correctly
+    - Pray you didn't delete production database
+  - **Team collaboration:**
+    - State locking conflicts
+    - "Someone else is running terraform"
+    - State file merge conflicts (rare but catastrophic)
+- **Why this is still a problem:**
+  - State is fundamental to how Terraform works
+  - No way around it with current architecture
+  - Other tools (Pulumi, CDK) have same issue
+- **What would fix it:**
+  - Built-in state management (no manual setup)
+  - Automatic state reconciliation
+  - Safe resource deletion (dry-run by default)
+  - Better conflict resolution
+- **Alternatives:**
+  - SST (handles state automatically)
+  - Managed Terraform (Terraform Cloud, Spacelift)
+  - But: more complexity or cost
+- **Outcome:** Understanding Terraform's fundamental limitation
+
+#### Option D: "Kubernetes and the External Resource Problem"
+- **The Setup:**
+  - K8s is great for running containers
+  - But apps need more than containers:
+    - Databases (RDS, CloudSQL)
+    - Queues (SQS, Pub/Sub)
+    - Storage (S3, GCS)
+    - DNS, CDN, etc.
+- **The Problem:**
+  - K8s doesn't manage these
+  - You need external tools (Terraform, Crossplane, AWS Controllers)
+  - Complexity multiplies
+- **The Cleanup Problem:**
+  - Delete a K8s deployment
+  - External resources (RDS, S3) still exist
+  - Manual cleanup required
+  - Easy to forget and rack up bills
+  - No automatic garbage collection
+- **Current Solutions:**
+  - **Crossplane:** K8s-native IaC (complex)
+  - **AWS Controllers for K8s:** AWS-specific (vendor lock-in)
+  - **Terraform + K8s:** Two tools, two state files
+  - **Helm + Terraform:** Even more complexity
+- **Why this is hard:**
+  - K8s is container-focused
+  - Cloud resources are outside K8s scope
+  - No standard for lifecycle management
+  - Deletion is dangerous (need safeguards)
+- **What would fix it:**
+  - Unified resource management
+  - Automatic cleanup with safeguards
+  - Cloud-agnostic abstractions
+  - But: very hard to build
+- **Outcome:** Understanding K8s limitations
+
+#### Option E: "The Deployment Hill Yet to Be Conquered"
+- **The Thesis:**
+  - We've solved frontend (mostly)
+  - We've solved backend (mostly)
+  - We haven't solved deployment
+- **Why deployment is still hard:**
+  - **Too many variables:**
+    - Cloud providers (AWS, GCP, Azure, etc.)
+    - Languages/runtimes (Node, Python, Go, etc.)
+    - Scales (hobby → startup → enterprise)
+    - Requirements (compliance, security, etc.)
+  - **Fundamental challenges:**
+    - State management (where is truth?)
+    - Resource lifecycle (create, update, delete)
+    - Dependencies (database before app)
+    - Secrets (how to handle safely)
+    - Rollbacks (how to undo safely)
+  - **Business incentives:**
+    - Complexity = consulting revenue
+    - Cloud providers benefit from lock-in
+    - No incentive to make it simple
+- **What "solved" looks like:**
+  - Developer writes code
+  - Declares what they need (DB, queue, etc.)
+  - `deploy` command handles everything
+  - Infrastructure is automatic
+  - Cleanup is automatic
+  - Works everywhere
+- **Why we're not there:**
+  - Technically very hard
+  - No business incentive
+  - Fragmented ecosystem
+  - Different needs at different scales
+- **Glimmers of hope:**
+  - **SST:** Automatic state, simple config
+  - **Railway:** Just works (but limited)
+  - **Fly.io:** Good DX, scales well
+  - **Render:** Simple, growing
+  - But: None solve everything
+- **The Future:**
+  - Will we get a "Rails for deployment"?
+  - Or will it stay fragmented?
+  - Is there a business model for simplicity?
+- **Outcome:** Big picture view of the problem
+
+### Key Points to Make
+- **Deployment tooling lags behind other tech**
+- **Terraform/K8s are powerful but have fundamental issues**
+- **State management shouldn't be user's problem**
+- **Resource cleanup should be automatic**
+- **No standard exists (unlike frontend frameworks)**
+- **This is a hill yet to be conquered**
+- **Business incentives work against simplicity**
+
+### Connection to SST Series
+This provides context for why you're exploring SST:
+- SST attempts to solve some of these problems
+- Automatic state management
+- Simpler than raw Terraform
+- But: Still AWS-only, still learning curve
+
+### Connection to "Rethinking" Series
+Fits the theme:
+- **Questioning why things are so complex**
+- **Identifying fundamental problems**
+- **Looking for simpler solutions**
+- **Understanding trade-offs**
+
+### Potential Controversy (Good for Engagement)
+- "Terraform is a step backward from Heroku"
+- "Kubernetes is overkill for 95% of companies"
+- "The deployment industry profits from complexity"
+- "We need a 'Rails moment' for deployment"
+
+### Data to Include
+- **Timeline:**
+  - 2010: Heroku (simple, just worked)
+  - 2014: Docker (containers)
+  - 2015: Kubernetes (orchestration)
+  - 2016: Terraform (IaC)
+  - 2025: Still no simple solution
+- **Complexity comparison:**
+  - Lines of config needed for each tool
+  - Time to first deploy
+  - Number of concepts to learn
+- **Market fragmentation:**
+  - Number of deployment tools
+  - Number of IaC tools
+  - Number of orchestration tools
+
+### Balanced Take
+- These tools solve real problems at scale
+- Terraform/K8s are necessary for some companies
+- But: Most projects don't need this complexity
+- The industry needs better solutions for the 90%
+- Acknowledge: This is a hard problem to solve
+
+---
+
+## How This Fits Into Your Blog
+
+### The SST Series
+Posts 1-4 are **practical** - learning SST, documenting the journey.
+
+### The "Rethinking" Series
+Posts about state management, Zone.js, Svelte, Bazel are **critical analysis**.
+
+### The Deployment Meta-Post
+This post is **big picture** - stepping back to ask "why is this still so hard?"
+
+### Potential Structure
+You could write this as:
+1. **Standalone post** - "Why Deployment Is Still Hard in 2025"
+2. **Introduction to SST series** - "I'm trying SST because deployment is broken"
+3. **Conclusion to SST series** - "Did SST solve the deployment problem?"
+
+### Narrative Arc
+```
+Post 1 (SST): "Getting started with SST"
+Post 2 (SST): "Adding complexity (SQS, Lambda)"
+Post 3 (SST): "Production deployment"
+Post 4 (Meta): "Why is deployment still so hard?" ← This post
+Post 5 (SST): "SST after 30 days - did it solve the problem?"
+```
+
+This gives you a complete story:
+- Try a solution (SST)
+- Understand the broader problem (deployment is hard)
+- Evaluate if the solution worked (reflection)
+
